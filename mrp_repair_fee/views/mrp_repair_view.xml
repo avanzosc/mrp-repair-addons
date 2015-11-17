@@ -1,0 +1,135 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_repair_view_form" model="ir.ui.view">
+            <field name="name">mrp.repair.form</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+            <field name="arch" type="xml">
+                <separator string="Fees" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </separator>
+                <field name="fees_lines" position="attributes">
+                    <attribute name="invisible">1</attribute>
+                </field>
+                <field name="fees_lines" position="after">
+                    <separator string="Fees to invoice" />
+                    <field name="fees_lines_to_invoice"
+                        attrs="{'readonly': [('invoice_method','=', 'none')]}">
+                        <form string="Fees to invoice">
+                            <label for="name" class="oe_edit_only" />
+                            <h2>
+                                <field name="name" />
+                            </h2>
+                            <group string="Product Information">
+                                <group>
+                                    <field name="user_id" />
+                                    <field name="to_invoice" />
+                                    <field name="product_id"
+                                           on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id, parent.guarantee_limit, context)" />
+                                    <label for="product_uom_qty" />
+                                    <div>
+                                        <field name="product_uom_qty"
+                                               string="Quantity" class="oe_inline" />
+                                        <field name="product_uom"
+                                               groups="product.group_uom"
+                                               class="oe_inline" />
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="price_unit" />
+                                    <field name="standard_price" />
+                                    <field name="tax_id" widget="many2many_tags"
+                                           domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" />
+                                    <field name="price_subtotal" />
+                                </group>
+                            </group>
+                            <group string="History">
+                                <group>
+                                    <field name="invoiced" />
+                                </group>
+                                <group>
+                                    <field name="invoice_line_id" />
+                                </group>
+                            </group>
+                        </form>
+                        <tree string="Fees" editable="bottom">
+                            <field name="user_id" />
+                            <field name="product_id"
+                                   on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id,parent.guarantee_limit, context)" />
+                            <field name="name" />
+                            <field name="product_uom_qty" string="Quantity" />
+                            <field name="product_uom" string="Unit of Measure"
+                                   groups="product.group_uom" />
+                            <field name="price_unit" />
+                            <field name="standard_price" />
+                            <field name="tax_id"
+                                   domain="[('parent_id', '=', False), ('type_tax_use', '=', 'purchase')]"
+                                   widget="many2many_tags" />
+                            <field name="to_invoice" />
+                            <field name="price_subtotal" />
+                        </tree>
+                    </field>
+                    <separator string="Fees to NOT invoice" />
+                    <field name="fees_lines_no_to_invoice"
+                        attrs="{'readonly': [('invoice_method','=', 'none')]}">
+                        <form string="Fees">
+                            <label for="name" class="oe_edit_only" />
+                            <h2>
+                                <field name="name" />
+                            </h2>
+                            <group string="Product Information">
+                                <group>
+                                    <field name="user_id" />
+                                    <field name="to_invoice" />
+                                    <field name="product_id"
+                                           on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id, parent.guarantee_limit, context)" />
+                                    <label for="product_uom_qty" />
+                                    <div>
+                                        <field name="product_uom_qty"
+                                               string="Quantity" class="oe_inline" />
+                                        <field name="product_uom"
+                                               groups="product.group_uom"
+                                               class="oe_inline" />
+                                    </div>
+                                </group>
+                                <group>
+                                    <field name="price_unit" />
+                                    <field name="standard_price" />
+                                    <field widget="many2many_tags"
+                                           name="tax_id"
+                                           domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" />
+                                    <field name="price_subtotal" />
+                                </group>
+                            </group>
+                            <group string="History">
+                                <group>
+                                    <field name="invoiced" />
+                                </group>
+                                <group>
+                                    <field name="invoice_line_id" />
+                                </group>
+                            </group>
+                        </form>
+                        <tree string="Fees" editable="bottom">
+                            <field name="user_id" />
+                            <field name="product_id"
+                                   on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id,parent.guarantee_limit, context)" />
+                            <field name="name" />
+                            <field name="product_uom_qty" string="Quantity" />
+                            <field name="product_uom" string="Unit of Measure"
+                                   groups="product.group_uom" />
+                            <field name="price_unit" />
+                            <field name="standard_price" />
+                            <field name="tax_id"
+                                   domain="[('parent_id', '=', False), ('type_tax_use', '=', 'purchase')]"
+                                   widget="many2many_tags" />
+                            <field name="to_invoice" />
+                            <field name="price_subtotal" />
+                        </tree>
+                    </field>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>

@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_repair_view_calendar" model="ir.ui.view">
+            <field name="name">mrp.repair.calendar</field>
+            <field name="model">mrp.repair</field>
+            <field name="arch" type="xml">
+                <calendar string="Repair Orders" color="state"
+                          date_start="scheduled_departure_date">
+                    <field name="partner_id"/>
+                    <field name="product_id" />
+                    <field name="create_date" />
+                    <field name="scheduled_departure_date" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </calendar>
+            </field>
+        </record>
+
+        <record id="mrp_repair_view_tree" model="ir.ui.view">
+            <field name="name">mrp.repair.tree</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="create_date" />
+                    <field name="scheduled_departure_date" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </field>
+            </field>
+        </record>
+
+        <record id="mrp_repair_view_form" model="ir.ui.view">
+            <field name="name">mrp.repair.form</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+            <field name="arch" type="xml">
+                <field name="guarantee_limit" position="after">
+                    <field name="create_date" />
+                    <field name="scheduled_departure_date" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </field>
+            </field>
+        </record>
+
+         <record id="mrp_repair.action_repair_order_tree"
+                 model="ir.actions.act_window">
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+    </data>
+</openerp>
