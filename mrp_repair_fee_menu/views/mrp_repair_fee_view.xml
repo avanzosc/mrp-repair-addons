@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="mrp_repair_fee_search_view">
+            <field name="name">mrp.repair.fee.search.view</field>
+            <field name="model">mrp.repair.fee</field>
+            <field name="arch" type="xml">
+                <search string="Search Repair Fees Lines">
+                    <field name="user_id" />
+                    <field name="repair_partner" />
+                    <field name="repair_product" />
+                    <field name="product_id" />
+                    <field name="repair_id" />
+                    <field name="repair_lot" />
+                    <field name="name" />
+                    <group expand="0" string="Group By">
+                        <filter string="User" domain="[]" context="{'group_by':'user_id'}"/>
+                        <filter string="Repair Partner" domain="[]" context="{'group_by':'repair_partner'}"/>
+                        <filter string="Repair Product" domain="[]" context="{'group_by':'repair_product'}"/>
+                        <filter string="Product Fee" domain="[]" context="{'group_by':'product_id'}"/>
+                        <filter string="Repair" domain="[]" context="{'group_by':'repair_id'}"/>
+                        <filter string="Repair Lot" domain="[]" context="{'group_by':'repair_lot'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+        <record model="ir.ui.view" id="mrp_repair_fee_tree_view" >
+            <field name="name">mrp.repair.fee.search.view</field>
+            <field name="model">mrp.repair.fee</field>
+            <field name="arch" type="xml">
+                <tree string="Repair Fees Lines">
+                    <field name="user_id"/>
+                    <field name="repair_id" />
+                    <field name="repair_partner" />
+                    <field name="repair_product" />
+                    <field name="repair_lot" />
+                    <field name="product_id"/>
+                    <field name='name'/>
+                    <field name="product_uom_qty" string="Quantity"/>
+                    <field name="product_uom" string="Unit of Measure" groups="product.group_uom"/>
+                    <field name="price_unit"/>
+                    <field name="standard_price" />
+                    <field name="tax_id"/>
+                    <field name="to_invoice"/>
+                    <field name="price_subtotal"/>
+                </tree>
+            </field>
+        </record>
+
+        <record model="ir.ui.view" id="mrp_repair_fee_form_view" >
+            <field name="name">mrp.repair.fee.form.view</field>
+            <field name="model">mrp.repair.fee</field>
+            <field name="arch" type="xml">
+                <form string="Repair Fees Line">
+                    <label for="name" class="oe_edit_only"/>
+                    <h2>
+                        <field name="name"/>
+                    </h2>
+                    <group string="Product Information">
+                        <group>
+                            <field name="repair_id" />
+                            <field name="repair_pricelist" invisible="1"/>
+                            <field name="repair_partner" invisible="1"/>
+                            <field name="repair_product" invisible="1" />
+                            <field name="repair_lot" invisible="1" />
+                            <field name="repair_guarantee_limit" invisible="1"/>
+                        </group>
+                        <group>
+                            <field name="user_id"/>
+                            <field name="to_invoice"/>
+                            <field name="product_id" on_change="product_id_change(repair_pricelist, product_id, product_uom, product_uom_qty, repair_partner, repair_guarantee_limit, context)"/>
+                            <label for="product_uom_qty"/>
+                            <div>
+                                <field name="product_uom_qty" string="Quantity" class="oe_inline"/>
+                                <field name="product_uom" groups="product.group_uom" class="oe_inline"/>
+                            </div>
+                        </group>
+                        <group>
+                            <field name="price_unit"/>
+                            <field name="standard_price" />
+                            <field widget="many2many_tags" name="tax_id" domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]"/>
+                            <field name="price_subtotal"/>
+                        </group>
+                    </group>
+                    <group string="History">
+                        <group>
+                            <field name="invoiced"/>
+                        </group>
+                        <group>
+                            <field name="invoice_line_id" />
+                        </group>
+                    </group>
+                </form>
+            </field>
+        </record>
+
+        <record model="ir.actions.act_window" id="action_mrp_repair_fee">
+            <field name="name">Repair Fees Lines</field>
+            <field name="res_model">mrp.repair.fee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="mrp_repair_fee_menu_view" name="Repair Fees Lines"
+            parent="mrp.menu_mrp_manufacturing" action="action_mrp_repair_fee" sequence="53"/>
+    </data>
+</openerp>
