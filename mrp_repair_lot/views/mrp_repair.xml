@@ -1,0 +1,28 @@
+<openerp>
+    <data>
+        <record id="mrp_repair_lot_search_view" model="ir.ui.view">
+            <field name="name">mrp.repair.lot.search</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_form_filter" />
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                     <field name="lot_id"/>
+                </field>
+                <filter string="Partner" position="after">
+                    <filter string="Lot" domain="[]" context="{'group_by':'lot_id'}" />
+                </filter>
+            </field>
+        </record>
+        <record id="mrp_repair_lot_tree_view" model="ir.ui.view">
+            <field name="name">mrp.repair.lot.tree</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                     <field name="lot_id"/>
+                </field>
+            </field>
+        </record>
+    </data>
+</openerp>
+
