@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_repair_date
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-20 08:41+0000\n"
+"PO-Revision-Date: 2015-11-20 08:41+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_repair_date
+#: field:mrp.repair,end_date:0
+msgid "End Date"
+msgstr "Fecha fin"
+
+#. module: mrp_repair_date
+#: model:ir.model,name:mrp_repair_date.model_mrp_repair
+msgid "Repair Order"
+msgstr "Orden reparación"
+
+#. module: mrp_repair_date
+#: view:mrp.repair:mrp_repair_date.view_repair_order_calendar
+msgid "Repair Orders"
+msgstr "Órdenes de reparación"
+
+#. module: mrp_repair_date
+#: field:mrp.repair,scheduled_departure_date:0
+msgid "Scheduled Departure Date"
+msgstr "Fecha prevista salida"
+
+#. module: mrp_repair_date
+#: field:mrp.repair,start_date:0
+msgid "Start Date"
+msgstr "Fecha inicio"
+
