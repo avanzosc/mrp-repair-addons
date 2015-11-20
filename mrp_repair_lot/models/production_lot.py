@@ -13,9 +13,10 @@ class StockProductionLot(models.Model):
         string='Repair order')
 
     @api.multi
+    @api.depends('repair_orders')
     def _mrp_repairs_count(self):
         for repair in self:
-            self.repairs_count = len(self.repair_orders)
+            repair.repairs_count = len(repair.repair_orders)
 
     repairs_count = fields.Integer(compute='_mrp_repairs_count',
                                    string='Repair orders')
