@@ -1,0 +1,26 @@
+<openerp>
+    <data>
+        <record id="action_mrp_repair" model="ir.actions.act_window">
+            <field name="name">Repair orders</field>
+            <field name="res_model">mrp.repair</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('lot_id', '=', active_id)]</field>
+            <field name="context">{'search_default_lot_id': active_id}</field>
+        </record>
+        <record id="stock_production_lot_button_form_view" model="ir.ui.view">
+            <field name="name">stock.production.lot.button.form</field>
+            <field name="model">stock.production.lot</field>
+            <field name="inherit_id" ref="stock.view_production_lot_form" />
+            <field name="arch" type="xml">
+                <div class="oe_button_box oe_right" position="inside">
+                     <button class="oe_inline oe_stat_button" name="%(mrp_repair_lot.action_mrp_repair)d"
+                         icon="fa-gear" type="action">
+                         <field string="Repair orders" name="repairs_count" widget="statinfo"/>
+                     </button>
+                </div>
+            </field>
+        </record>
+    </data>
+</openerp>
+
