@@ -8,8 +8,11 @@ class TestMrpFeeMenu(common.TransactionCase):
 
     def setUp(self):
         super(TestMrpFeeMenu, self).setUp()
+        self.user_model = self.env['res.users']
+        self.fee_model = self.env['mrp.repair.fee']
         fee_vals = {'user_id': self.env.ref('base.user_root').id,
                     'name': 'Fee line test',
+                    'to_invoice': False,
                     'product_uom': self.env.ref('product.product_uom_unit').id,
                     'price_unit': 1,
                     'product_uom_qty': 5}
@@ -29,3 +32,17 @@ class TestMrpFeeMenu(common.TransactionCase):
             self.repair.fees_lines_no_to_invoice[:1].product_id.id,
             self.env.ref('product.product_product_consultant').id,
             'Wrong Product for the administrator user')
+
+    def test_mrp_repair_fee_without_employee(self):
+        fee_vals = {'user_id':
+                    self.env.ref('mrp_repair_fee.user_repair_fee').id,
+                    'repair_id': self.repair.id,
+                    'to_invoice': True,
+                    'name': 'Fee line test',
+                    'product_uom': self.env.ref('product.product_uom_unit').id,
+                    'price_unit': 1,
+                    'product_uom_qty': 5}
+        fee = self.fee_model.create(fee_vals)
+        fee._onchange_user_id()
+        self.assertEqual(
+            len(fee.product_id), 0, 'Line should not have product')

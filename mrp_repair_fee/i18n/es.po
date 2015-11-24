@@ -1,13 +1,13 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-# 	* mrp_repair_fee_menu
+# 	* mrp_repair_fee
 #
 msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-11-20 11:45+0000\n"
-"PO-Revision-Date: 2015-11-20 12:46+0100\n"
+"POT-Creation-Date: 2015-11-24 14:32+0000\n"
+"PO-Revision-Date: 2015-11-24 15:38+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,141 +16,190 @@ msgstr ""
 "Plural-Forms: \n"
 "X-Generator: Poedit 1.5.4\n"
 
-#. module: mrp_repair_fee_menu
+#. module: mrp_repair_fee
 #: help:mrp.repair.fee,repair_partner:0
 msgid "Choose partner for whom the order will be invoiced and delivered."
-msgstr "Elija empresa para quien se facturará el pedido y entrega."
+msgstr "Elija emprea a quien se facturará y entregará el pedido."
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_tree
+#: field:mrp.repair.fee,cost_subtotal:0 field:mrp.repair.line,cost_subtotal:0
+msgid "Cost Subtotal"
+msgstr "Coste subtotal"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+msgid "Cost Subtotal not to invoice"
+msgstr "Coste subtotal a no facturar"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+msgid "Cost Subtotal to invoice"
+msgstr "Coste subtotal a facturar"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
 msgid "Fees"
 msgstr "Cargos"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
 #: field:mrp.repair,fees_lines_no_to_invoice:0
 msgid "Fees to NOT invoice"
 msgstr "Cargos a NO facturar"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
 #: field:mrp.repair,fees_lines_to_invoice:0
 msgid "Fees to invoice"
 msgstr "Cargos a facturar"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "Group By"
 msgstr "Agrupar por"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_form_view
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_form
 msgid "History"
 msgstr "Historial"
 
-#. module: mrp_repair_fee_menu
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+msgid "Operations cost subtotal"
+msgstr "Operaciones coste subtotal"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+msgid "Operations price subtotal"
+msgstr "Operaciones precio subtotal"
+
+#. module: mrp_repair_fee
 #: field:mrp.repair.fee,repair_partner:0
 msgid "Partner"
 msgstr "Empresa"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_tree
+msgid "Price Subtotal"
+msgstr "Precio subtotal"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+msgid "Price Subtotal not to invoice"
+msgstr "Precio subtotal a NO facturar"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+msgid "Price Subtotal to invoice"
+msgstr "Precio subtotal a facturar"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "Product Fee"
 msgstr "Producto cargo"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_form_view
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_form
 msgid "Product Information"
 msgstr "Información del producto"
 
-#. module: mrp_repair_fee_menu
+#. module: mrp_repair_fee
 #: field:mrp.repair.fee,repair_product:0
 msgid "Product To Repair"
 msgstr "Producto a reparar"
 
-#. module: mrp_repair_fee_menu
+#. module: mrp_repair_fee
 #: help:mrp.repair.fee,repair_lot:0
 msgid "Products repaired are all belonging to this lot"
-msgstr "Los productos reparados son todos ellos pertenecientes a este lote"
+msgstr "Los productos reparados son todos ellos pertenecientes a este lote."
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_form_view
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_tree_view
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_form
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_tree
 msgid "Quantity"
 msgstr "Cantidad"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "Repair"
 msgstr "Reparación"
 
-#. module: mrp_repair_fee_menu
-#: model:ir.model,name:mrp_repair_fee_menu.model_mrp_repair_fee
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_form_view
+#. module: mrp_repair_fee
+#: model:ir.model,name:mrp_repair_fee.model_mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_form
 msgid "Repair Fees Line"
-msgstr "Línea cargo reparación"
+msgstr "Línea cargos reparación"
 
-#. module: mrp_repair_fee_menu
-#: model:ir.actions.act_window,name:mrp_repair_fee_menu.action_mrp_repair_fee
-#: model:ir.ui.menu,name:mrp_repair_fee_menu.mrp_repair_fee_menu_view
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_tree_view
+#. module: mrp_repair_fee
+#: model:ir.actions.act_window,name:mrp_repair_fee.mrp_repair_fee_action
+#: model:ir.ui.menu,name:mrp_repair_fee.mrp_repair_fee_menu
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_tree
 msgid "Repair Fees Lines"
-msgstr "Líneas cargo reparación"
+msgstr "Líneas cargos reparación"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: model:ir.model,name:mrp_repair_fee.model_mrp_repair_line
+msgid "Repair Line"
+msgstr "Línea reparación"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 #: field:mrp.repair.fee,repair_lot:0
 msgid "Repair Lot"
 msgstr "Lote reparación"
 
-#. module: mrp_repair_fee_menu
-#: model:ir.model,name:mrp_repair_fee_menu.model_mrp_repair
+#. module: mrp_repair_fee
+#: model:ir.model,name:mrp_repair_fee.model_mrp_repair
 msgid "Repair Order"
 msgstr "Orden reparación"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "Repair Partner"
-msgstr "Reparación empresa"
+msgstr "Empresa reparación"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "Repair Product"
-msgstr "Reparación producto"
+msgstr "Producto reparación"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "Search Repair Fees Lines"
-msgstr "Buscar líneas de cargo de reparación"
+msgstr "Buscar líneas de cargos de reparación"
 
-#. module: mrp_repair_fee_menu
-#: code:addons/mrp_repair_fee_menu/models/mrp_repair.py:54
+#. module: mrp_repair_fee
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:56
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:71
 #, python-format
 msgid "The employee associated with the user has not defined any product"
-msgstr "El empleado asociado al usuario, no tiene definido ningún producto"
+msgstr "El empleado asociado con el usuario no tiene definido un producto."
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair:mrp_repair_fee_menu.view_repair_order_form_feemenu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_tree_view
+#. module: mrp_repair_fee
+#: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_tree
 msgid "Unit of Measure"
 msgstr "Unidad de medida"
 
-#. module: mrp_repair_fee_menu
-#: view:mrp.repair.fee:mrp_repair_fee_menu.mrp_repair_fee_search_view
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
 msgid "User"
-msgstr "Usuario"
+msgstr "User"
 
-#. module: mrp_repair_fee_menu
-#: code:addons/mrp_repair_fee_menu/models/mrp_repair.py:51
+#. module: mrp_repair_fee
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:53
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:68
 #, python-format
 msgid "User does not have any employee assigned"
 msgstr "Usuario no está asignado a ningún empleado"
 
-#. module: mrp_repair_fee_menu
-#: code:addons/mrp_repair_fee_menu/models/mrp_repair.py:49
+#. module: mrp_repair_fee
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:51
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:66
 #, python-format
 msgid "Warning!"
 msgstr "Aviso!"
