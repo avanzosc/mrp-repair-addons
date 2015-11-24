@@ -86,9 +86,6 @@ class MrpRepairLine(models.Model):
             line.standard_price = line.product_id.standard_price
             line.cost_subtotal = (line.product_id.standard_price *
                                   line.product_uom_qty)
-        self.ensure_one()
-        self.cost_subtotal = (self.product_id.standard_price *
-                              self.product_uom_qty)
 
     standard_price = fields.Float(
         string='Cost Price', digits_compute=dp.get_precision('Account'),
