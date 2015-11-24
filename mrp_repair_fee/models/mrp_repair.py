@@ -30,13 +30,15 @@ class MrpRepairFee(models.Model):
     @api.multi
     @api.depends('product_id', 'product_uom_qty')
     def _compute_cost_subtotal(self):
-        self.ensure_one()
-        self.cost_subtotal = (self.product_id.standard_price *
-                              self.product_uom_qty)
+        for fee in self:
+            fee.standard_price = fee.product_id.standard_price
+            fee.cost_subtotal = (fee.product_id.standard_price *
+                                 fee.product_uom_qty)
 
     to_invoice = fields.Boolean(default=_catch_default_to_invoice)
     standard_price = fields.Float(
-        string='Cost Price', related='product_id.standard_price')
+        string='Cost Price', digits_compute=dp.get_precision('Account'),
+        compute='_compute_cost_subtotal', store=True)
     cost_subtotal = fields.Float(
         string='Cost Subtotal', digits_compute=dp.get_precision('Account'),
         compute='_compute_cost_subtotal', store=True)
@@ -70,10 +72,9 @@ class MrpRepairFee(models.Model):
             elif not employee.product_id:
                 warning['message'] = _('The employee associated with the user'
                                        ' has not defined any product')
-#            self.product_id = False
-#            self.name = False
             result['warning'] = warning
         return result
+
 
 class MrpRepairLine(models.Model):
     _inherit = 'mrp.repair.line'
@@ -81,12 +82,17 @@ class MrpRepairLine(models.Model):
     @api.multi
     @api.depends('product_id', 'product_uom_qty')
     def _compute_cost_subtotal(self):
+        for line in self:
+            line.standard_price = line.product_id.standard_price
+            line.cost_subtotal = (line.product_id.standard_price *
+                                  line.product_uom_qty)
         self.ensure_one()
         self.cost_subtotal = (self.product_id.standard_price *
                               self.product_uom_qty)
 
     standard_price = fields.Float(
-        string='Cost Price', related='product_id.standard_price')
+        string='Cost Price', digits_compute=dp.get_precision('Account'),
+        compute='_compute_cost_subtotal', store=True)
     cost_subtotal = fields.Float(
         string='Cost Subtotal', digits_compute=dp.get_precision('Account'),
         compute='_compute_cost_subtotal', store=True)

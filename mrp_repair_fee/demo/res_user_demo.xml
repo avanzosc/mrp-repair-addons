@@ -5,7 +5,7 @@
             <field name="name">User Repair fee without employee</field>
             <field name="company_id" ref="base.main_company"/>
             <field name="customer" eval="False"/>
-            <field name="email">>User Repair fee repair_fee@yourcompany.example.com</field>
+            <field name="email">User Repair fee repair_fee@yourcompany.example.com</field>
             <field name="street">C/Santa Clara 13</field>
             <field name="city">Azkoitia (Gipuzkoa)</field>
             <field name="zip">20720</field>
