@@ -1,0 +1,120 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_repair_cancel_reason
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-17 13:40+0000\n"
+"PO-Revision-Date: 2015-11-17 14:46+0100\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model,name:mrp_repair_cancel_reason.model_wiz_mrp_repair_cancel_reason
+msgid "Ask a reason from the repair cancellation"
+msgstr "Pedir una razón desde la cancelación de reparación"
+
+#. module: mrp_repair_cancel_reason
+#: view:wiz.mrp.repair.cancel.reason:mrp_repair_cancel_reason.wiz_mrp_repair_cancel_reason_form_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: mrp_repair_cancel_reason
+#: view:mrp.repair:mrp_repair_cancel_reason.view_repair_order_form_inh_cancel_reason
+msgid "Cancel Repair"
+msgstr "Cancelar reparación"
+
+#. module: mrp_repair_cancel_reason
+#: model:mrp.repair.cancel.reason,name:mrp_repair_cancel_reason.mrp_cancel_reason_customer
+msgid "Canceled at the request of the customer"
+msgstr "Cancelada a petición del cliente"
+
+#. module: mrp_repair_cancel_reason
+#: view:wiz.mrp.repair.cancel.reason:mrp_repair_cancel_reason.wiz_mrp_repair_cancel_reason_form_view
+msgid ""
+"Choose the reason for the cancellation of the\n"
+"                    repair."
+msgstr ""
+"Escoja la razón para la cancelación de la\n"
+"                    reparación."
+
+#. module: mrp_repair_cancel_reason
+#: view:wiz.mrp.repair.cancel.reason:mrp_repair_cancel_reason.wiz_mrp_repair_cancel_reason_form_view
+msgid "Confirm"
+msgstr "Confirmar"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair.cancel.reason,create_uid:0
+#: field:wiz.mrp.repair.cancel.reason,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair.cancel.reason,create_date:0
+#: field:wiz.mrp.repair.cancel.reason,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair.cancel.reason,id:0 field:wiz.mrp.repair.cancel.reason,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair.cancel.reason,write_uid:0
+#: field:wiz.mrp.repair.cancel.reason,write_uid:0
+msgid "Last Updated by"
+msgstr "Última actualización por"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair.cancel.reason,write_date:0
+#: field:wiz.mrp.repair.cancel.reason,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización el"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair.cancel.reason,name:0
+#: field:wiz.mrp.repair.cancel.reason,reason_id:0
+msgid "Reason"
+msgstr "Razón"
+
+#. module: mrp_repair_cancel_reason
+#: field:mrp.repair,cancel_reason_id:0
+msgid "Reason for cancellation"
+msgstr "Razón para cancelación"
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.actions.act_window,name:mrp_repair_cancel_reason.action_mrp_repair_cancel_with_reason
+#: view:wiz.mrp.repair.cancel.reason:mrp_repair_cancel_reason.wiz_mrp_repair_cancel_reason_form_view
+msgid "Reason for the cancellation"
+msgstr "Razón para la cancelación"
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.actions.act_window,name:mrp_repair_cancel_reason.action_mrp_repair_cancel_reason
+#: model:ir.model,name:mrp_repair_cancel_reason.model_mrp_repair_cancel_reason
+msgid "Repair Cancel Reason"
+msgstr "Razón de cancelación de reparación"
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.ui.menu,name:mrp_repair_cancel_reason.menu_mrp_repair_cancel_reason
+#: view:mrp.repair.cancel.reason:mrp_repair_cancel_reason.mrp_repair_cancel_reason_form_view
+#: view:mrp.repair.cancel.reason:mrp_repair_cancel_reason.mrp_repair_cancel_reason_tree_view
+msgid "Repair Cancel Reasons"
+msgstr "Razones de cancelación de reparación"
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model,name:mrp_repair_cancel_reason.model_mrp_repair
+msgid "Repair Order"
+msgstr "Orden reparación"
+
+#. module: mrp_repair_cancel_reason
+#: view:wiz.mrp.repair.cancel.reason:mrp_repair_cancel_reason.wiz_mrp_repair_cancel_reason_form_view
+msgid "or"
+msgstr "o"
