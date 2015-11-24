@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_repair_expense
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2015-11-24 08:18+0000\n"
+"PO-Revision-Date: 2015-11-24 08:18+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_repair_expense
+#: model:ir.model,name:mrp_repair_expense.model_hr_expense_expense
+msgid "Expense"
+msgstr "Gasto"
+
+#. module: mrp_repair_expense
+#: model:ir.model,name:mrp_repair_expense.model_hr_expense_line
+msgid "Expense Line"
+msgstr "Línea de gasto"
+
+#. module: mrp_repair_expense
+#: view:mrp.repair:mrp_repair_expense.mrp_repair_expense_form_view
+msgid "Expense lines"
+msgstr "Líneas de gasto"
+
+#. module: mrp_repair_expense
+#: model:ir.actions.act_window,name:mrp_repair_expense.action_expenses
+#: view:mrp.repair:mrp_repair_expense.mrp_repair_expense_form_view
+#: field:mrp.repair,expense_lines:0
+#: field:mrp.repair,expenses:0
+msgid "Expenses"
+msgstr "Gastos"
+
+#. module: mrp_repair_expense
+#: model:ir.model,name:mrp_repair_expense.model_mrp_repair
+msgid "Repair Order"
+msgstr "Orden reparación"
+
+#. module: mrp_repair_expense
+#: field:hr.expense.expense,repair_order:0
+#: field:hr.expense.line,repairs:0
+msgid "Repair order"
+msgstr "Orden de reparación"
+

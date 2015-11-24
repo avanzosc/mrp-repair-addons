@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="hr_expense_expense_view_form" model="ir.ui.view">
+            <field name="name">hr.expense.expense.form</field>
+            <field name="model">hr.expense.expense</field>
+            <field name="inherit_id" ref="hr_expense.view_expenses_form" />
+            <field name="arch" type="xml">
+                <field name="name" position="after">
+                    <field name="repair_id" required="True"/>
+                    <field name="repair_analytic_account" invisible="1"/>
+                </field>
+                <field name="line_ids" position="attributes">
+                    <attribute name="context">{'currency_id': currency_id, 'default_repair_id': repair_id, 'default_analytic_account': context.get('repair_analytic_account', '')}</attribute>
+                </field>
+                <xpath expr="//tree[@string='Expense Lines']//field[@name='product_id']" position="after">
+                    <field name="repair_id"/>
+                </xpath>
+            </field>
+        </record>
+
+        <record id="hr_expense_expense_action" model="ir.actions.act_window">
+            <field name="name">Expenses</field>
+            <field name="res_model">hr.expense.expense</field>
+            <field name="view_id" ref="hr_expense.view_expenses_tree"/>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="domain">[('repair_id', '=', active_id)]</field>
+            <field name="context">{'search_default_repair_id': active_id}</field>
+        </record>
+    </data>
+</openerp>
+

@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="mrp_repair_view_form" model="ir.ui.view">
+            <field name="name">mrp.repair.form</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+            <field name="arch" type="xml">
+                <h1 position="after">
+                    <div class="oe_button_box oe_right" position="inside">
+                        <button class="oe_inline oe_stat_button"
+                                name="%(mrp_repair_expense.hr_expense_expense_action)d"
+                                icon="fa-gear" type="action">
+                            <field string="Expenses" name="expense_count" widget="statinfo"/>
+                        </button>
+                    </div>
+                </h1>
+                <notebook position="inside">
+                     <page string="Expense lines">
+                         <field name="expense_lines" readonly="1"/>
+                     </page>
+                </notebook>
+            </field>
+        </record>
+    </data>
+</openerp>
+
