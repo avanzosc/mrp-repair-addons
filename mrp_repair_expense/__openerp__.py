@@ -5,8 +5,8 @@
 {
     "name": "Mrp Repair Expense",
     "version": "8.0.1.0.0",
-    'author': 'OdooMRP team',
-    'website': "http://www.odoomrp.com",
+    'author': 'AvanzOSC',
+    'website': "http://www.avanzosc.es",
     'contributors': [
         "Ana Juaristi <ajuaristio@gmail.com>",
         "Esther Martín <esthermartin@avanzosc.es>"
@@ -18,8 +18,8 @@
     ],
     "category": "Manufacturing",
     "data": [
-        "views/mrp_repair.xml",
-        "views/hr_expense.xml",
+        "views/mrp_repair_view.xml",
+        "views/hr_expense_view.xml",
     ],
     "installable": True
 }

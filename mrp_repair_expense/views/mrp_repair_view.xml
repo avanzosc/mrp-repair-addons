@@ -6,8 +6,8 @@
             <field name="view_id" ref="hr_expense.view_expenses_tree"/>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
-            <field name="domain">[('repair_order', '=', active_id)]</field>
-            <field name="context">{'search_default_repair_order': active_id}</field>
+            <field name="domain">[('repair_id', '=', active_id)]</field>
+            <field name="context">{'search_default_repair_id': active_id}</field>
         </record>
         <record id="mrp_repair_expense_form_view" model="ir.ui.view">
             <field name="name">mrp.repair.expense.form</field>

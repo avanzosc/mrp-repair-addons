@@ -10,16 +10,16 @@ class MrpRepair(models.Model):
 
     expenses = fields.One2many(string='Expenses',
                                comodel_name='hr.expense.expense',
-                               inverse_name='repair_order')
+                               inverse_name='repair_id')
     expense_lines = fields.One2many(string='Expenses',
                                     comodel_name='hr.expense.line',
-                                    inverse_name='repairs')
+                                    inverse_name='repair_id')
 
     @api.multi
     @api.depends('expenses')
-    def _hr_expense_count(self):
-        for expense in self:
-            expense.expense_count = len(expense.expenses)
+    def _compute_expenses(self):
+        for repair in self:
+            repair.expense_count = len(repair.expenses)
 
-    expense_count = fields.Integer(compute='_hr_expense_count',
+    expense_count = fields.Integer(compute='_compute_expenses',
                                    string='Expenses')

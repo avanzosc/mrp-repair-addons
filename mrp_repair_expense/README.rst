@@ -6,13 +6,13 @@
 Mrp Repair Expense
 ==================
 
-* This module links the employ expenses with a repair order and also adds a
-shortcut from repairs to his own expenses. 
+* This module links the employee expenses with a repair order and also adds a
+  shortcut from repairs to his own expenses. 
 
-*It also includes all expense lines on the repair order.
+* Expense lines will be visible in repair orders.
 
-*On the expenses a new field repair ordes is created and the new expenses lines
-had the repair's order analytic account.
+* Expense lines will be linked to a repair order in order to use the orders
+  analytic account for expense lines.
 
 
 Credits
