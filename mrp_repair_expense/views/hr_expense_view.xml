@@ -26,7 +26,7 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="domain">[('repair_id', '=', active_id)]</field>
-            <field name="context">{'search_default_repair_id': active_id}</field>
+            <field name="context">{'search_default_repair_id': active_id, 'default_repair_id': active_id}</field>
         </record>
     </data>
 </openerp>

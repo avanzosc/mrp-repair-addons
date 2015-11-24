@@ -8,18 +8,17 @@ from openerp import api, fields, models
 class MrpRepair(models.Model):
     _inherit = 'mrp.repair'
 
-    expenses = fields.One2many(string='Expenses',
-                               comodel_name='hr.expense.expense',
-                               inverse_name='repair_id')
-    expense_lines = fields.One2many(string='Expenses',
-                                    comodel_name='hr.expense.line',
-                                    inverse_name='repair_id')
+    expenses = fields.One2many(
+        string='Expenses', comodel_name='hr.expense.expense',
+        inverse_name='repair_id')
+    expense_lines = fields.One2many(
+        string='Expense Lines', comodel_name='hr.expense.line',
+        inverse_name='repair_id')
+    expense_amount = fields.Float(
+        compute='_compute_expense_amount', string='Expense Amount')
 
     @api.multi
     @api.depends('expenses')
-    def _compute_expense_count(self):
+    def _compute_expense_amount(self):
         for repair in self:
-            repair.expense_count = len(repair.expenses)
-
-    expense_count = fields.Integer(compute='_compute_expense_count',
-                                   string='Expenses')
+            repair.expense_amount = sum(repair.mapped('expenses.amount'))
