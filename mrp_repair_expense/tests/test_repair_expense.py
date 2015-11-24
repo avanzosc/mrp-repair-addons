@@ -26,8 +26,8 @@ class TestRepairExpense(common.TransactionCase):
         expense.repair_id = self.repair1
         expense.onchange_repair_id()
         self.assertEqual(
-            len(self.repair1.expenses), self.repair1.expense_count,
-            'Computed field is failing')
+            sum(self.repair1.mapped('expenses.amount')),
+            self.repair1.expense_amount, 'Computed field is failing')
         for line in expense.line_ids:
             self.assertEqual(
                 self.repair1, line.repair_id,
