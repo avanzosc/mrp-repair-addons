@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data noupdate="1">
+        <record id="mrp_cancel_reason_customer" model="mrp.repair.cancel.reason">
+            <field name="name">Canceled at customer request</field>
+        </record>
+    </data>
+</openerp>
