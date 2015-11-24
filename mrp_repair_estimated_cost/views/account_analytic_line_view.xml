@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <record id="account_analytic_line_view_form" model="ir.ui.view">
+            <field name="name">account.analytic.line.form</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="account.view_account_analytic_line_form"/>
+            <field name="arch" type="xml">
+                <field name="amount" position="after">
+                    <field name="repair_estim_amount" />
+                </field>
+            </field>
+        </record>
+
+        <record id="account_analytic_line_view_tree" model="ir.ui.view">
+            <field name="name">account.analytic.line.tree</field>
+            <field name="model">account.analytic.line</field>
+            <field name="inherit_id" ref="account.view_account_analytic_line_tree"/>
+            <field name="arch" type="xml">
+                <field name="amount" position="after">
+                    <field name="repair_estim_amount" />
+                </field>
+            </field>
+        </record>
+
+        <record id="account_analytic_line_repair_view_tree" model="ir.ui.view">
+            <field name="name">account.analytic.line.repair.tree</field>
+            <field name="model">account.analytic.line</field>
+            <field name="priority" eval="50"/>
+            <field name="arch" type="xml">
+                <tree string="Repair Costs">
+                    <field name="date"/>
+                    <field name="ref"/>
+                    <field name="name"/>
+                    <field name="product_id"/>
+                    <field name="journal_id"/>
+                    <field name="amount"/>
+                    <field name="repair_estim_amount"/>
+                    <field name="unit_amount"/>
+                    <field name="account_id"/>
+                    <field name="company_id" groups="base.group_multi_company"/>
+                </tree>
+            </field>
+        </record>
+
+    </data>
+</openerp>
