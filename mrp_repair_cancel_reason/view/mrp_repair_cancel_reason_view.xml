@@ -14,7 +14,7 @@
             <field name="name">mrp.repair.cancel.reason.tree.view</field>
             <field name="model">mrp.repair.cancel.reason</field>
             <field name="arch" type="xml">
-                <tree string="Repair Cancel Reasons">
+                <tree string="Repair Cancel Reasons" editable="bottom" >
                     <field name="name"/>
                 </tree>
             </field>
