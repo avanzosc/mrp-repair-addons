@@ -69,11 +69,12 @@ class MrpRepairFee(models.Model):
             if not employee:
                 warning['message'] = _('User does not have any employee '
                                        'assigned')
+                self.name = _('Associate employee to user')
             elif not employee.product_id:
                 warning['message'] = _('The employee associated with the user'
                                        ' has not defined any product')
+                self.name = _('Associate product to employee')
             self.product_id = False
-            self.name = False
             result['warning'] = warning
         return result
 
