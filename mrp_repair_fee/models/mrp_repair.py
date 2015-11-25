@@ -72,6 +72,8 @@ class MrpRepairFee(models.Model):
             elif not employee.product_id:
                 warning['message'] = _('The employee associated with the user'
                                        ' has not defined any product')
+            self.product_id = False
+            self.name = False
             result['warning'] = warning
         return result
 
