@@ -35,22 +35,26 @@
             <field name="name">mrp.repair.fee.tree</field>
             <field name="model">mrp.repair.fee</field>
             <field name="arch" type="xml">
-                <tree string="Repair Fees Lines">
-                    <field name="user_id" />
+                <tree string="Repair Fees Lines" editable="bottom" >
                     <field name="repair_id" />
+                    <field name="user_id" />
+                    <field name="product_uom_qty" string="Quantity" />
                     <field name="repair_partner" />
+                    <field name="repair_pricelist" />
                     <field name="repair_product" />
                     <field name="repair_lot" />
-                    <field name="product_id" />
+                    <field name="repair_guarantee_limit" invisible="1" />
+                    <field name="product_id" 
+                           on_change="product_id_change(repair_pricelist, product_id, product_uom, product_uom_qty, repair_partner, repair_guarantee_limit, context)"/>
                     <field name="name" />
-                    <field name="product_uom_qty" string="Quantity" />
                     <field name="product_uom" string="Unit of Measure"
                            groups="product.group_uom" />
+                     <field name="standard_price" />
                     <field name="price_unit" />
-                    <field name="standard_price" />
                     <field name="tax_id" />
                     <field name="to_invoice" />
-                    <field name="price_subtotal" />
+                    <field name="cost_subtotal" sum="Cost Subtotal"/>
+                    <field name="price_subtotal" sum="Price Subtotal"/>
                 </tree>
             </field>
         </record>
