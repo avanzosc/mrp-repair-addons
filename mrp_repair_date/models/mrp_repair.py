@@ -7,9 +7,12 @@ from openerp import api, fields, models
 class MrpRepair(models.Model):
     _inherit = 'mrp.repair'
 
-    scheduled_departure_date = fields.Date(string='Scheduled Departure Date')
-    start_date = fields.Date(string='Start Date', readonly=True)
-    end_date = fields.Date(string='End Date', readonly=True)
+    scheduled_departure_date = fields.Date(
+        string='Scheduled Departure Date', copy=False)
+    start_date = fields.Date(
+        string='Start Date', readonly=True, copy=False)
+    end_date = fields.Date(
+        string='End Date', readonly=True, copy=False)
 
     @api.multi
     def action_repair_start(self):
