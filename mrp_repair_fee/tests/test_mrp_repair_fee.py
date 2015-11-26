@@ -10,11 +10,13 @@ class TestMrpRepairFee(common.TransactionCase):
         super(TestMrpRepairFee, self).setUp()
         self.user_model = self.env['res.users']
         self.fee_model = self.env['mrp.repair.fee']
+        self.demo_user_id = self.ref('base.user_demo')
+        self.employees = self.env['hr.employee'].search(
+            [('user_id', '=', self.demo_user_id)])
         self.unit_uom = self.browse_ref('product.product_uom_unit')
         self.location_id = self.ref('stock.stock_location_7')
         fee_vals = {'user_id': self.ref('base.user_root'),
                     'name': 'Fee line test',
-                    'to_invoice': False,
                     'product_uom': self.unit_uom.id,
                     'price_unit': 1,
                     'product_uom_qty': 5}
@@ -23,7 +25,8 @@ class TestMrpRepairFee(common.TransactionCase):
                 'location_id': self.location_id,
                 'location_dest_id': self.location_id,
                 'fees_lines': [(0, 0, fee_vals)]}
-        self.repair = self.env['mrp.repair'].create(vals)
+        self.repair = self.env['mrp.repair'].with_context(
+            to_invoice=False).create(vals)
 
     def test_mrp_repair_fee(self):
         self.assertEqual(
@@ -36,10 +39,8 @@ class TestMrpRepairFee(common.TransactionCase):
             'Wrong Product for the administrator user')
 
     def test_mrp_repair_fee_without_employee(self):
-        demo_user_id = self.ref('base.user_demo')
-        self.env['hr.employee'].search(
-            [('user_id', '=', demo_user_id)]).write({'user_id': False})
-        fee_vals = {'user_id': demo_user_id,
+        self.employees.write({'user_id': False})
+        fee_vals = {'user_id': self.demo_user_id,
                     'repair_id': self.repair.id,
                     'to_invoice': True,
                     'name': 'Fee line test',
@@ -47,6 +48,24 @@ class TestMrpRepairFee(common.TransactionCase):
                     'price_unit': 1,
                     'product_uom_qty': 5}
         fee = self.fee_model.create(fee_vals)
-        fee._onchange_user_id()
+        res = fee._onchange_user_id()
+        self.assertTrue(
+            'warning' in res, 'Onchange warning must have been launched')
+        self.assertEqual(
+            len(fee.product_id), 0, 'Line should not have product')
+
+    def test_mrp_repair_fee_without_employee_product(self):
+        self.employees.write({'product_id': False})
+        fee_vals = {'user_id': self.demo_user_id,
+                    'repair_id': self.repair.id,
+                    'to_invoice': True,
+                    'name': 'Fee line test',
+                    'product_uom': self.unit_uom.id,
+                    'price_unit': 1,
+                    'product_uom_qty': 5}
+        fee = self.fee_model.create(fee_vals)
+        res = fee._onchange_user_id()
+        self.assertTrue(
+            'warning' in res, 'Onchange warning must have been launched')
         self.assertEqual(
             len(fee.product_id), 0, 'Line should not have product')

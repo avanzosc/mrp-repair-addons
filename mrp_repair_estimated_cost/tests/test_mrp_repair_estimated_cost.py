@@ -55,6 +55,27 @@ class TestMrpRepairEstimatedCost(TestMrpRepairAnalytic):
         self.assertNotEqual(len(fee_line), 0,
                             "Fee line estimated cost not found.")
 
+    def test_mrp_repair_create_analytic_line_not_load_cost(self):
+        self.mrp_repair.operations.write({'load_cost': False})
+        self.mrp_repair.fees_lines.write({'load_cost': False})
+        self.mrp_repair.signal_workflow('repair_confirm')
+        ope_line = self.analytic_line_model.search(
+            [('account_id', '=', self.analytic_id.id),
+             ('product_id', '=', self.op_product.id),
+             ('is_repair_cost', '=', True),
+             ('amount', '=', 0),
+             ('repair_estim_amount', '=', self.op_amount)])
+        fee_line = self.analytic_line_model.search(
+            [('account_id', '=', self.analytic_id.id),
+             ('product_id', '=', self.fee_product.id),
+             ('is_repair_cost', '=', True),
+             ('amount', '=', 0),
+             ('repair_estim_amount', '=', self.fee_amount)])
+        self.assertNotEqual(len(ope_line), 0,
+                            "Operation line estimated cost not found.")
+        self.assertNotEqual(len(fee_line), 0,
+                            "Fee line estimated cost not found.")
+
     def test_exists_analytic_line_for_product(self):
         self.mrp_repair.signal_workflow('repair_confirm')
         categ = self.op_product.categ_id
