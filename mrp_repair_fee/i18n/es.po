@@ -7,7 +7,7 @@ msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2015-11-25 12:51+0000\n"
-"PO-Revision-Date: 2015-11-25 13:52+0100\n"
+"PO-Revision-Date: 2015-11-26 16:19+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -64,13 +64,13 @@ msgstr "Cargos"
 #: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
 #: field:mrp.repair,fees_lines_no_to_invoice:0
 msgid "Fees to NOT invoice"
-msgstr "Cargos a NO facturar"
+msgstr "Costes reales mano de obra"
 
 #. module: mrp_repair_fee
 #: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
 #: field:mrp.repair,fees_lines_to_invoice:0
 msgid "Fees to invoice"
-msgstr "Cargos a facturar"
+msgstr "Mano de obra a facturar"
 
 #. module: mrp_repair_fee
 #: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
