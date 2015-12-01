@@ -30,7 +30,7 @@
                 <field name="fees_lines" position="after">
                     <separator string="Fees to invoice" />
                     <field name="fees_lines_to_invoice"
-                        context="{'to_invoice':True}"
+                        context="{'to_invoice':True, 'default_load_cost': False}"
                         attrs="{'readonly': [('invoice_method','=', 'none')]}">
                         <form string="Fees to invoice">
                             <label for="name" class="oe_edit_only" />
@@ -71,6 +71,7 @@
                             </group>
                         </form>
                         <tree string="Fees" editable="bottom">
+                            <field name="load_cost" groups="mrp_repair_analytic.group_mrp_repair_cost_check"/>
                             <field name="user_id" />
                             <field name="product_id"
                                    on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id,parent.guarantee_limit, context)" />
@@ -132,6 +133,7 @@
                             </group>
                         </form>
                         <tree string="Fees" editable="bottom">
+                            <field name="load_cost" groups="mrp_repair_analytic.group_mrp_repair_cost_check"/>
                             <field name="user_id" />
                             <field name="product_id"
                                    on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id,parent.guarantee_limit, context)" />

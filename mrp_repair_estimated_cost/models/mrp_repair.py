@@ -55,3 +55,20 @@ class MrpRepair(models.Model):
         if analytic_line_obj.search(line_cond):
             return False
         return res
+
+    @api.multi
+    def create_repair_cost(self):
+        analytic_line_obj = self.env['account.analytic.line']
+        super(MrpRepair, self).create_repair_cost()
+        if not self.env.context.get('load_estimated', False):
+            return
+        for line in self.mapped('fees_lines').filtered(lambda x:
+                                                       not x.load_cost):
+            vals = self._catch_repair_line_information_for_analytic(line)
+            if vals:
+                analytic_line_obj.create(vals)
+        for line in self.mapped('operations').filtered(lambda x:
+                                                       not x.load_cost):
+            vals = self._catch_repair_line_information_for_analytic(line)
+            if vals:
+                analytic_line_obj.create(vals)
