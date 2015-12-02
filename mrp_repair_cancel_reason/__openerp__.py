@@ -21,8 +21,8 @@
         "security/ir.model.access.csv",
         "data/mrp_repair_cancel_reason.xml",
         "wizard/mrp_repair_cancel_view.xml",
-        "view/mrp_repair_view.xml",
-        "view/mrp_repair_cancel_reason_view.xml",
+        "views/mrp_repair_view.xml",
+        "views/mrp_repair_cancel_reason_view.xml",
     ],
     "installable": True,
 }
