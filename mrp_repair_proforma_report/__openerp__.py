@@ -11,7 +11,7 @@
     "author": "AvanzOSC",
     "contributors": [
         "Esther Martín <esthermartin@avanzosc.es>",
-        "Ana Juaristi <ajuaristio@gmail.com>",
+        "Ana Juaristi <anajuaristi@avanzosc.es>",
     ],
     "category": "Manufacturing",
     "website": "http://www.avanzosc.es",
