@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_mrprepair_proforma" inherit_id="mrp_repair.report_mrprepairorder">
+            <xpath expr="//div[@class='page']/h2" position="replace">
+                <h2>
+                    <span t-if="o.state != 'draft' and o.proforma == False">Repair Order N°:</span>
+                    <span t-if="o.state == 'draft' and o.proforma == False">Repair Quotation N°:</span>
+                    <span t-if="o.proforma == True">Proforma Nº:</span>
+                    <span t-field="o.name"/>
+                </h2>
+            </xpath>
+        </template>
+    </data>
+</openerp>
