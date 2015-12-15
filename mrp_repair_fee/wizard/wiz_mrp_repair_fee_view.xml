@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record model="ir.ui.view" id="wiz_mrp_repair_fee_view">
+            <field name="name">wiz.mrp.repair.fee.view</field>
+            <field name="model">wiz.mrp.repair.fee</field>
+            <field name="arch" type="xml">
+                <form string="Wizard MRP Repair Fee">
+                    <group>
+                        <label string="Enter imputation date."/>
+                    </group>
+                    <group >
+                        <field name="imputation_date" />
+                    </group>
+                    <footer>
+                        <button name="show_mrp_repair_fee" type="object" 
+                                string="OK" class="oe_highlight" />
+                        or
+                        <button string="Cancel" class="oe_link"
+                                special="cancel" />
+                    </footer>
+                </form>
+            </field>
+        </record>
+        <record id="wiz_mrp_repair_fee_action" model="ir.actions.act_window">
+            <field name="name">Repair Fees Lines</field>
+            <field name="res_model">wiz.mrp.repair.fee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+            <field name="view_id" ref="wiz_mrp_repair_fee_view"/>
+            <field name="target">new</field>
+        </record>
+        <menuitem id="wiz_mrp_repair_fee_menu" name="Repair Fees Lines"
+                  parent="mrp.menu_mrp_manufacturing" action="wiz_mrp_repair_fee_action"
+                  sequence="53" />
+    </data>
+</openerp>

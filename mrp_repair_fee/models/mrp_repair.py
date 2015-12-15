@@ -35,6 +35,7 @@ class MrpRepairFee(models.Model):
             fee.cost_subtotal = (fee.product_id.standard_price *
                                  fee.product_uom_qty)
 
+    imputation_date = fields.Date(string='Imputation Date')
     to_invoice = fields.Boolean(default=_catch_default_to_invoice)
     standard_price = fields.Float(
         string='Cost Price', digits_compute=dp.get_precision('Account'),
