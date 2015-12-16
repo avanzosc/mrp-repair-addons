@@ -24,5 +24,28 @@
                 </xpath>
             </field>
         </record>
+        <record id="view_repair_order_tree_inh_cancelreason" model="ir.ui.view">
+            <field name="name">view.repair.order.tree.inh.cancelreason</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_tree"/>
+            <field name="arch" type="xml">
+                <field name="guarantee_limit" position="after">
+                    <field name="cancel_reason_id" />
+                </field>
+            </field>
+        </record>
+        <record id="view_repair_order_filter_inh_cancelreason" model="ir.ui.view">
+            <field name="name">view.repair.order.filter.inh.cancelreason</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_form_filter"/>
+            <field name="arch" type="xml">
+                <field name="state" position="after">
+                    <field name="cancel_reason_id" />
+                </field>
+                <xpath expr="//group[1]" positino="inside">
+                    <filter string="Cancel reason" domain="[]" context="{'group_by':'cancel_reason_id'}"/>
+                </xpath>
+            </field>
+        </record>
     </data>
 </openerp>
