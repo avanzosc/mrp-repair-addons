@@ -23,6 +23,7 @@
         "mrp_repair_analytic"
     ],
     "data": [
+        "wizard/wiz_mrp_repair_fee_view.xml",
         "views/mrp_repair_view.xml",
         "views/mrp_repair_fee_view.xml",
     ],

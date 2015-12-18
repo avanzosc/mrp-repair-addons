@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                 <search string="Search Repair Fees Lines">
                     <field name="user_id" />
+                    <field name="imputation_date" />
                     <field name="repair_partner" />
                     <field name="repair_product" />
                     <field name="product_id" />
@@ -36,11 +37,12 @@
             <field name="model">mrp.repair.fee</field>
             <field name="arch" type="xml">
                 <tree string="Repair Fees Lines" editable="bottom" >
+                    <field name="imputation_date" />
                     <field name="repair_id" />
                     <field name="user_id" />
                     <field name="product_uom_qty" string="Quantity" />
                     <field name="repair_partner" />
-                    <field name="repair_pricelist" />
+                    <field name="repair_pricelist" invisible="1"/>
                     <field name="repair_product" />
                     <field name="repair_lot" />
                     <field name="repair_guarantee_limit" invisible="1" />
@@ -51,8 +53,8 @@
                            groups="product.group_uom" />
                      <field name="standard_price" />
                     <field name="price_unit" />
-                    <field name="tax_id" />
-                    <field name="to_invoice" />
+                    <field name="tax_id" invisible="1"/>
+                    <field name="to_invoice" invisible="1"/>
                     <field name="cost_subtotal" sum="Cost Subtotal"/>
                     <field name="price_subtotal" sum="Price Subtotal"/>
                 </tree>
@@ -70,6 +72,7 @@
                     </h2>
                     <group string="Product Information">
                         <group>
+                            <field name="imputation_date" />
                             <field name="repair_id" />
                             <field name="repair_pricelist"
                                    invisible="1" />
@@ -113,16 +116,5 @@
                 </form>
             </field>
         </record>
-
-        <record id="mrp_repair_fee_action" model="ir.actions.act_window">
-            <field name="name">Repair Fees Lines</field>
-            <field name="res_model">mrp.repair.fee</field>
-            <field name="view_type">form</field>
-            <field name="view_mode">tree,form</field>
-        </record>
-
-        <menuitem id="mrp_repair_fee_menu" name="Repair Fees Lines"
-                  parent="mrp.menu_mrp_manufacturing" action="mrp_repair_fee_action"
-                  sequence="53" />
     </data>
 </openerp>

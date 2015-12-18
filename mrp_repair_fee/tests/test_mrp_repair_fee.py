@@ -69,3 +69,18 @@ class TestMrpRepairFee(common.TransactionCase):
             'warning' in res, 'Onchange warning must have been launched')
         self.assertEqual(
             len(fee.product_id), 0, 'Line should not have product')
+
+    def test_mrp_repair_fee_wizard(self):
+        wiz = self.env['wiz.mrp.repair.fee'].create(
+            {'imputation_date': '2015-12-16'})
+        res = wiz.show_mrp_repair_fee()
+        context = res.get('context')
+        self.assertIn(
+            'default_imputation_date', context,
+            'Default imputation date not found in context')
+        self.assertEqual(
+            '2015-12-16', context.get('default_imputation_date'),
+            'Default imputation date not equal 2015-12-16')
+        self.assertIn(
+            'default_to_invoice', context,
+            'Default to invoice not found in context')
