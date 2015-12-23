@@ -1,11 +1,13 @@
 # -*- coding: utf-8 -*-
 # (c) 2015 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from openerp import models, api
+from openerp import models, fields, api
 
 
 class MrpRepair(models.Model):
     _inherit = 'mrp.repair'
+
+    analytic_account = fields.Many2one(copy=False)
 
     @api.model
     def create(self, values):
