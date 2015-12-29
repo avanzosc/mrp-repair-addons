@@ -11,11 +11,13 @@
         "Ana Juaristi <anajuaristi@avanzosc.es>",
         "Alfredo de la Fuente <alfredodelafuente@avanzosc.es>",
     ],
-    "category": "Warehouse Management",
+    "category": "Manufacturing",
     "depends": [
         "res_partner_analytic",
         "mrp_repair_analytic",
     ],
-    "data": [],
+    "data": [
+        "views/mrp_repair_view.xml",
+    ],
     "installable": True,
 }
