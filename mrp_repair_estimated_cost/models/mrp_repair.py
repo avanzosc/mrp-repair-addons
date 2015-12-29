@@ -43,17 +43,17 @@ class MrpRepair(models.Model):
     def _catch_repair_line_information_for_analytic(self, line):
         analytic_line_obj = self.env['account.analytic.line']
         ctx = self.env.context or {}
-        res = super(MrpRepair,
-                    self)._catch_repair_line_information_for_analytic(line)
-        if ctx.get('load_estimated', False):
-            res['repair_estim_amount'] = res.get('amount', 0)
-            res['amount'] = 0
-            return res
         line_cond = [('account_id', '=', self.analytic_account.id),
                      ('product_id', '=', line.product_id.id),
                      ('is_repair_cost', '!=', True)]
         if analytic_line_obj.search(line_cond):
             return False
+        res = super(MrpRepair,
+                    self)._catch_repair_line_information_for_analytic(line)
+        if res and ctx.get('load_estimated', False):
+            res['repair_estim_amount'] = res.get('amount', 0)
+            res['amount'] = 0
+            return res
         return res
 
     @api.multi
