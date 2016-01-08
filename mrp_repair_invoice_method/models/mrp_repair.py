@@ -11,8 +11,6 @@ class MrpRepair(models.Model):
     @api.multi
     @api.onchange('invoice_method')
     def _onchange_invoice_method(self):
-        if self.invoice_method != 'none':
-            if (self.partner_id != self.partner_invoice_id
-                    and self.partner_id != self.partner_invoice_id.parent_id):
-                addr = self.partner_id.address_get(['invoice'])
-                self.partner_invoice_id = addr['invoice']
+        if self.invoice_method != 'none' and not self.partner_invoice_id:
+            addr = self.partner_id.address_get(['invoice'])
+            self.partner_invoice_id = addr['invoice']

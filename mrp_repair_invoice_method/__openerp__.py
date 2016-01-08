@@ -17,6 +17,7 @@
     ],
     "category": "Manufacturing",
     "data": [
+        "views/mrp_repair_view.xml",
     ],
     "installable": True
 }
