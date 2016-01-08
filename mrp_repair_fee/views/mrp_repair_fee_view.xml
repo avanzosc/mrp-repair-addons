@@ -52,11 +52,11 @@
                     <field name="product_uom" string="Unit of Measure"
                            groups="product.group_uom" />
                      <field name="standard_price" />
-                    <field name="price_unit" />
+                    <field name="price_unit" invisible="1"/>
                     <field name="tax_id" invisible="1"/>
                     <field name="to_invoice" invisible="1"/>
                     <field name="cost_subtotal" sum="Cost Subtotal"/>
-                    <field name="price_subtotal" sum="Price Subtotal"/>
+                    <field name="price_subtotal" sum="Price Subtotal" invisible="1"/>
                 </tree>
             </field>
         </record>
