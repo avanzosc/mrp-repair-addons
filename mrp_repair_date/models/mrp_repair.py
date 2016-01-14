@@ -8,7 +8,8 @@ class MrpRepair(models.Model):
     _inherit = 'mrp.repair'
 
     scheduled_departure_date = fields.Date(
-        string='Scheduled Departure Date', required=True, copy=False)
+        string='Scheduled Departure Date', required=True, copy=False,
+        default=lambda self: fields.Date.context_today(self))
     start_date = fields.Date(
         string='Start Date', readonly=True, copy=False)
     end_date = fields.Date(
