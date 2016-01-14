@@ -19,13 +19,12 @@ class WizMrpRepairCancelReason(models.TransientModel):
         self.ensure_one()
         act_close = {'type': 'ir.actions.act_window_close'}
         repair_ids = self.env.context.get('active_ids', False)
-        if not repair_ids:
-            return act_close
-        assert len(repair_ids) == 1, "Only 1 repair ID expected"
-        repair = self.env['mrp.repair'].browse(repair_ids)
-        repair.cancel_reason_id = self.reason_id.id
-        if repair.state in QUOTATION_STATES:
-            repair.signal_workflow('cancel')
-        else:
-            repair.action_cancel()
+        if repair_ids:
+            assert len(repair_ids) == 1, "Only 1 repair ID expected"
+            repair = self.env['mrp.repair'].browse(repair_ids)
+            repair.cancel_reason_id = self.reason_id.id
+            if repair.state in QUOTATION_STATES:
+                repair.signal_workflow('cancel')
+            else:
+                repair.action_cancel()
         return act_close
