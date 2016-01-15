@@ -43,7 +43,7 @@
                             <group string="Product Information">
                                 <group>
                                     <field name="user_id" />
-                                    <field name="to_invoice" />
+                                    <field name="to_invoice" invisible="1"/>
                                     <field name="product_id"
                                            on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id, parent.guarantee_limit, context)" />
                                     <label for="product_uom_qty" />
@@ -105,7 +105,7 @@
                             <group string="Product Information">
                                 <group>
                                     <field name="user_id" />
-                                    <field name="to_invoice" />
+                                    <field name="to_invoice" invisible="1"/>
                                     <field name="product_id"
                                            on_change="product_id_change(parent.pricelist_id, product_id, product_uom, product_uom_qty, parent.partner_id, parent.guarantee_limit, context)" />
                                     <label for="product_uom_qty" />
