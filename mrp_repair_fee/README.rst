@@ -7,6 +7,7 @@ MRP repair fee
 ==============
 
 * This module creates the new menu option "Repair Fees Lines".
+* This module creates the new menu option "Repair Fees Lines User".
 * In "Repair Fees Lines", the cost price of the product is also shown.
 * When creating a new line of "Repair Fees Lines", default as a product, he
   will catch the defined in the employee associated with the user.
