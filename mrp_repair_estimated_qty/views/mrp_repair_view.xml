@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<openerp>
+    <data>
+        <record id="view_repair_order_form" model="ir.ui.view">
+            <field name="name">mrp.repair.estimated.qty.form</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair.view_repair_order_form"/>
+            <field name="arch" type="xml">
+                <xpath expr="//field[@name='operations']/tree//field[@name='product_uom_qty']" position="after">
+                   <field name="expected_qty"/>
+                </xpath>
+                <xpath expr="//field[@name='operations']" position="attributes">
+                    <attribute name="context">{'default_product_uom_qty': 0, 'default_expected_qty': product_qty}</attribute>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>
