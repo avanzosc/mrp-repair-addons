@@ -69,6 +69,12 @@ class TestMrpRepairFee(common.TransactionCase):
             'warning' in res, 'Onchange warning must have been launched')
         self.assertEqual(
             len(fee.product_id), 0, 'Line should not have product')
+        res = fee.onchange_repair_id()
+        self.assertTrue(
+            'warning' in res, 'Onchange 2 warning must have been launched')
+        res = fee.product_id_change(False, fee.product_id.id)
+        self.assertTrue(
+            'warning' in res, 'Onchange 3 warning must have been launched')
 
     def test_mrp_repair_fee_wizard(self):
         wiz = self.env['wiz.mrp.repair.fee'].create(

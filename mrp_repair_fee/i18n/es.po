@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2015-12-15 17:05+0000\n"
-"PO-Revision-Date: 2015-12-15 18:06+0100\n"
+"POT-Creation-Date: 2016-01-18 13:13+0000\n"
+"PO-Revision-Date: 2016-01-18 14:13+0100\n"
 "Last-Translator: <>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -17,15 +17,15 @@ msgstr ""
 "X-Generator: Poedit 1.5.4\n"
 
 #. module: mrp_repair_fee
-#: code:addons/mrp_repair_fee/models/mrp_repair.py:70
 #: code:addons/mrp_repair_fee/models/mrp_repair.py:71
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:73
 #, python-format
 msgid "Associate employee to user"
 msgstr "Asociar empleado a usuario"
 
 #. module: mrp_repair_fee
-#: code:addons/mrp_repair_fee/models/mrp_repair.py:74
 #: code:addons/mrp_repair_fee/models/mrp_repair.py:75
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:77
 #, python-format
 msgid "Associate product to employee"
 msgstr "Asociar producto a empleado"
@@ -117,6 +117,21 @@ msgid "Imputation Date"
 msgstr "Fecha imputación"
 
 #. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
+msgid "Imputation Day"
+msgstr "Día imputación"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
+msgid "Imputation Month"
+msgstr "Mes imputación"
+
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_search
+msgid "Imputation Week"
+msgstr "Semana imputación"
+
+#. module: mrp_repair_fee
 #: field:wiz.mrp.repair.fee,write_uid:0
 msgid "Last Updated by"
 msgstr "Última actualización por"
@@ -199,7 +214,7 @@ msgstr "Reparación"
 #: model:ir.model,name:mrp_repair_fee.model_mrp_repair_fee
 #: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_form
 msgid "Repair Fees Line"
-msgstr "Línea cargos reparación"
+msgstr "Líneas honorarios reparación"
 
 #. module: mrp_repair_fee
 #: model:ir.actions.act_window,name:mrp_repair_fee.wiz_mrp_repair_fee_action
@@ -242,14 +257,19 @@ msgstr "Buscar líneas de cargos de reparación"
 #. module: mrp_repair_fee
 #: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
 msgid "Sum qty"
-msgstr "Sum qty"
+msgstr "Total"
 
 #. module: mrp_repair_fee
-#: code:addons/mrp_repair_fee/models/mrp_repair.py:72
 #: code:addons/mrp_repair_fee/models/mrp_repair.py:73
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:75
 #, python-format
 msgid "The employee associated with the user has not defined any product"
 msgstr "El empleado asociado con el usuario no tiene definido un producto."
+
+#. module: mrp_repair_fee
+#: view:mrp.repair.fee:mrp_repair_fee.mrp_repair_fee_view_tree
+msgid "Total"
+msgstr "Total"
 
 #. module: mrp_repair_fee
 #: view:mrp.repair:mrp_repair_fee.mrp_repair_view_form
@@ -263,15 +283,21 @@ msgid "User"
 msgstr "Usuario"
 
 #. module: mrp_repair_fee
-#: code:addons/mrp_repair_fee/models/mrp_repair.py:68
+#: model:ir.actions.act_window,name:mrp_repair_fee.action_mrp_repair_fee
+#: model:ir.ui.menu,name:mrp_repair_fee.mrp_repair_fee_menu
+msgid "User Repair Fees Lines"
+msgstr "Líneas cargos reparación usuario"
+
+#. module: mrp_repair_fee
 #: code:addons/mrp_repair_fee/models/mrp_repair.py:69
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:71
 #, python-format
 msgid "User does not have any employee assigned"
 msgstr "Usuario no está asignado a ningún empleado"
 
 #. module: mrp_repair_fee
-#: code:addons/mrp_repair_fee/models/mrp_repair.py:66
 #: code:addons/mrp_repair_fee/models/mrp_repair.py:67
+#: code:addons/mrp_repair_fee/models/mrp_repair.py:69
 #, python-format
 msgid "Warning!"
 msgstr "Aviso!"
