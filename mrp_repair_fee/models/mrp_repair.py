@@ -86,7 +86,7 @@ class MrpRepairFee(models.Model):
         res = {}
         if self.repair_id:
             res = self.product_id_change(
-                self.repair_id.pricelist_id.id, self.product_id,
+                self.repair_id.pricelist_id.id, self.product_id.id,
                 uom=self.product_uom.id, product_uom_qty=self.product_uom_qty,
                 partner_id=self.repair_id.partner_id.id,
                 guarantee_limit=self.repair_id.guarantee_limit)
