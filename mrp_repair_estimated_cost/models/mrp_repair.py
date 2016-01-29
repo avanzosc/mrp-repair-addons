@@ -67,8 +67,8 @@ class MrpRepair(models.Model):
             vals = self._catch_repair_line_information_for_analytic(line)
             if vals:
                 analytic_line_obj.create(vals)
-        for line in self.mapped('operations').filtered(lambda x:
-                                                       not x.load_cost):
+        for line in self.mapped('operations').filtered(
+                lambda x: not x.load_cost and x.type == 'add'):
             vals = self._catch_repair_line_information_for_analytic(line)
             if vals:
                 analytic_line_obj.create(vals)
