@@ -7,11 +7,13 @@
             <field name="inherit_id" ref="hr_expense.view_expenses_form" />
             <field name="arch" type="xml">
                 <field name="name" position="after">
-                    <field name="repair_id" required="True"/>
+                    <field name="repair_id"/>
                     <field name="repair_analytic_account" invisible="1"/>
+                    <field name="repair_state" invisible="1"/>
                 </field>
                 <field name="line_ids" position="attributes">
                     <attribute name="context">{'currency_id': currency_id, 'default_repair_id': repair_id, 'default_analytic_account': context.get('repair_analytic_account', '')}</attribute>
+                    <attribute name="attrs">{'readonly':[('repair_state', 'in', ('draft', 'cancel', 'done'))]}</attribute>
                 </field>
                 <xpath expr="//tree[@string='Expense Lines']//field[@name='product_id']" position="after">
                     <field name="repair_id"/>
