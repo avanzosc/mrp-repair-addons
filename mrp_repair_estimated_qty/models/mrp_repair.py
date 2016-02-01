@@ -11,12 +11,12 @@ class MrpRepairLine(models.Model):
     _inherit = 'mrp.repair.line'
 
     @api.multi
-    @api.depends('product_id', 'product_uom_qty', 'expected_qty')
+    @api.depends('product_id', 'product_uom_qty', 'lot_id', 'expected_qty')
     def _compute_cost_subtotal(self):
+        super(MrpRepairLine, self)._compute_cost_subtotal()
         for line in self:
             qty = line.expected_qty or line.product_uom_qty
-            line.standard_price = line.product_id.standard_price
-            line.cost_subtotal = line.product_id.standard_price * qty
+            line.cost_subtotal = line.standard_price * qty
 
     @api.multi
     @api.depends('expected_qty', 'product_uom_qty', 'price_unit', 'product_id',

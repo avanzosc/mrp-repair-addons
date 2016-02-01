@@ -40,10 +40,10 @@ class MrpRepairFee(models.Model):
     imputation_date = fields.Date(string='Imputation Date')
     to_invoice = fields.Boolean(default=_catch_default_to_invoice)
     standard_price = fields.Float(
-        string='Cost Price', digits_compute=dp.get_precision('Account'),
+        string='Cost Price', digits=dp.get_precision('Account'),
         compute='_compute_cost_subtotal', store=True)
     cost_subtotal = fields.Float(
-        string='Cost Subtotal', digits_compute=dp.get_precision('Account'),
+        string='Cost Subtotal', digits=dp.get_precision('Account'),
         compute='_compute_cost_subtotal', store=True)
     repair_pricelist = fields.Many2one(
         related='repair_id.pricelist_id', string='Pricelist')
@@ -109,16 +109,24 @@ class MrpRepairFee(models.Model):
 class MrpRepairLine(models.Model):
     _inherit = 'mrp.repair.line'
 
-    @api.depends('product_id', 'product_uom_qty')
+    @api.multi
+    @api.depends('product_id', 'product_uom_qty', 'lot_id')
     def _compute_cost_subtotal(self):
         for line in self:
-            line.standard_price = line.product_id.standard_price
-            line.cost_subtotal = (line.product_id.standard_price *
-                                  line.product_uom_qty)
+            std_price = 0
+            if line.product_id.cost_method == 'real' and line.lot_id:
+                quants = line.lot_id.quant_ids.filtered(
+                    lambda x: x.location_id.usage == 'internal')
+                if quants:
+                    std_price = quants[:1].cost
+            else:
+                std_price = line.product_id.standard_price
+            line.standard_price = std_price
+            line.cost_subtotal = line.standard_price * line.product_uom_qty
 
     standard_price = fields.Float(
-        string='Cost Price', digits_compute=dp.get_precision('Account'),
+        string='Cost Price', digits=dp.get_precision('Account'),
         compute='_compute_cost_subtotal', store=True)
     cost_subtotal = fields.Float(
-        string='Cost Subtotal', digits_compute=dp.get_precision('Account'),
+        string='Cost Subtotal', digits=dp.get_precision('Account'),
         compute='_compute_cost_subtotal', store=True)
