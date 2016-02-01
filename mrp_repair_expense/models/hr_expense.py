@@ -13,6 +13,8 @@ class HrExpenseExpense(models.Model):
     repair_analytic_account = fields.Many2one(
         string='Analytic account', comodel_name='account.analytic.account',
         related='repair_id.analytic_account')
+    repair_state = fields.Selection(string='Repair State',
+                                    related='repair_id.state')
 
     @api.multi
     @api.onchange('repair_id')
