@@ -15,7 +15,6 @@
     "category": "Manufacturing",
     "depends": [
         "mrp_repair_estimated_cost",
-        "mrp_repair_fee",
     ],
     "data": [
         "views/mrp_repair_view.xml"

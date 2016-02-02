@@ -6,21 +6,6 @@
             <field name="model">mrp.repair</field>
             <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='operations']//form//field[@name='price_unit']" position="before">
-                    <field name="standard_price" />
-                </xpath>
-                <xpath expr="//field[@name='operations']//tree//field[@name='price_unit']" position="before">
-                    <field name="standard_price" />
-                </xpath>
-                <xpath expr="//field[@name='operations']//form//field[@name='price_subtotal']" position="before">
-                    <field name="cost_subtotal" />
-                </xpath>
-                <xpath expr="//field[@name='operations']//tree//field[@name='price_subtotal']" position="before">
-                    <field name="cost_subtotal" sum="Operations cost subtotal"/>
-                </xpath>
-                <xpath expr="//field[@name='operations']//tree//field[@name='price_subtotal']" position="attributes">
-                    <attribute name="sum">Operations price subtotal</attribute>
-                </xpath>
                 <xpath expr="//field[@name='operations']//tree//field[@name='product_uom_qty']" position="attributes">
                     <attribute name="sum">Sum qty</attribute>
                 </xpath>
@@ -58,10 +43,10 @@
                                 </group>
                                 <group>
                                     <field name="standard_price" />
+                                    <field name="cost_subtotal" />
                                     <field name="price_unit" />
                                     <field name="tax_id" widget="many2many_tags"
                                            domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" />
-                                    <field name="cost_subtotal" />
                                     <field name="price_subtotal" />
                                 </group>
                             </group>
@@ -86,12 +71,12 @@
                             <field name="product_uom" string="Unit of Measure"
                                    groups="product.group_uom" />
                             <field name="standard_price" />
+                            <field name="cost_subtotal" sum="Cost Subtotal to invoice"/>
                             <field name="price_unit" />
                             <field name="tax_id"
                                    domain="[('parent_id', '=', False), ('type_tax_use', '=', 'purchase')]"
                                    widget="many2many_tags" />
                             <field name="to_invoice" />
-                            <field name="cost_subtotal" sum="Cost Subtotal to invoice"/>
                             <field name="price_subtotal" sum="Price Subtotal to invoice"/>
                         </tree>
                     </field>
@@ -122,11 +107,11 @@
                                 </group>
                                 <group>
                                     <field name="standard_price" />
+                                    <field name="cost_subtotal" />
                                     <field name="price_unit" />
                                     <field widget="many2many_tags"
                                            name="tax_id"
                                            domain="[('parent_id','=',False),('type_tax_use','&lt;&gt;','purchase')]" />
-                                    <field name="cost_subtotal" />
                                     <field name="price_subtotal" />
                                 </group>
                             </group>
@@ -151,12 +136,12 @@
                             <field name="product_uom" string="Unit of Measure"
                                    groups="product.group_uom" />
                             <field name="standard_price" />
+                            <field name="cost_subtotal" sum="Cost Subtotal not to invoice"/>
                             <field name="price_unit" />
                             <field name="tax_id"
                                    domain="[('parent_id', '=', False), ('type_tax_use', '=', 'purchase')]"
                                    widget="many2many_tags" />
                             <field name="to_invoice" />
-                            <field name="cost_subtotal" sum="Cost Subtotal not to invoice"/>
                             <field name="price_subtotal" sum="Price Subtotal not to invoice"/>
                         </tree>
                     </field>

@@ -15,9 +15,13 @@ class TestMrpRepairAnalytic(TestMrpRepairAnalytic):
             self.mrp_repair.signal_workflow('repair_confirm')
 
     def test_mrp_repair_cero_amount_cost(self):
+        self.op_product.cost_method = 'average'
+        self.op_product.standard_price = 0
+        for op in self.mrp_repair.operations:
+            if self.op_product == op.product_id:
+                op.product_uom_qty = 12
         self.mrp_repair.signal_workflow('repair_confirm')
         self.mrp_repair.create_repair_cost()
-        self.op_product.standard_price = 0
         ope_line = self.analytic_line_model.search(
             [('account_id', '=', self.analytic_id.id),
              ('product_id', '=', self.op_product.id),
@@ -101,7 +105,7 @@ class TestMrpRepairEstimatedCost(TestMrpRepairAnalytic):
     def test_real_cost_lines(self):
         self.mrp_repair.signal_workflow('repair_confirm')
         self.mrp_repair.create_repair_cost()
-        self.assertEqual(len(self.mrp_repair.repair_real_lines), 2,
+        self.assertEqual(len(self.mrp_repair.repair_real_lines), 3,
                          "There quantity of real lines is not correct.")
         for line in self.mrp_repair.repair_real_lines:
             self.assertNotEqual(line.amount, 0,
@@ -109,7 +113,7 @@ class TestMrpRepairEstimatedCost(TestMrpRepairAnalytic):
 
     def test_estimated_cost_lines(self):
         self.mrp_repair.signal_workflow('repair_confirm')
-        self.assertEqual(len(self.mrp_repair.repair_estim_lines), 2,
+        self.assertEqual(len(self.mrp_repair.repair_estim_lines), 3,
                          "There quantity of estimated lines is not correct.")
         for line in self.mrp_repair.repair_estim_lines:
             self.assertNotEqual(line.repair_estim_amount, 0,

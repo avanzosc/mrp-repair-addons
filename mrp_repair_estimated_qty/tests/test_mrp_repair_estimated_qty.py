@@ -19,6 +19,8 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
         self.analytic_id = self.analytic_account_model.create(analytic_vals)
         # Product: Webcam -- Standard Price: 38.0
         self.op_product = self.env.ref('product.product_product_34')
+        self.op_product.cost_method = 'average'
+        self.op_product.standard_price = 30
         default_location = self.mrp_repair_model._default_stock_location()
         op_val = {
             'product_id': self.op_product.id,
