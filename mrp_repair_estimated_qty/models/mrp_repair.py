@@ -69,36 +69,11 @@ class MrpRepair(models.Model):
         res = super(MrpRepair,
                     self)._catch_repair_line_information_for_analytic(line)
         ctx = self.env.context
-        if (not line._name == 'mrp.repair.line' or not line.expected_qty or not
-                ctx.get('load_estimated', False)):
+        if (not line._name == 'mrp.repair.line' or not line.cost_subtotal or
+                not ctx.get('load_estimated', False) or not line.expected_qty):
             return res
-        if res:
-            res['unit_amount'] = line.expected_qty
-            res['repair_estim_amount'] = (line.product_id.standard_price *
-                                          line.expected_qty * -1)
-            res['amount'] = 0
-        else:
-            analytic_line_obj = self.env['account.analytic.line']
-            journal = self.env.ref('mrp.analytic_journal_repair', False)
-            name = self.name
-            if line.product_id.default_code:
-                name += ' - ' + line.product_id.default_code
-            categ_id = line.product_id.categ_id
-            general_account = (line.product_id.property_account_income or
-                               categ_id.property_account_income_categ or False)
-            amount = line.product_id.standard_price * line.expected_qty * -1
-            res = {
-                'name': name,
-                'user_id': line.user_id.id,
-                'date': analytic_line_obj._get_default_date(),
-                'product_id': line.product_id.id,
-                'unit_amount': line.expected_qty,
-                'product_uom_id': line.product_uom.id,
-                'amount': 0,
-                'repair_estim_amount': amount,
-                'journal_id': journal.id,
-                'account_id': self.analytic_account.id,
-                'is_repair_cost': True,
-                'general_account_id': general_account.id
-                }
+        # siempre habra un res, si hay line.cost_subtotal
+        res['unit_amount'] = line.expected_qty
+        res['repair_estim_amount'] = (line.cost_subtotal * -1)
+        res['amount'] = 0
         return res

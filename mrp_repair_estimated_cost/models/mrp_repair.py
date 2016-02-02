@@ -53,7 +53,6 @@ class MrpRepair(models.Model):
         if res and ctx.get('load_estimated', False):
             res['repair_estim_amount'] = res.get('amount', 0)
             res['amount'] = 0
-            return res
         return res
 
     @api.multi

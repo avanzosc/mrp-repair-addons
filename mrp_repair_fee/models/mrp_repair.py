@@ -2,7 +2,6 @@
 # (c) 2015 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 from openerp import api, fields, models, _
-import openerp.addons.decimal_precision as dp
 
 
 class MrpRepair(models.Model):
@@ -29,22 +28,8 @@ class MrpRepairFee(models.Model):
     def _catch_default_to_invoice(self):
         return self.env.context.get('to_invoice', True)
 
-    @api.multi
-    @api.depends('product_id', 'product_uom_qty')
-    def _compute_cost_subtotal(self):
-        for fee in self:
-            fee.standard_price = fee.product_id.standard_price
-            fee.cost_subtotal = (fee.product_id.standard_price *
-                                 fee.product_uom_qty)
-
     imputation_date = fields.Date(string='Imputation Date')
     to_invoice = fields.Boolean(default=_catch_default_to_invoice)
-    standard_price = fields.Float(
-        string='Cost Price', digits=dp.get_precision('Account'),
-        compute='_compute_cost_subtotal', store=True)
-    cost_subtotal = fields.Float(
-        string='Cost Subtotal', digits=dp.get_precision('Account'),
-        compute='_compute_cost_subtotal', store=True)
     repair_pricelist = fields.Many2one(
         related='repair_id.pricelist_id', string='Pricelist')
     repair_partner = fields.Many2one(
@@ -104,29 +89,3 @@ class MrpRepairFee(models.Model):
             product_uom_qty=product_uom_qty, partner_id=partner_id,
             guarantee_limit=guarantee_limit, context=context)
         return res
-
-
-class MrpRepairLine(models.Model):
-    _inherit = 'mrp.repair.line'
-
-    @api.multi
-    @api.depends('product_id', 'product_uom_qty', 'lot_id')
-    def _compute_cost_subtotal(self):
-        for line in self:
-            std_price = 0
-            if line.product_id.cost_method == 'real' and line.lot_id:
-                quants = line.lot_id.quant_ids.filtered(
-                    lambda x: x.location_id.usage == 'internal')
-                if quants:
-                    std_price = quants[:1].cost
-            else:
-                std_price = line.product_id.standard_price
-            line.standard_price = std_price
-            line.cost_subtotal = line.standard_price * line.product_uom_qty
-
-    standard_price = fields.Float(
-        string='Cost Price', digits=dp.get_precision('Account'),
-        compute='_compute_cost_subtotal', store=True)
-    cost_subtotal = fields.Float(
-        string='Cost Subtotal', digits=dp.get_precision('Account'),
-        compute='_compute_cost_subtotal', store=True)

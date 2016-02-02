@@ -10,38 +10,11 @@ class TestMrpRepairFee(common.TransactionCase):
         super(TestMrpRepairFee, self).setUp()
         self.user_model = self.env['res.users']
         self.fee_model = self.env['mrp.repair.fee']
-        self.lot_model = self.env['stock.production.lot']
-        self.location_model = self.env['stock.location']
-        self.quant_model = self.env['stock.quant']
         self.demo_user_id = self.ref('base.user_demo')
         self.employees = self.env['hr.employee'].search(
             [('user_id', '=', self.demo_user_id)])
         self.unit_uom = self.browse_ref('product.product_uom_unit')
         self.location_id = self.ref('stock.stock_location_7')
-        internal_location = self.location_model.search([('usage', '=',
-                                                         'internal')], limit=1)
-        self.repair_line_product = self.env.ref('product.product_product_10')
-        self.repair_line_product.cost_method = 'real'
-        self.lot_id = self.lot_model.create(
-            {'product_id': self.repair_line_product.id,
-             'name': 'LOT-TEST'})
-        self.quant_model.create(
-            {'product_id': self.repair_line_product.id,
-             'lot_id': self.lot_id.id,
-             'cost': 11,
-             'location_id': internal_location.id,
-             'qty': 5})
-        repair_line_vals = {
-            'user_id': self.ref('base.user_root'),
-            'name': 'Repair line',
-            'product_uom': self.unit_uom.id,
-            'product_id': self.repair_line_product.id,
-            'lot_id': self.lot_id.id,
-            'price_unit': 1,
-            'product_uom_qty': 5,
-            'location_id': internal_location.id,
-            'location_dest_id': internal_location.id,
-            'type': 'add'}
         fee_vals = {'user_id': self.ref('base.user_root'),
                     'name': 'Fee line test',
                     'product_uom': self.unit_uom.id,
@@ -51,8 +24,7 @@ class TestMrpRepairFee(common.TransactionCase):
                 'product_uom': self.unit_uom.id,
                 'location_id': self.location_id,
                 'location_dest_id': self.location_id,
-                'fees_lines': [(0, 0, fee_vals)],
-                'operations': [(0, 0, repair_line_vals)]}
+                'fees_lines': [(0, 0, fee_vals)]}
         self.repair = self.env['mrp.repair'].with_context(
             to_invoice=False).create(vals)
 
@@ -118,16 +90,3 @@ class TestMrpRepairFee(common.TransactionCase):
         self.assertIn(
             'default_to_invoice', context,
             'Default to invoice not found in context')
-
-    def test_mrp_repair_line_cost(self):
-        for operation in self.repair.operations:
-            cost = 0
-            if operation.product_id.cost_method == 'real' and operation.lot_id:
-                quants = operation.lot_id.quant_ids.filtered(
-                    lambda x: x.location_id.usage == 'internal')
-                if quants:
-                    cost = quants[:1].cost
-            else:
-                cost = operation.product_id.standard_price
-            self.assertEqual(operation.standard_price, cost,
-                             "Operation line cost is not correct.")
