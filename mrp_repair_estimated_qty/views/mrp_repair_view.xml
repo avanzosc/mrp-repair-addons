@@ -6,7 +6,7 @@
             <field name="model">mrp.repair</field>
             <field name="inherit_id" ref="mrp_repair.view_repair_order_form"/>
             <field name="arch" type="xml">
-                <xpath expr="//field[@name='operations']/tree//field[@name='product_uom_qty']" position="after">
+                <xpath expr="//field[@name='operations']/tree//field[@name='product_uom_qty']" position="before">
                    <field name="expected_qty"/>
                 </xpath>
                 <xpath expr="//field[@name='operations']" position="attributes">
