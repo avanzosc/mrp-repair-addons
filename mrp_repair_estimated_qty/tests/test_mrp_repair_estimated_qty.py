@@ -73,7 +73,7 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
             lambda x: x.product_id.id == self.op2_product.id)
         self.assertEqual(op_line.price_subtotal, 3,
                          "Incorrect subtotal with expected amount.")
-        self.assertEqual(op2_line.price_subtotal, 6,
+        self.assertEqual(op2_line.price_subtotal, 0,
                          "Incorrect subtotal with no expected amount.")
 
     def test_mrp_repair_line_cost_subtotal(self):
@@ -85,7 +85,7 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
                          (self.op_product.standard_price * 2),
                          "Incorrect cost subtotal with expected amount.")
         self.assertEqual(op2_line.cost_subtotal,
-                         (self.op2_product.standard_price * 3),
+                         (self.op2_product.standard_price * 0),
                          "Incorrect cost subtotal with no expected amount.")
 
     def test_mrp_repair_create_cost_with_estimated_qty_confirm(self):
@@ -106,8 +106,8 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
              ('repair_estim_amount', '=', self.op2_amount)])
         self.assertNotEqual(len(ope_line), 0,
                             "Operation with expected qty line not found.")
-        self.assertNotEqual(len(fee_line), 0,
-                            "Operation with not expected qty line not found.")
+        self.assertEqual(len(fee_line), 0,
+                         "Operation with not expected qty line not found.")
 
     def test_mrp_repair_create_cost_with_zero_uom_qty_confirm(self):
         op_line = self.mrp_repair.operations.filtered(
@@ -130,8 +130,8 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
              ('repair_estim_amount', '=', self.op2_amount)])
         self.assertNotEqual(len(ope_line), 0,
                             "Operation with expected qty line not found.")
-        self.assertNotEqual(len(fee_line), 0,
-                            "Operation with not expected qty line not found.")
+        self.assertEqual(len(fee_line), 0,
+                         "Operation with not expected qty line not found.")
 
     def test_mrp_repair_invoice_with_expected_qty(self):
         self.mrp_repair.signal_workflow('repair_confirm')
