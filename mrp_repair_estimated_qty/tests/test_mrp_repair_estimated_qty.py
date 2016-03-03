@@ -145,9 +145,21 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
 
     def test_mrp_repair_line_product_change(self):
         repair_line_obj = self.env['mrp.repair.line']
-        res = repair_line_obj.product_id_change(
+        res = repair_line_obj.with_context(
+            repair_qty=6, default_repair_state='draft').product_id_change(
             self.mrp_repair.pricelist_id.id, self.op2_product.id,
             uom=self.op2_product.uom_id.id, product_uom_qty=0,
             partner_id=self.mrp_repair.partner_id.id)
         self.assertEqual = (res['value']['product_uom_qty'], 0,
                             "Product uom qty changed in onchange.")
+        self.assertEqual = (res['value']['expected_qty'], 6,
+                            "Product expected qty changed in onchange.")
+        res = repair_line_obj.with_context(
+            repair_qty=6, default_repair_state='confirmed').product_id_change(
+            self.mrp_repair.pricelist_id.id, self.op2_product.id,
+            uom=self.op2_product.uom_id.id, product_uom_qty=0,
+            partner_id=self.mrp_repair.partner_id.id)
+        self.assertEqual = (res['value']['product_uom_qty'], 6,
+                            "Product uom qty changed in onchange.")
+        self.assertEqual = (res['value']['expected_qty'], 0,
+                            "Product expected qty changed in onchange.")

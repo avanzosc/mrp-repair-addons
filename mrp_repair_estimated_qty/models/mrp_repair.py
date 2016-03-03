@@ -40,18 +40,8 @@ class MrpRepairLine(models.Model):
     expected_qty = fields.Float(string='Expected Qty',
                                 digits=dp.get_precision(
                                     'Product Unit of Measure'))
-    product_uom_qty = fields.Float(string='Real Qty', default=0)
     price_subtotal = fields.Float(compute='_get_line_subtotal')
-    repair_state = fields.Selection([
-        ('draft', 'Quotation'),
-        ('cancel', 'Cancelled'),
-        ('confirmed', 'Confirmed'),
-        ('under_repair', 'Under Repair'),
-        ('ready', 'Ready to Repair'),
-        ('2binvoiced', 'To be Invoiced'),
-        ('invoice_except', 'Invoice Exception'),
-        ('done', 'Repaired')
-        ], related="repair_id.state")
+    repair_state = fields.Selection(related="repair_id.state")
 
     @api.multi
     def write(self, vals):
