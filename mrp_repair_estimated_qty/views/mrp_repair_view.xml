@@ -7,11 +7,12 @@
             <field name="inherit_id" ref="mrp_repair.view_repair_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='operations']/tree//field[@name='product_uom_qty']" position="before">
-                   <field name="expected_qty"/>
+                    <field name="repair_state" invisible="1"/>
+                    <field name="expected_qty" attrs="{'readonly': [('repair_state', 'not in', ('draft'))]}"/>
                 </xpath>
-                <xpath expr="//field[@name='operations']" position="attributes">
-                    <attribute name="context">{'default_product_uom_qty': 0, 'default_expected_qty': product_qty}</attribute>
-                </xpath>
+                <field name="operations" position="attributes">
+                    <attribute name="context">{'default_repair_state': state, 'repair_qty': product_qty}</attribute>
+                </field>
             </field>
         </record>
     </data>
