@@ -73,7 +73,7 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
             lambda x: x.product_id.id == self.op2_product.id)
         self.assertEqual(op_line.price_subtotal, 3,
                          "Incorrect subtotal with expected amount.")
-        self.assertEqual(op2_line.price_subtotal, 0,
+        self.assertEqual(op2_line.price_subtotal, 6,
                          "Incorrect subtotal with no expected amount.")
 
     def test_mrp_repair_line_cost_subtotal(self):
@@ -82,10 +82,10 @@ class TestMrpRepairEstimatedQty(common.TransactionCase):
         op2_line = self.mrp_repair.operations.filtered(
             lambda x: x.product_id.id == self.op2_product.id)
         self.assertEqual(op_line.cost_subtotal,
-                         (self.op_product.standard_price * 2),
+                         (op_line.standard_price * 3),
                          "Incorrect cost subtotal with expected amount.")
         self.assertEqual(op2_line.cost_subtotal,
-                         (self.op2_product.standard_price * 0),
+                         (op2_line.standard_price * 3),
                          "Incorrect cost subtotal with no expected amount.")
 
     def test_mrp_repair_create_cost_with_estimated_qty_confirm(self):
