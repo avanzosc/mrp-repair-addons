@@ -48,6 +48,9 @@ class MrpRepair(models.Model):
                      ('is_repair_cost', '!=', True)]
         if analytic_line_obj.search(line_cond):
             return False
+        if line._name == 'mrp.repair.fee' and not line.to_invoice and \
+                ctx.get('load_estimated', False):
+            return False
         res = super(MrpRepair,
                     self)._catch_repair_line_information_for_analytic(line)
         if res and ctx.get('load_estimated', False):
