@@ -92,6 +92,7 @@ class TestMrpRepairEstimatedCost(TestMrpRepairAnalytic):
             'unit_amount': 20,
             'account_id': self.analytic_id.id,
             'name': 'Analytic line',
+            'journal_id': self.ref('account.exp'),
             'general_account_id': general_account.id
             }
         self.analytic_line_model.create(analytic_line_vals)

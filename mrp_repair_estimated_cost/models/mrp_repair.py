@@ -45,7 +45,8 @@ class MrpRepair(models.Model):
         ctx = self.env.context or {}
         line_cond = [('account_id', '=', self.analytic_account.id),
                      ('product_id', '=', line.product_id.id),
-                     ('is_repair_cost', '!=', True)]
+                     ('is_repair_cost', '!=', True),
+                     ('journal_id.type', '=', 'purchase')]
         if analytic_line_obj.search(line_cond):
             return False
         if line._name == 'mrp.repair.fee' and not line.to_invoice and \
