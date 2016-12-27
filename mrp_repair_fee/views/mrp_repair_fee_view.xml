@@ -14,6 +14,8 @@
                     <field name="repair_id" />
                     <field name="repair_lot" />
                     <field name="name" />
+                    <filter string="Fees to invoice" domain="[('to_invoice','=',True)]"/>
+                    <filter string="Fees to not invoice" domain="[('to_invoice','=',False)]"/>
                     <group expand="0" string="Group By">
                         <filter string="User" domain="[]"
                                 context="{'group_by':'user_id'}" />
@@ -126,7 +128,6 @@
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
             <field name="view_id" ref="mrp_repair_fee_view_tree"/>
-            <field name="domain">[('to_invoice','=',False)]</field>
         </record>
         <menuitem id="mrp_repair_fee_menu" name="User Repair Fees Lines"
                   parent="mrp.menu_mrp_manufacturing" action="action_mrp_repair_fee"
