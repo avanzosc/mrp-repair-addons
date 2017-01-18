@@ -10,9 +10,18 @@ class TestMrpRepairFee(common.TransactionCase):
         super(TestMrpRepairFee, self).setUp()
         self.user_model = self.env['res.users']
         self.fee_model = self.env['mrp.repair.fee']
+        self.tax_model = self.env['account.tax']
+        tax_vals = {'name': 'Vat 21%',
+                    'type_tax_user': 'sale',
+                    'type': 'percent',
+                    'amount': 0.21000}
+        self.tax = self.tax_model.create(tax_vals)
         self.demo_user_id = self.ref('base.user_demo')
+        self.product = self.browse_ref('product.product_product_consultant')
+        self.product.taxes_id = [(6, 0, [self.tax.id])]
         self.employees = self.env['hr.employee'].search(
             [('user_id', '=', self.demo_user_id)])
+        self.employees.write({'product_id': self.product.id})
         self.unit_uom = self.browse_ref('product.product_uom_unit')
         self.location_id = self.ref('stock.stock_location_7')
         fee_vals = {'user_id': self.ref('base.user_root'),

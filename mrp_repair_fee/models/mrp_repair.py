@@ -49,7 +49,9 @@ class MrpRepairFee(models.Model):
         cond = [('user_id', '=', self.user_id.id)]
         employee = employee_obj.search(cond, limit=1)
         if employee and employee.product_id:
-            self.product_id = employee.product_id.id
+            self.product_id = employee.product_id
+            if employee.product_id and employee.product_id.taxes_id:
+                self.tax_id = [(6, 0, [employee.product_id.taxes_id[0].id])]
         else:
             warning = {'title': _('Warning!')}
             if not employee:
