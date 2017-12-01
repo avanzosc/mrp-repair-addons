@@ -1,22 +1,8 @@
-# -*- encoding: utf-8 -*-
-##############################################################################
-#
-#    This program is free software: you can redistribute it and/or modify
-#    it under the terms of the GNU Affero General Public License as published
-#    by the Free Software Foundation, either version 3 of the License, or
-#    (at your option) any later version.
-#
-#    This program is distributed in the hope that it will be useful,
-#    but WITHOUT ANY WARRANTY; without even the implied warranty of
-#    MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-#    GNU General Public License for more details.
-#
-#    You should have received a copy of the GNU Affero General Public License
-#    along with this program.  If not, see http://www.gnu.org/licenses/.
-#
-##############################################################################
+# -*- coding: utf-8 -*-
+# License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from openerp import models, fields, api, _
+from openerp.osv import fields as old_fields
 import openerp.addons.decimal_precision as dp
 
 
@@ -24,12 +10,14 @@ class MrpRepairLine(models.Model):
     _inherit = 'mrp.repair.line'
 
     @api.multi
-    @api.depends('product_uom_qty', 'price_unit', 'product_id',
-                 'tax_id', 'repair_id.partner_id', 'to_invoice', 'discount3',
-                 'repair_id.pricelist_id.currency_id', 'discount', 'discount2')
-    def _compute_line_subtotal(self):
-        for line in self:
-            qty = line.product_uom_qty
+    def _amount_line(self, field_name, arg):
+        res = super(MrpRepairLine, self)._amount_line(field_name, arg)
+        for line in self.filtered(lambda l: l.discount or l.discount2 or
+                                  l.discount3):
+            try:
+                qty = line.expected_qty or line.product_uom_qty
+            except Exception:
+                qty = line.product_uom_qty
             price = (line.price_unit *
                      (1 - (line.discount or 0.0) / 100) *
                      (1 - (line.discount2 or 0.0) / 100) *
@@ -38,7 +26,15 @@ class MrpRepairLine(models.Model):
                 price, qty, line.product_id, line.repair_id.partner_id)
             cur = line.repair_id.pricelist_id.currency_id
             subtotal = cur.round(taxes['total'])
-            line.price_subtotal = subtotal
+            res[line.id] = subtotal
+        return res
+
+    _columns = {
+        # Must be defined in old API so that we can call super in the compute
+        'price_subtotal': old_fields.function(
+            _amount_line, string='Subtotal',
+            digits_compute=dp.get_precision('Account')),
+    }
 
     @api.multi
     def _get_possible_item_ids(self, pricelist_id, product_id=False, qty=0):
@@ -66,7 +62,6 @@ class MrpRepairLine(models.Model):
         string='Disc. 3 (%)', digits=dp.get_precision('Discount'), default=0.0)
     item_id = fields.Many2one(
         comodel_name='product.pricelist.item', string='Pricelist Item')
-    price_subtotal = fields.Float(compute='_compute_line_subtotal')
     possible_item_ids = fields.Many2many(
         comodel_name='product.pricelist.item',
         compute='_compute_possible_items')

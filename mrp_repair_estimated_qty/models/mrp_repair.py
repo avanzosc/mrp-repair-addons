@@ -1,35 +1,44 @@
 # -*- coding: utf-8 -*-
-# (c) 2015 Ainara Galdona - AvanzOSC
+# Copyright 2015 Ainara Galdona - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 from openerp import models, fields, api
+from openerp.osv import fields as old_fields
 from openerp.addons import decimal_precision as dp
 
 
 class MrpRepairLine(models.Model):
-
     _inherit = 'mrp.repair.line'
 
     @api.multi
-    @api.depends('expected_qty', 'product_uom_qty', 'price_unit', 'product_id',
-                 'tax_id', 'repair_id.partner_id', 'to_invoice',
-                 'repair_id.pricelist_id.currency_id')
-    def _get_line_subtotal(self):
+    def _amount_line(self, field_name, arg):
+        res = super(MrpRepairLine, self)._amount_line(field_name, arg)
         for line in self:
-            qty = line.expected_qty
-            if not qty and line.product_uom_qty:
-                qty = line.product_uom_qty
+            qty = line.expected_qty or line.product_uom_qty
+            try:
+                price = (line.price_unit *
+                         (1 - (line.discount or 0.0) / 100) *
+                         (1 - (line.discount2 or 0.0) / 100) *
+                         (1 - (line.discount3 or 0.0) / 100))
+            except Exception:
+                price = line.price_unit
             taxes = line.tax_id.compute_all(
-                line.price_unit, qty, line.product_id,
-                line.repair_id.partner_id)
+                price, qty, line.product_id, line.repair_id.partner_id)
             cur = line.repair_id.pricelist_id.currency_id
             subtotal = cur.round(taxes['total'])
-            line.price_subtotal = subtotal
+            res[line.id] = subtotal
+        return res
+
+    _columns = {
+        # Must be defined in old API so that we can call super in the compute
+        'price_subtotal': old_fields.function(
+            _amount_line, string='Subtotal',
+            digits_compute=dp.get_precision('Account')),
+    }
 
     expected_qty = fields.Float(string='Expected Qty',
                                 digits=dp.get_precision(
                                     'Product Unit of Measure'))
-    price_subtotal = fields.Float(compute='_get_line_subtotal')
     repair_state = fields.Selection(related="repair_id.state")
 
     @api.multi

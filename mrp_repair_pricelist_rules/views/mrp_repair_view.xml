@@ -7,13 +7,13 @@
             <field name="inherit_id" ref="mrp_repair.view_repair_order_form"/>
             <field name="arch" type="xml">
                 <xpath expr="//field[@name='operations']/tree//field[@name='price_unit']" position="after">
-                    <field name="discount"/>
+                    <field name="discount" groups="sale.group_discount_per_so_line"/>
                     <field name="discount2" groups="product_pricelist_rules.group_second_discount"/>
                     <field name="discount3" groups="product_pricelist_rules.group_third_discount"/>
                     <field name="item_id" invisible="1"/>
                 </xpath>
                 <xpath expr="//field[@name='fees_lines']/tree//field[@name='price_unit']" position="after">
-                    <field name="discount"/>
+                    <field name="discount" groups="sale.group_discount_per_so_line"/>
                     <field name="discount2" groups="product_pricelist_rules.group_second_discount"/>
                     <field name="discount3" groups="product_pricelist_rules.group_third_discount"/>
                     <field name="item_id" invisible="1"/>
