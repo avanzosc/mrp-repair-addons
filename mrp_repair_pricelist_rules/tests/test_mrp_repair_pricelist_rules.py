@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-# (c) 2015 Ainara Galdona - AvanzOSC
+# Copyright 2015 Ainara Galdona - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 import openerp.tests.common as common
@@ -73,10 +73,10 @@ class TestMrpRepairPricelistRules(common.TransactionCase):
                              (1 - op_line.discount/100)), 2)
         op2_subtotal = round((op2_line.product_uom_qty * op2_line.price_unit *
                               (1 - op2_line.discount/100)), 2)
-        self.assertEqual(op_line.price_subtotal, op_subtotal,
-                         "Incorrect subtotal")
-        self.assertEqual(op2_line.price_subtotal, op2_subtotal,
-                         "Incorrect subtotal.")
+        self.assertEquals(
+            op_line.price_subtotal, op_subtotal, "Incorrect subtotal")
+        self.assertEquals(
+            op2_line.price_subtotal, op2_subtotal, "Incorrect subtotal.")
 
     def test_mrp_repair_line_discount(self):
         op_line = self.mrp_repair.operations.filtered(
@@ -85,10 +85,8 @@ class TestMrpRepairPricelistRules(common.TransactionCase):
             lambda x: x.product_id.id == self.op2_product.id)
         op_line.onchange_item_id()
         op2_line.onchange_item_id()
-        self.assertEqual(op_line.discount, 25,
-                         "Incorrect discount.")
-        self.assertEqual(op2_line.discount, 25,
-                         "Incorrect discount.")
+        self.assertEquals(op_line.discount, 25, "Incorrect discount.")
+        self.assertEquals(op2_line.discount, 25, "Incorrect discount.")
 
     def test_mrp_repair_invoice(self):
         self.mrp_repair.signal_workflow('repair_confirm')
