@@ -1,0 +1,89 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_repair_type
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-06-22 10:11+0000\n"
+"PO-Revision-Date: 2018-06-22 12:16+0100\n"
+"Last-Translator: Daniel <danielcampos@avanzosc.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: mrp_repair_type
+#: model:ir.actions.act_window,help:mrp_repair_type.mrp_repair_type_action
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a new repair order type.\n"
+"              </p>\n"
+"        "
+msgstr ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Clickar para añadir un nuevo tipo de reparación.\n"
+"              </p>\n"
+
+#. module: mrp_repair_type
+#: view:mrp.repair:mrp_repair_type.view_repair_order_form_filter
+msgid "Company"
+msgstr "Compañia"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,display_name:0
+msgid "Display Name"
+msgstr "Mostrar nombre"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,write_uid:0
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: mrp_repair_type
+#: field:mrp.repair.type,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: mrp_repair_type
+#: model:ir.model,name:mrp_repair_type.model_mrp_repair
+msgid "Repair Order"
+msgstr "Orden de reparación"
+
+#. module: mrp_repair_type
+#: field:mrp.repair,repair_type:0
+#: view:mrp.repair.type:mrp_repair_type.view_repair_type_tree
+#: help:mrp.repair.type,name:0
+msgid "Repair order type"
+msgstr "Tipo reparación"
+
+#. module: mrp_repair_type
+#: model:ir.actions.act_window,name:mrp_repair_type.mrp_repair_type_action
+#: model:ir.ui.menu,name:mrp_repair_type.menu_repair_type_config
+#: view:mrp.repair:mrp_repair_type.view_repair_order_form_filter
+#: field:mrp.repair.type,name:0
+msgid "Repair type"
+msgstr "Tipo de reparación"
