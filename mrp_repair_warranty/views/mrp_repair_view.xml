@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<openerp>
+<data>
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="name">mrp.repair.tree</field>
+        <field name="model">mrp.repair</field>
+        <field name="inherit_id" ref="mrp_repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="guarantee_limit" position="after">
+                <field name="is_in_warranty"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">mrp.repair.form</field>
+        <field name="model">mrp.repair</field>
+        <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <field name="guarantee_limit" position="before">
+                <field name="is_in_warranty"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+          <field name="name">mrp.repair.select</field>
+          <field name="model">mrp.repair</field>
+          <field name="inherit_id" ref="mrp_repair.view_repair_order_form_filter" />
+          <field name="arch" type="xml">
+              <field name="partner_id" position="after">
+                <field name="is_in_warranty"/>
+              </field>
+              <filter string="Company" position="before">
+                <filter string="Is in warranty" domain="[]" context="{'group_by':'is_in_warranty'}"/>
+              </filter>
+          </field>
+    </record>
+</data>
+</openerp>
