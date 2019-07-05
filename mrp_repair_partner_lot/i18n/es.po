@@ -1,0 +1,204 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_repair_partner_lot
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-07-05 09:23+0000\n"
+"PO-Revision-Date: 2019-07-05 09:23+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_form
+#: field:mrp.repair.customer.lot,cause:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Cause"
+msgstr "Causa"
+
+#. module: mrp_repair_partner_lot
+#: help:mrp.repair.customer.lot,customer_id:0
+msgid "Choose partner for whom the order will be invoiced and delivered."
+msgstr "Elija una empresa para la cual el pedido será facturado y entregado."
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,create_date:0
+msgid "Created on"
+msgstr "Creado el"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+#: field:mrp.repair.customer.lot,customer_id:0
+msgid "Customer"
+msgstr "Cliente"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+#: field:mrp.repair,customer_lot_ids:0
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_tree
+msgid "Customer lots"
+msgstr "Lotes cliente"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+#: field:mrp.repair.customer.lot,product_code:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Customer product code"
+msgstr "Código producto cliente"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_form
+#: field:mrp.repair.customer.lot,description_breakdown:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Description breakdown"
+msgstr "Descripción avería"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+msgid "Group By"
+msgstr "Agrupar por"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,id:0
+msgid "ID"
+msgstr "ID"
+
+#. module: mrp_repair_partner_lot
+#: model:ir.model,name:mrp_repair_partner_lot.model_product_supplierinfo
+msgid "Information about a product supplier"
+msgstr "Información de un proveedor de producto"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Invoice address:"
+msgstr "Dirección de facturación:"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Invoice and shipping address:"
+msgstr "Dirección de facturación y de envío:"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,write_uid:0
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,write_date:0
+msgid "Last Updated on"
+msgstr "Última modificación el"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,lot_id:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Lot"
+msgstr "Lote"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_form
+msgid "MRP repair customer lot"
+msgstr "MRP repair customer lot"
+
+#. module: mrp_repair_partner_lot
+#: model:ir.actions.act_window,name:mrp_repair_partner_lot.action_mrp_repair_customer_lot_view
+#: model:ir.ui.menu,name:mrp_repair_partner_lot.mrp_repair_customer_lot_option_view
+msgid "MRP repair customer lots"
+msgstr "MRP reparación lotes cliente"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+msgid "Notes"
+msgstr "Notas"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+#: field:mrp.repair.customer.lot,product_tmpl_id:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Product template"
+msgstr "Plantilla producto"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,quantity:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+msgid "Repair"
+msgstr "Reparación"
+
+#. module: mrp_repair_partner_lot
+#: model:ir.model,name:mrp_repair_partner_lot.model_mrp_repair
+msgid "Repair Order"
+msgstr "Orden de reparación"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Repair date:"
+msgstr "Fecha reparación:"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_form
+#: field:mrp.repair.customer.lot,repair_effectuate:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Repair effectuate"
+msgstr "Reparación efectuada"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,repair_id:0
+msgid "Repair order"
+msgstr "Orden reparación"
+
+#. module: mrp_repair_partner_lot
+#: model:ir.actions.report.xml,name:mrp_repair_partner_lot.action_report_mrp_repair_partner_lot
+#: view:mrp.repair:mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot
+msgid "Repair report"
+msgstr "Informe reparación"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Repair report N°:"
+msgstr "Informe de reparación N°:"
+
+#. module: mrp_repair_partner_lot
+#: field:mrp.repair.customer.lot,repairable:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Repairable"
+msgstr "Reparable"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Responsible:"
+msgstr "Responsable:"
+
+#. module: mrp_repair_partner_lot
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+msgid "Search mrp repair customer lots"
+msgstr "Buscar lotes cliente reparación"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Shipping address :"
+msgstr "Dirección de envío :"
+
+#. module: mrp_repair_partner_lot
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "VAT:"
+msgstr "NIF:"
+

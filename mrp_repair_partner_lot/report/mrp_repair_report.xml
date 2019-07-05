@@ -1,0 +1,124 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <report
+            string="Repair report"
+            id="action_report_mrp_repair_partner_lot"
+            model="mrp.repair"
+            report_type="qweb-pdf"
+            name="mrp_repair_partner_lot.report_mrp_repair_partner_lot"
+            file="mrp_repair_partner_lot.report_mrp_repair_partner_lot"/>
+
+        <template id="report_mrp_repair_partner_lot_printing">
+            <t t-call="report.external_layout">
+                <div class="page">
+                    <div class="oe_structure"/>
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <strong t-if="o.address_id == o.partner_invoice_id">Invoice and shipping address:</strong>
+                            <div t-if="o.partner_invoice_id">
+                                <strong t-if="o.address_id != o.partner_invoice_id">Invoice address: </strong>
+                                <div t-field="o.partner_invoice_id"
+                                    t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                                <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
+                            </div>
+                            <div t-if="o.address_id != o.partner_invoice_id" class="mt8">
+                                <strong>Shipping address :</strong>
+                                <div t-field="o.address_id" 
+                                    t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                                <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
+                            </div>                        
+                        </div>
+                        <div class="col-xs-5 col-xs-offset-1">
+                            <div t-field="o.partner_id"
+                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
+                        </div>
+                    </div>
+
+                    <h2>
+                        <span>Repair report N°:</span>
+                        <span t-field="o.name"/>
+                    </h2>
+
+                    <div class="row mt32 mb32">
+                        <div class="col-xs-3">
+                            <strong>Repair date:</strong>
+                            <br/>
+                            <span t-field="o.date_repair" t-field-options='{"widget": "date"}'/>
+                        </div>
+                        <div t-if="o.user_id.name" class="col-xs-3">
+                            <strong>Responsible:</strong>
+                            <p t-field="o.user_id.name"/>
+                        </div>
+                    </div>
+
+                    <table class="table table-condensed">
+                        <thead>
+                            <tr name="report-head">
+                                <th>Customer product code</th>
+                                <th>Product template</th>
+                                <th>Lot</th>
+                                <th>Quantity</th>
+                                <th>Description breakdown</th>
+                                <th>Cause</th>
+                                <th>Repair effectuate</th>
+                                <th>Repairable</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr t-foreach="o.customer_lot_ids" t-as="line" name="report-body">
+                                <td>
+                                    <p t-if="line.product_code">
+                                       <span t-field="line.product_code" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <p t-if="line.product_tmpl_id">
+                                       <span t-field="line.product_tmpl_id" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <p t-if="line.lot_id">
+                                       <span t-field="line.lot_id" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <p t-if="line.quantity">
+                                       <span t-field="line.quantity" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <p t-if="line.description_breakdown">
+                                       <span t-field="line.description_breakdown" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <p t-if="line.cause">
+                                       <span t-field="line.cause" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <p t-if="line.repair_effectuate">
+                                       <span t-field="line.repair_effectuate" />
+                                     </p>
+                                </td>
+                                <td>
+                                    <span t-field="line.repairable" />
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <div class="oe_structure"/>
+                </div>
+            </t>
+        </template>
+
+        <template id="report_mrp_repair_partner_lot">
+            <t t-call="report.external_layout">
+                <t t-foreach="doc_ids" t-as="doc_id">
+                    <t t-raw="translate_doc(doc_id, doc_model, 'partner_id.lang', 'mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing')"/>
+                </t>
+            </t>
+        </template>
+    </data>
+</openerp>

@@ -1,0 +1,89 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="mrp_repair_customer_lot_view_tree" model="ir.ui.view">
+            <field name="name">mrp.repair.customer.lot.view.tree</field>
+            <field name="model">mrp.repair.customer.lot</field>
+            <field name="arch" type="xml">
+                 <tree string="Customer lots">
+                     <field name="repair_id" />
+                     <field name="customer_id" />
+                     <field name="product_code" context="{'show_customer_product_code':True}"/>
+                     <field name="product_tmpl_id" />
+                     <field name="lot_id" />
+                     <field name="quantity" />
+                     <field name="description_breakdown" />
+                     <field name="cause" />
+                     <field name="repair_effectuate" />
+                     <field name="repairable" />
+                 </tree>
+            </field>
+        </record>
+        <record id="mrp_repair_customer_lot_view_search" model="ir.ui.view">
+            <field name="name">mrp.repair.customer.lot.view.search</field>
+            <field name="model">mrp.repair.customer.lot</field>
+            <field name="arch" type="xml">
+                <search string="Search mrp repair customer lots">
+                    <field name="repair_id" />
+                    <field name="customer_id" />
+                    <field name="product_code" />
+                    <field name="product_tmpl_id" />
+                    <field name="lot_id" />
+                    <group expand="1" string="Group By">
+                        <filter string="Customer" name="group-customer"
+                                domain="[]" context="{'group_by':'customer_id'}"/>
+                        <filter string="Repair" name="group-repair"
+                                domain="[]" context="{'group_by':'repair_id'}"/>
+                        <filter string="Customer product code" name="group-product-code"
+                                domain="[]" context="{'group_by':'product_code'}"/>
+                        <filter string="Product template" name="group-product-template"
+                                domain="[]" context="{'group_by':'product_tmpl_id'}"/>
+                    </group>
+                </search>
+            </field>
+        </record>
+
+        <record id="mrp_repair_customer_lot_view_form" model="ir.ui.view">
+            <field name="name">mrp.repair.customer.lot.view.form</field>
+            <field name="model">mrp.repair.customer.lot</field>
+            <field name="arch" type="xml">
+                <form string="MRP repair customer lot">
+                    <sheet>
+                        <group name="head">
+                            <group>
+                                <field name="repair_id" />
+                                <field name="customer_id" invisible="1"/>
+                                <field name="product_code"
+                                    domain="[('name', '=', customer_id), ('type', '=', 'customer')]"
+                                    context="{'show_customer_product_code':True}" />
+                                <field name="product_tmpl_id" readonly="1"/>
+                            </group>
+                            <group>
+                                <field name="lot_id" />
+                                <field name="quantity" />
+                                <field name="repairable" />
+                            </group>
+                            <separator string="Description breakdown" colspan="4" />
+                            <field name="description_breakdown" nolabel="1" colspan="4" />
+                            <separator string="Cause" colspan="4" />
+                            <field name="cause" nolabel="1" colspan="4" />
+                            <separator string="Repair effectuate" colspan="4" />
+                            <field name="repair_effectuate" nolabel="1" colspan="4" />
+                        </group>
+                    </sheet>
+                </form>
+            </field>
+        </record>
+        <record id="action_mrp_repair_customer_lot_view" model="ir.actions.act_window">
+            <field name="name">MRP repair customer lots</field>
+            <field name="type">ir.actions.act_window</field>
+            <field name="res_model">mrp.repair.customer.lot</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+        </record>
+        <menuitem id="mrp_repair_customer_lot_option_view" name="MRP repair customer lots"
+                  action="action_mrp_repair_customer_lot_view" 
+                  groups="mrp.group_mrp_user"
+                  parent="mrp.menu_mrp_manufacturing" sequence="51"/>
+    </data>
+</openerp>
