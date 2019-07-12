@@ -16,6 +16,7 @@
     "depends": [
         "stock",
         "mrp_repair",
+        "product_supplierinfo_for_customer",
     ],
     "data": [
         "security/ir.model.access.csv",
