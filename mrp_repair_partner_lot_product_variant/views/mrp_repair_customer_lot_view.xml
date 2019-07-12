@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="mrp_repair_customer_lot_view_tree_inh_variant" model="ir.ui.view">
+            <field name="name">mrp.repair.customer.lot.view.tree-inh.variant</field>
+            <field name="model">mrp.repair.customer.lot</field>
+            <field name="inherit_id" ref="mrp_repair_partner_lot.mrp_repair_customer_lot_view_tree"/>
+            <field name="arch" type="xml">
+               <field name="product_tmpl_id" position="after">
+                  <field name="product_id" />
+               </field>
+            </field>
+        </record>
+        <record id="mrp_repair_customer_lot_view_search_inh_variant" model="ir.ui.view">
+            <field name="name">mrp.repair.customer.lot.view.search.inh.variant</field>
+            <field name="model">mrp.repair.customer.lot</field>
+            <field name="inherit_id" ref="mrp_repair_partner_lot.mrp_repair_customer_lot_view_search"/>
+            <field name="arch" type="xml">
+               <field name="product_tmpl_id" position="after">
+                  <field name="product_id" />
+               </field>
+               <filter name="group-product-template" position="after">
+                  <filter string="Product variant" name="group-product"
+                          domain="[]" context="{'group_by':'product_id'}"/>
+               </filter>
+            </field>
+        </record>
+        <record id="mrp_repair_customer_lot_view_form_inh_variant" model="ir.ui.view">
+            <field name="name">mrp.repair.customer.lot.view.form.inh.variant</field>
+            <field name="model">mrp.repair.customer.lot</field>
+            <field name="inherit_id" ref="mrp_repair_partner_lot.mrp_repair_customer_lot_view_form"/>
+            <field name="arch" type="xml">
+               <field name="product_tmpl_id" position="after">
+                  <field name="product_id" />
+               </field>
+            </field>
+        </record>
+    </data>
+</openerp>
