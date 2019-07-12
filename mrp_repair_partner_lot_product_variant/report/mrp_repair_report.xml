@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+        <template id="report_mrp_repair_partner_lot_printing_inh_variant" inherit_id="mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing">
+            <xpath expr="//tr[@name='report-head']/th[2]" position="after">
+                <th>Product</th>
+            </xpath>
+            <xpath expr="//tr[@name='report-body']/td[2]" position="after">
+                <td>
+                    <p t-if="line.product_id">
+                       <span t-field="line.product_id" />
+                     </p>
+                </td>
+            </xpath>
+        </template>
+    </data>
+</openerp>
