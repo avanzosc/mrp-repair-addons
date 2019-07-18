@@ -7,6 +7,7 @@
             <field name="arch" type="xml">
                  <tree string="Customer lots">
                      <field name="repair_id" />
+                     <field name="repair_date" />
                      <field name="customer_id" />
                      <field name="product_code" context="{'show_customer_product_code':True}"/>
                      <field name="product_tmpl_id" />
@@ -25,6 +26,7 @@
             <field name="arch" type="xml">
                 <search string="Search mrp repair customer lots">
                     <field name="repair_id" />
+                    <field name="repair_date" />
                     <field name="customer_id" />
                     <field name="product_code" />
                     <field name="product_tmpl_id" />
@@ -34,6 +36,8 @@
                                 domain="[]" context="{'group_by':'customer_id'}"/>
                         <filter string="Repair" name="group-repair"
                                 domain="[]" context="{'group_by':'repair_id'}"/>
+                        <filter string="Repair date" name="group-repair-date"
+                                domain="[]" context="{'group_by':'repair_date'}"/>
                         <filter string="Customer product code" name="group-product-code"
                                 domain="[]" context="{'group_by':'product_code'}"/>
                         <filter string="Product template" name="group-product-template"
@@ -52,6 +56,7 @@
                         <group name="head">
                             <group>
                                 <field name="repair_id" />
+                                <field name="repair_date" />
                                 <field name="customer_id" invisible="1"/>
                                 <field name="product_code"
                                     domain="[('name', '=', customer_id), ('type', '=', 'customer')]"
@@ -80,6 +85,7 @@
             <field name="res_model">mrp.repair.customer.lot</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
+            <field name="context">{'show_customer_product_code': True}</field>
         </record>
         <menuitem id="mrp_repair_customer_lot_option_view" name="MRP repair customer lots"
                   action="action_mrp_repair_customer_lot_view" 
