@@ -4,7 +4,7 @@
 
 {
     "name": "MRP Repair Partner Lot",
-    "version": "8.0.1.0.0",
+    "version": "8.0.1.1.0",
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "website": "http://www.avanzosc.es",
@@ -17,6 +17,7 @@
         "stock",
         "mrp_repair",
         "product_supplierinfo_for_customer",
+        "mrp_calendar_view"
     ],
     "data": [
         "security/ir.model.access.csv",

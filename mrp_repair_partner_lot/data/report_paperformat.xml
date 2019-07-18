@@ -13,7 +13,7 @@
             <field name="margin_left">7</field>
             <field name="margin_right">7</field>
             <field name="header_line" eval="False" />
-            <field name="header_spacing">25</field>
+            <field name="header_spacing">35</field>
             <field name="dpi">90</field>
         </record>
         <record id="action_report_mrp_repair_partner_lot" model="ir.actions.report.xml">

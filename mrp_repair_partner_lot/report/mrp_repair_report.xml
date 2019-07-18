@@ -11,10 +11,16 @@
 
         <template id="report_mrp_repair_partner_lot_printing">
             <t t-call="report.external_layout">
+                <t t-set="o" t-value="o.with_context({'show_customer_product_code':True})" />
                 <div class="page">
                     <div class="oe_structure"/>
                     <div class="row">
                         <div class="col-xs-6">
+                            <div t-field="o.company_id.partner_id" 
+                                t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
+                            <p t-if="o.company_id.partner_id.vat">VAT: <span t-field="o.company_id.partner_id.vat"/></p>
+                        </div>
+                        <div class="col-xs-5 col-xs-offset-1">
                             <strong t-if="o.address_id == o.partner_invoice_id">Invoice and shipping address:</strong>
                             <div t-if="o.partner_invoice_id">
                                 <strong t-if="o.address_id != o.partner_invoice_id">Invoice address: </strong>
@@ -28,10 +34,6 @@
                                     t-field-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'/>
                                 <p t-if="o.partner_id.vat">VAT: <span t-field="o.partner_id.vat"/></p>
                             </div>                        
-                        </div>
-                        <div class="col-xs-5 col-xs-offset-1">
-                            <div t-field="o.partner_id"
-                                t-field-options='{"widget": "contact", "fields": ["address", "name"], "no_marker": true}' />
                         </div>
                     </div>
 
