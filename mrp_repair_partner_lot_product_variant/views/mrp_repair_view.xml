@@ -1,0 +1,20 @@
+<?xml version="1.0"?>
+<openerp>
+    <data>
+        <record id="view_repair_order_form_inh_prod_var" model="ir.ui.view">
+            <field name="name">view.repair.order.form.inh.prod.var</field>
+            <field name="model">mrp.repair</field>
+            <field name="inherit_id" ref="mrp_repair_partner_lot.view_repair_order_form_inh_partner_lot"/>
+            <field name="arch" type="xml">
+                <xpath expr="//tree[@name='tree-customer-lots']/field[@name='product_tmpl_id']" position="after">
+                    <field name="product_id" />
+                    <field name="default_code" />
+                </xpath>
+                <xpath expr="//form[@name='form-customer-lots']//field[@name='product_tmpl_id']" position="after">
+                    <field name="product_id" readonly="1"/>
+                    <field name="default_code" readonly="1"/>
+                </xpath>
+            </field>
+        </record>
+    </data>
+</openerp>

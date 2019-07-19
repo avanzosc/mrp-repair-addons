@@ -20,6 +20,7 @@
     "data": [
         "report/mrp_repair_report.xml",
         "views/mrp_repair_customer_lot_view.xml",
+        "views/mrp_repair_view.xml",
     ],
     "installable": True,
     "autoinstall": True,

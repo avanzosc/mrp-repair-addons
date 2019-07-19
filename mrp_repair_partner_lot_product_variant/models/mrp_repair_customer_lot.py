@@ -10,3 +10,6 @@ class MrpRepairCustomerLot(models.Model):
     product_id = fields.Many2one(
         comodel_name='product.product', string='Product variant',
         related='product_code.product_id', store=True)
+    default_code = fields.Char(
+        string='Internal reference', related='product_id.default_code',
+        store=True)
