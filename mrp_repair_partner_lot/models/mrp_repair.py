@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 # Copyright 2019 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
-from openerp import models, fields
+from openerp import models, fields, api
 import openerp.addons.decimal_precision as dp
 
 
@@ -19,6 +19,9 @@ class MrpRepairCustomerLot(models.Model):
 
     repair_id = fields.Many2one(
         comodel_name='mrp.repair', string='Repair order')
+    repair_date = fields.Date(
+        string='Repair date', compute='_compute_repair_date',
+        store=True)
     customer_id = fields.Many2one(
         comodel_name='res.partner', string='Customer',
         related='repair_id.partner_id', store=True)
@@ -35,3 +38,10 @@ class MrpRepairCustomerLot(models.Model):
     cause = fields.Text(string='Cause')
     repair_made = fields.Text(string='Repair made')
     repairable = fields.Boolean(string='Repairable')
+
+    @api.depends('repair_id', 'repair_id.date_repair')
+    def _compute_repair_date(self):
+        for lot in self.filtered(lambda l: l.repair_id and
+                                 l.repair_id.date_repair):
+            lot.repair_date = (
+                fields.Datetime.from_string(lot.repair_id.date_repair).date())
