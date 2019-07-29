@@ -4,11 +4,17 @@
         <template id="report_mrp_repair_partner_lot_printing_inh_variant" inherit_id="mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing">
             <xpath expr="//tr[@name='report-head']/th[2]" position="after">
                 <th>Product</th>
+                <th>Internal reference</th>
             </xpath>
             <xpath expr="//tr[@name='report-body']/td[2]" position="after">
                 <td>
                     <p t-if="line.product_id">
                        <span t-field="line.product_id" />
+                     </p>
+                </td>
+                <td>
+                    <p t-if="line.default_code">
+                       <span t-field="line.default_code" />
                      </p>
                 </td>
             </xpath>

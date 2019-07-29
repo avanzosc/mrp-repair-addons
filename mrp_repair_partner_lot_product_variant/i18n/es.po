@@ -36,3 +36,10 @@ msgstr "Variante producto"
 msgid "When this field is filled in, the vendor data will onlyapply to the variant."
 msgstr "Cuando se complete este campo, los datos del proveedor solo se aplicarán a la variante."
 
+#. module: mrp_repair_partner_lot_product_variant
+#: view:mrp.repair.customer.lot:mrp_repair_partner_lot_product_variant.mrp_repair_customer_lot_view_search_inh_variant
+#: field:mrp.repair.customer.lot,default_code:0
+#: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
+msgid "Internal reference"
+msgstr "Referencia interna"
+
