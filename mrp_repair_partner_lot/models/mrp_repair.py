@@ -38,6 +38,9 @@ class MrpRepairCustomerLot(models.Model):
     cause = fields.Text(string='Cause')
     repair_made = fields.Text(string='Repair made')
     repairable = fields.Boolean(string='Repairable')
+    partner_product_code = fields.Char(
+        string='Customer product code', related='product_code.product_code',
+        store=True)
 
     @api.depends('repair_id', 'repair_id.date_repair')
     def _compute_repair_date(self):

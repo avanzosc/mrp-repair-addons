@@ -53,6 +53,7 @@ msgstr "Lotes cliente"
 
 #. module: mrp_repair_partner_lot
 #: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
+#: field:mrp.repair.customer.lot,partner_product_code:0
 #: field:mrp.repair.customer.lot,product_code:0
 #: view:website:mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing
 msgid "Customer product code"
