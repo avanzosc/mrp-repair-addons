@@ -23,6 +23,7 @@ msgstr "Compañia"
 
 #. module: mrp_repair_warranty
 #: field:mrp.repair,is_in_warranty:0
+#: view:mrp.repair:mrp_repair_warranty.view_repair_order_form_filter
 msgid "In warranty"
 msgstr "En garantia"
 
