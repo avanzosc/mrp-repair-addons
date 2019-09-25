@@ -30,6 +30,9 @@
               <field name="partner_id" position="after">
                 <field name="is_in_warranty"/>
               </field>
+              <filter string="Invoiced" position="before">
+                <filter string="In warranty" name="is_in_warranty" domain="[('is_in_warranty','=',True)]" help="Is in warranty"/>
+              </filter>
               <filter string="Company" position="before">
                 <filter string="Is in warranty" domain="[]" context="{'group_by':'is_in_warranty'}"/>
               </filter>
