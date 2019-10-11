@@ -46,24 +46,27 @@ class MrpRepairFee(models.Model):
     def _onchange_user_id(self):
         employee_obj = self.env['hr.employee']
         result = {}
-        cond = [('user_id', '=', self.user_id.id)]
-        employee = employee_obj.search(cond, limit=1)
-        if employee and employee.product_id:
-            self.product_id = employee.product_id
-            if employee.product_id and employee.product_id.taxes_id:
-                self.tax_id = [(6, 0, [employee.product_id.taxes_id[0].id])]
-        else:
-            warning = {'title': _('Warning!')}
-            if not employee:
-                warning['message'] = _('User does not have any employee '
-                                       'assigned')
-                self.name = _('Associate employee to user')
-            elif not employee.product_id:
-                warning['message'] = _('The employee associated with the user'
-                                       ' has not defined any product')
-                self.name = _('Associate product to employee')
-            self.product_id = False
-            result['warning'] = warning
+        if self.user_id:
+            cond = [('user_id', '=', self.user_id.id)]
+            employee = employee_obj.search(cond, limit=1)
+            if employee and employee.product_id:
+                self.product_id = employee.product_id
+                if employee.product_id and employee.product_id.taxes_id:
+                    self.tax_id = [
+                        (6, 0, [employee.product_id.taxes_id[0].id])]
+            else:
+                warning = {'title': _('Warning!')}
+                if not employee:
+                    warning['message'] = _('User does not have any employee '
+                                           'assigned')
+                    self.name = _('Associate employee to user')
+                elif not employee.product_id:
+                    warning['message'] = _(
+                        'The employee associated with the user'
+                        ' has not defined any product')
+                    self.name = _('Associate product to employee')
+                self.product_id = False
+                result['warning'] = warning
         return result
 
     @api.multi
