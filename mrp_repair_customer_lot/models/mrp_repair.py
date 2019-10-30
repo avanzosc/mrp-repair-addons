@@ -11,4 +11,5 @@ class MrpRepair(models.Model):
     @api.onchange('lot_id')
     def onchange_lot_id(self):
         self.ensure_one()
-        self.partner_id = self.lot_id.customer.id or False
+        if self.lot_id:
+            self.partner_id = self.lot_id.customer.id
