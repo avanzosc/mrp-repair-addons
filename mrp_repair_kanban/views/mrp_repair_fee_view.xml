@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+<record id="mrp_repair_fee_employee_view_tree" model="ir.ui.view">
+            <field name="name">mrp.repair.fee.tree</field>
+            <field name="model">mrp.repair.fee</field>
+            <field name="priority">50</field>
+            <field name="arch" type="xml">
+                <tree string="Repair Fees Lines" editable="bottom" default_order="imputation_date desc">
+                    <field name="imputation_date" />
+                    <field name="repair_id" options="{&quot;no_open&quot;: True}" />
+                    <field name="user_id" readonly="1"/>
+                    <field name="product_uom_qty" string="Quantity" sum="Total"/>
+                    <field name="repair_partner" options="{&quot;no_open&quot;: True}"/>
+                    <field name="name" />
+                </tree>
+            </field>
+        </record>
+
+    <record id="mrp_repair_fee_view_search" model="ir.ui.view">
+         <field name="name">mrp.repair.fee.search</field>
+         <field name="model">mrp.repair.fee</field>
+         <field name="inherit_id" ref="mrp_repair_fee.mrp_repair_fee_view_search"/>
+         <field name="arch" type="xml">
+         <field name="name" position="after">
+            <filter string="Today" name="today" domain="[('imputation_date', '&gt;=', datetime.datetime.now().strftime('%Y-%m-%d 00:00:00')),('imputation_date', '&lt;=',datetime.datetime.now().strftime('%Y-%m-%d 23:23:59'))]"/>
+         </field>
+         </field>
+    </record>
+
+    <record id="action_mrp_repair_fee" model="ir.actions.act_window">
+        <field name="name">User Repair Fees Lines</field>
+        <field name="res_model">mrp.repair.fee</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">tree,form</field>
+        <field name="view_id" ref="mrp_repair_fee_employee_view_tree"/>
+    </record>
+    </data>
+</openerp>

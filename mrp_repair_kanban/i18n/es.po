@@ -1,0 +1,222 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_repair_kanban
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2019-12-18 12:40+0000\n"
+"PO-Revision-Date: 2019-12-18 13:47+0100\n"
+"Last-Translator: Daniel <danielcampos@avanzosc.es>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: \n"
+"X-Generator: Poedit 1.5.4\n"
+
+#. module: mrp_repair_kanban
+#: model:ir.actions.act_window,help:mrp_repair_kanban.open_view_employee_list_my
+msgid ""
+"<p class=\"oe_view_nocontent_create\">\n"
+"                Click to add a new employee.\n"
+"              </p><p>\n"
+"                With just a quick glance on the Odoo employee screen, you\n"
+"                can easily find all the information you need for each "
+"person;\n"
+"                contact data, job position, availability, etc.\n"
+"              </p>\n"
+"            "
+msgstr ""
+
+#. module: mrp_repair_kanban
+#: view:hr.employee:mrp_repair_kanban.hr_kanban_employee_view
+msgid "Add Hours"
+msgstr "Añadir horas"
+
+#. module: mrp_repair_kanban
+#: model:ir.actions.act_window,name:mrp_repair_kanban.action_wizard_mrp_repair_fee
+msgid "Add Mrp Repair Fee"
+msgstr "Añadir lineas de cargo"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_mrp_repair_fee
+msgid "Add Repair Fee"
+msgstr "Añadir linea de cargo"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_employee_pin_view
+msgid "Cancel"
+msgstr "Cancelar"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,create_uid:0
+msgid "Created by"
+msgstr "Creado por"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,create_date:0
+msgid "Created on"
+msgstr "Creado en"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,display_name:0
+msgid "Display Name"
+msgstr "Nombre"
+
+#. module: mrp_repair_kanban
+#: model:ir.model,name:mrp_repair_kanban.model_hr_employee
+#: field:wizard.mrp.repair.fee,employee_id:0
+msgid "Employee"
+msgstr "Empleado"
+
+#. module: mrp_repair_kanban
+#: model:ir.actions.act_window,name:mrp_repair_kanban.action_repair_employee_pin_view
+msgid "Employee Pin view"
+msgstr "Pin empleado"
+
+#. module: mrp_repair_kanban
+#: model:ir.actions.act_window,name:mrp_repair_kanban.open_view_employee_list_my
+msgid "Employees"
+msgstr "Empleados"
+
+#. module: mrp_repair_kanban
+#: model:ir.ui.menu,name:mrp_repair_kanban.menu_open_view_employee_list_my
+msgid "Employees (simpl.)"
+msgstr "Empleados (simpl.)"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_employee_pin_view
+msgid "Enter PIN code"
+msgstr "Introduce código pin"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_mrp_repair_fee
+msgid "Exit"
+msgstr "Salir"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,id:0
+msgid "ID"
+msgstr ""
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,imputation_date:0
+msgid "Imputation Date"
+msgstr "Fecha de imputación"
+
+#. module: mrp_repair_kanban
+#: code:addons/mrp_repair_kanban/wizard/mrp_repair_wizard.py:61
+#: code:addons/mrp_repair_kanban/wizard/mrp_repair_wizard.py:83
+#, python-format
+msgid "Incorrect PIN code"
+msgstr "PIN incorrecto"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,write_uid:0
+msgid "Last Updated by"
+msgstr "Última modificación por"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,write_date:0
+msgid "Last Updated on"
+msgstr "Última actualización en"
+
+#. module: mrp_repair_kanban
+#: model:ir.ui.menu,name:mrp_repair_kanban.mrp_repair_kanban_menu
+msgid "Mrp Kanban"
+msgstr ""
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,name:0
+msgid "Mrp Repair Fee"
+msgstr ""
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,user_id:0
+msgid "Operator"
+msgstr "Operador"
+
+#. module: mrp_repair_kanban
+#: field:res.users,pin_code:0 field:wizard.mrp.repair.fee,pin_code:0
+msgid "PIN"
+msgstr "PIN"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_employee_pin_view
+msgid "Pin code"
+msgstr "Código PIN"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,product_id:0
+msgid "Product"
+msgstr "Producto"
+
+#. module: mrp_repair_kanban
+#: view:mrp.repair.fee:mrp_repair_kanban.mrp_repair_fee_employee_view_tree
+#: field:wizard.mrp.repair.fee,quantity:0
+msgid "Quantity"
+msgstr "Cantidad"
+
+#. module: mrp_repair_kanban
+#: view:mrp.repair.fee:mrp_repair_kanban.mrp_repair_fee_employee_view_tree
+msgid "Repair Fees Lines"
+msgstr "Lineas de cargo"
+
+#. module: mrp_repair_kanban
+#: model:ir.actions.act_window,name:mrp_repair_kanban.mrp_repair_action_kanban
+msgid "Repair Kanban View"
+msgstr ""
+
+#. module: mrp_repair_kanban
+#: model:ir.model,name:mrp_repair_kanban.model_mrp_repair
+#: field:wizard.mrp.repair.fee,repair_id:0
+msgid "Repair Order"
+msgstr "Orden de reparación"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_mrp_repair_fee
+msgid "Save and close"
+msgstr "Guardar y salir"
+
+#. module: mrp_repair_kanban
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_mrp_repair_fee
+msgid "Save and new"
+msgstr "Guardar y nuevo"
+
+#. module: mrp_repair_kanban
+#: view:mrp.repair.fee:mrp_repair_kanban.mrp_repair_fee_view_search
+msgid "Today"
+msgstr "Hoy"
+
+#. module: mrp_repair_kanban
+#: view:mrp.repair.fee:mrp_repair_kanban.mrp_repair_fee_employee_view_tree
+msgid "Total"
+msgstr "Total"
+
+#. module: mrp_repair_kanban
+#: model:ir.actions.act_window,name:mrp_repair_kanban.action_mrp_repair_fee
+msgid "User Repair Fees Lines"
+msgstr "Lineas de cargo usuario"
+
+#. module: mrp_repair_kanban
+#: model:ir.model,name:mrp_repair_kanban.model_res_users
+msgid "Users"
+msgstr "Usuarios"
+
+#. module: mrp_repair_kanban
+#: view:hr.employee:mrp_repair_kanban.hr_kanban_employee_view
+#: view:wizard.mrp.repair.fee:mrp_repair_kanban.view_wizard_employee_pin_view
+msgid "View Hours"
+msgstr "Ver horas"
+
+#. module: mrp_repair_kanban
+#: field:wizard.mrp.repair.fee,description:0
+msgid "description"
+msgstr "Descripción"
