@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <record model="ir.ui.view" id="view_mrp_repair_kanban">
+      <field name="name">mrp.repair.kanban</field>
+      <field name="model">mrp.repair</field>
+      <field name="arch" type="xml">
+        <kanban class="oe_notes oe_kanban_quickcreate_textarea">
+          <field name="name"/>
+          <field name="product_id"/>
+          <templates>
+            <t t-name="kanban-box">
+            <div class="oe_kanban_card">
+                <div class="oe_kanban_content">
+                <h4>
+                <a href="#" name="call_wizard_repair_hours" type="object">
+                 OT <field name="name"></field>
+                    <div class="oe_kanban_footer_left">
+                        <field name="lot_id" />
+                    </div>
+                  </a>
+                  </h4>
+                 </div>
+            </div>
+            </t>
+          </templates>
+        </kanban>
+      </field>
+    </record>
+
+    <record id="mrp_repair_action_kanban" model="ir.actions.act_window">
+        <field name="name">Repair Kanban View</field>
+        <field name="res_model">mrp.repair</field>
+        <field name="view_type">form</field>
+        <field name="view_mode">kanban,tree,form</field>
+        <field name="view_id" ref="view_mrp_repair_kanban"/>
+        <field name="context">{}</field>
+        <field name="domain">[('state', '=', 'under_repair')]</field>
+    </record>
+
+    <menuitem id="mrp_repair_kanban_menu" name="Mrp Kanban"
+              parent="mrp.menu_mrp_manufacturing" action="mrp_repair_action_kanban"
+              sequence="80" />
+    </data>
+</openerp>

@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8"?>
+<openerp>
+    <data>
+    <!-- Import Account move lines Wizard form -->
+        <record id="view_wizard_mrp_repair_fee" model="ir.ui.view">
+            <field name="name">view.wizard.mrp.repair.fee</field>
+            <field name="model">wizard.mrp.repair.fee</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Add Repair Fee">
+                    <group colspan="4" col="4">
+                        <field name="repair_id" options="{&quot;no_open&quot;: True}"/>
+                        <field name="user_id" widget="selection"/>
+                        <field name="pin_code" password="True"/>
+                        <field name="imputation_date"/>
+                        <field name="product_id" options="{&quot;no_open&quot;: True}"/>
+                        <field name="quantity"/>
+                    </group>
+                   <field name="description"/>
+                   <separator string="" colspan="4"/>
+                   <footer>
+                        <button name="save_and_close" class="oe_highlight" string="Save and close" type="object"/>
+                        <button name="save_and_new" class="oe_highlight" string="Save and new" type="object"/>
+                        <button name="close_wizard_view" string="Exit" type="object"/>
+                   </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_wizard_mrp_repair_fee" model="ir.actions.act_window">
+            <field name="name">Add Mrp Repair Fee</field>
+            <field name="res_model">wizard.mrp.repair.fee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_wizard_mrp_repair_fee"/>
+           <field name="target">new</field>
+        </record>
+
+        <record id="view_wizard_employee_pin_view" model="ir.ui.view">
+            <field name="name">view.wizard.employee.pin.view</field>
+            <field name="model">wizard.mrp.repair.fee</field>
+            <field name="type">form</field>
+            <field name="arch" type="xml">
+                <form string="Pin code">
+                    <separator string="Enter PIN code" colspan="4" />
+                    <group colspan="4" col="4">
+                        <field name="employee_id"/>
+                        <field name="pin_code" password="True"/>
+                    </group>
+                   <footer>
+                        <button name="view_user_repair_hours" string="View Hours" type="object"/>
+                        <button special="cancel" string="Cancel"/>
+                   </footer>
+               </form>
+            </field>
+        </record>
+
+        <record id="action_repair_employee_pin_view" model="ir.actions.act_window">
+            <field name="name">Employee Pin view</field>
+            <field name="res_model">wizard.mrp.repair.fee</field>
+            <field name="view_type">form</field>
+            <field name="view_mode">tree,form</field>
+           <field name="view_id" ref="view_wizard_employee_pin_view"/>
+           <field name="target">new</field>
+        </record>
+    </data>
+</openerp>
