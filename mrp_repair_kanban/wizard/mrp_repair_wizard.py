@@ -11,8 +11,19 @@ from openerp.tools.safe_eval import safe_eval
 class WizardMrpRepairFee(models.Model):
     _name = 'wizard.mrp.repair.fee'
 
+    @api.model
+    def _get_workshop_user(self):
+        workshops = self.env['hr.department'].search(
+            [('name', 'in', ('Workshop', 'TALLER'))])
+        employee_obj = self.env['hr.employee']
+        users_lst = employee_obj.search(
+            []).filtered(
+                lambda r: r.department_id in workshops).mapped('user_id').ids
+        return [('id', 'in', users_lst)]
+
     name = fields.Char(string="Mrp Repair Fee")
-    user_id = fields.Many2one(comodel_name="res.users", string="Operator")
+    user_id = fields.Many2one(
+        comodel_name="res.users", string="Operator", domain=_get_workshop_user)
     description = fields.Text(string="description")
     repair_id = fields.Many2one(
         comodel_name='mrp.repair', string="Repair Order", readonly=True)

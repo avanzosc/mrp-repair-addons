@@ -5,7 +5,7 @@
       <field name="name">mrp.repair.kanban</field>
       <field name="model">mrp.repair</field>
       <field name="arch" type="xml">
-        <kanban class="oe_notes oe_kanban_quickcreate_textarea">
+        <kanban class="oe_notes oe_kanban_quickcreate_textarea" default_order="create_date desc">
           <field name="name"/>
           <field name="product_id"/>
           <templates>
