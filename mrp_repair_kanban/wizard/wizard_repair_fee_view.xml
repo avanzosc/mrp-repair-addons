@@ -13,7 +13,7 @@
                         <field name="user_id" widget="selection"/>
                         <field name="pin_code" password="True"/>
                         <field name="imputation_date"/>
-                        <field name="product_id" options="{&quot;no_open&quot;: True}"/>
+                        <field name="product_id" readonly="1" options="{&quot;no_open&quot;: True}"/>
                         <field name="quantity"/>
                     </group>
                    <field name="description"/>

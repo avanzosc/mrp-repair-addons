@@ -21,6 +21,7 @@ class MrpRepair(models.Model):
                 'user_id': employee.user_id.id,
                 'product_id': employee.product_id.id,
                 'pin_code': pin_code,
+                'employee_id': employee.id,
             }
             wizard = wiz_obj.create(wiz_data)
         action = self.env.ref('mrp_repair_kanban.action_wizard_mrp_repair_fee')
