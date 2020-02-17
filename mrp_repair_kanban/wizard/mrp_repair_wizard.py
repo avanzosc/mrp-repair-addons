@@ -84,6 +84,7 @@ class WizardMrpRepairFee(models.Model):
             'product_uom': res['value']['product_uom'],
             'price_unit': res['value']['price_unit'],
             'is_from_menu': True,
+            'to_invoice': False,
             }
         fee = fee_line.create(fee_line_data)
         return fee
