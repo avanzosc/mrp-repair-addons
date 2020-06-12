@@ -68,10 +68,15 @@ class WizardMrpRepairFee(models.Model):
     @api.multi
     def add_repair_fee_hour(self):
         fee_line = self.env['mrp.repair.fee']
+        pricelist_obj = self.env['product.pricelist']
         if not self.check_pin():
             raise exceptions.Warning(_("Incorrect PIN code"))
-        res = fee_line.product_id_change(False, self.product_id.id,
-                                         product_uom_qty=self.quantity)
+        pricelist = pricelist_obj.search([('type', '=', 'sale')])[0]
+        res = fee_line.product_id_change(
+            pricelist.id, self.product_id.id,
+            partner_id=self.repair_id.partner_id.id,
+            product_uom_qty=self.quantity)
+        taxes = 'tax_id' in res['value'] and res['value']['tax_id'] or []
         fee_line_data = {
             'name': self.description or res['value']['name'],
             'product_id': self.product_id.id,
@@ -85,6 +90,7 @@ class WizardMrpRepairFee(models.Model):
             'price_unit': res['value']['price_unit'],
             'is_from_menu': True,
             'to_invoice': False,
+            'tax_id': [(6, 0, taxes)],
             }
         fee = fee_line.create(fee_line_data)
         return fee
