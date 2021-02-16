@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo >
+    <record id="group_allowed_close_repairs" model="res.groups">
+        <field name="name">Allow close repairs</field>
+    </record>
+
+    <record id="repair_order_close_repair_rule" model="ir.rule">
+        <field name="name">Allow close repairs</field>
+        <field name="model_id" ref="repair.model_repair_order"/>
+        <field name="domain_force">[('state','in',('draft','cancel','confirmed','under_repair','ready','2binvoiced','invoice_except','done')),'|',('company_id','child_of',[user.company_id.id]),('company_id','=',False)]</field>
+        <field name="groups" eval="[(4, ref('repair_validate.group_allowed_close_repairs'))]"/>
+    </record>
+</odoo>

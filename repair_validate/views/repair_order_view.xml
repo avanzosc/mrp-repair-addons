@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form"/>
+        <field name="arch" type="xml">
+            <xpath expr="//header/button[8]" position="attributes">
+                <attribute name="groups">repair_validate.group_allowed_close_repairs</attribute>
+            </xpath>
+            <xpath expr="//header/button[9]" position="attributes">
+                <attribute name="groups">repair_validate.group_allowed_close_repairs</attribute>
+            </xpath>
+            <field name="pricelist_id" position="after">
+                <field name="finished_task" invisible="1"/>
+            </field>
+            <button name="action_repair_end" position="before">
+                <button name="action_task_end" type="object"
+                    string="Finish task" class="oe_highlight"
+                    groups="stock.group_stock_user"
+                    attrs="{'invisible': ['|',('finished_task','=',True),('state','!=','under_repair')]}"/>
+                <button name="action_cancel_validation" type="object"
+                    string="Cancel validation" class="oe_highlight"
+                    groups="stock.group_stock_user"
+                    attrs="{'invisible': [('state','!=','2binvoiced')]}"/>
+            </button>
+            <button name="action_repair_end" position="attributes">
+                <attribute name="states"></attribute>
+                <attribute name="groups">repair_validate.group_allowed_close_repairs</attribute>
+                <attribute name="attrs">{'invisible':['|',('finished_task','=',False),('state','!=','under_repair')]}</attribute>
+            </button>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form_filter"/>
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <separator />
+                <filter string="Finished task" name="finished-task" domain="[('finished_task','=',True)]"/>
+                <filter string="Not finished task" name="finished-task" domain="[('finished_task','=',False)]"/>
+            </field>
+            <filter name="status" position="after">
+                <filter string="Finished task" name="filter-finished-task" domain="[]" context="{'group_by':'finished_task'}"/>
+            </filter>
+        </field>
+    </record>
+</odoo>
