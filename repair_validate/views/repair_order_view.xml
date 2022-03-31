@@ -4,6 +4,9 @@
         <field name="model">repair.order</field>
         <field name="inherit_id" ref="repair.view_repair_order_form"/>
         <field name="arch" type="xml">
+            <xpath expr="//header/button[3]" position="attributes">
+                <attribute name="groups">repair_validate.group_allowed_close_repairs</attribute>
+            </xpath>
             <xpath expr="//header/button[8]" position="attributes">
                 <attribute name="groups">repair_validate.group_allowed_close_repairs</attribute>
             </xpath>
@@ -20,7 +23,7 @@
                     attrs="{'invisible': ['|',('finished_task','=',True),('state','!=','under_repair')]}"/>
                 <button name="action_cancel_validation" type="object"
                     string="Cancel validation" class="oe_highlight"
-                    groups="stock.group_stock_user"
+                    groups="repair_validate.group_allowed_close_repairs"
                     attrs="{'invisible': [('state','!=','2binvoiced')]}"/>
             </button>
             <button name="action_repair_end" position="attributes">
@@ -38,7 +41,7 @@
             <field name="partner_id" position="after">
                 <separator />
                 <filter string="Finished task" name="finished-task" domain="[('finished_task','=',True)]"/>
-                <filter string="Not finished task" name="finished-task" domain="[('finished_task','=',False)]"/>
+                <filter string="Not finished task" name="not-finished-task" domain="[('finished_task','=',False)]"/>
             </field>
             <filter name="status" position="after">
                 <filter string="Finished task" name="filter-finished-task" domain="[]" context="{'group_by':'finished_task'}"/>
