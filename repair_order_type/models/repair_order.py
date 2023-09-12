@@ -9,10 +9,12 @@ class RepairOrder(models.Model):
     def _get_order_type(self):
         return self.env['repair.order.type'].search([], limit=1)
 
+    name = fields.Char(default="/")
     type_id = fields.Many2one(
         comodel_name='repair.order.type',
         string='Type',
         default=_get_order_type,
+        required=True,
         readonly=True,
         states={"draft": [("readonly", False)]}
     )
@@ -25,9 +27,7 @@ class RepairOrder(models.Model):
 
     @api.model
     def create(self, vals):
-        if (
-            vals.get('type_id')) and vals.get('type_id') != (
-                self.env.ref('repair_order_type.normal_repair_type').id):
+        if vals.get('name', '/') == '/' and vals.get('type_id'):
             repair_type = self.env['repair.order.type'].browse(vals['type_id'])
             if repair_type.sequence_id:
                 vals['name'] = repair_type.sequence_id.next_by_id()
