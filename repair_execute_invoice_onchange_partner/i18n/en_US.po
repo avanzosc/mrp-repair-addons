@@ -1,0 +1,27 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* repair_execute_invoice_onchange_partner
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 12.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-11-24 08:49+0000\n"
+"PO-Revision-Date: 2023-11-24 08:49+0000\n"
+"Last-Translator: <>\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_execute_invoice_onchange_partner
+#: model:ir.model,name:repair_execute_invoice_onchange_partner.model_account_invoice
+msgid "Invoice"
+msgstr ""
+
+#. module: repair_execute_invoice_onchange_partner
+#: model:ir.model,name:repair_execute_invoice_onchange_partner.model_repair_order
+msgid "Repair Order"
+msgstr ""
+
