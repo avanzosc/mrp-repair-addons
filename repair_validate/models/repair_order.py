@@ -9,12 +9,10 @@ class RepairOrder(models.Model):
     finished_task = fields.Boolean(
         string='Finished task', default=False)
 
-    @api.multi
     def action_task_end(self):
         for repair in self:
             repair.finished_task = True
 
-    @api.multi
     def action_cancel_validation(self):
         for repair in self:
             repair.write({'finished_task': False,
