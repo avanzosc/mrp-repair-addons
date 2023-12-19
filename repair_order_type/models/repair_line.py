@@ -6,7 +6,6 @@ from odoo import api, models
 class RepairLine(models.Model):
     _inherit = 'repair.line'
 
-    @api.multi
     @api.onchange('type', 'repair_id', 'repair_id.type_id')
     def onchange_operation_type(self):
         super(RepairLine, self).onchange_operation_type()
