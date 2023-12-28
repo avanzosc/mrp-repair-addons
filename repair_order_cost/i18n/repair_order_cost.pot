@@ -1,0 +1,91 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repair_order_cost
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2023-10-11 12:10+0000\n"
+"PO-Revision-Date: 2023-10-11 12:10+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_order_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_fee__display_name
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_line__display_name
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_fee__id
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_line__id
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__id
+msgid "ID"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_fee____last_update
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_line____last_update
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_order____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_line__material_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__material_cost
+msgid "Material cost"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_fee__operations_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__operations_cost
+msgid "Operations cost"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model,name:repair_order_cost.model_repair_fee
+msgid "Repair Fees"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model,name:repair_order_cost.model_repair_line
+msgid "Repair Line (parts)"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model,name:repair_order_cost.model_repair_order
+msgid "Repair Order"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:res.groups,name:repair_order_cost.group_show_repair_order_cost
+msgid "Show repair order costs"
+msgstr ""
+
+#. module: repair_order_cost
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_tree
+msgid "Total cost"
+msgstr ""
+
+#. module: repair_order_cost
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_form
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_tree
+msgid "Total material cost"
+msgstr ""
+
+#. module: repair_order_cost
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_form
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_tree
+msgid "Total operations cost"
+msgstr ""
+
+#. module: repair_order_cost
+#: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__total_repair_cost
+msgid "Total repair cost"
+msgstr ""
