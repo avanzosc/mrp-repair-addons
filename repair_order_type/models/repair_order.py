@@ -19,7 +19,6 @@ class RepairOrder(models.Model):
         states={"draft": [("readonly", False)]}
     )
 
-    @api.multi
     @api.onchange('type_id')
     def onchange_location_id(self):
         if self.type_id and self.type_id.reparation_location_id:
@@ -33,7 +32,6 @@ class RepairOrder(models.Model):
                 vals['name'] = repair_type.sequence_id.next_by_id()
         return super(RepairOrder, self).create(vals)
 
-    @api.multi
     def write(self, vals):
         if vals.get("type_id"):
             repair_type = self.env["repair.order.type"].browse(vals["type_id"])
