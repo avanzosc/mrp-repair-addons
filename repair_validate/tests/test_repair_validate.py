@@ -6,11 +6,10 @@ from odoo.tests import common
 @common.at_install(False)
 @common.post_install(True)
 class TestRepairValidate(common.SavepointCase):
-
     @classmethod
     def setUpClass(cls):
-        super(TestRepairValidate, cls).setUpClass()
-        cls.repair_model = cls.env['repair.order']
+        super().setUpClass()
+        cls.repair_model = cls.env["repair.order"]
         cls.repair = cls.repair_model.search([], limit=1)
 
     def test_repair_validate(self):
@@ -18,4 +17,4 @@ class TestRepairValidate(common.SavepointCase):
         self.assertEqual(self.repair.finished_task, True)
         self.repair.action_cancel_validation()
         self.assertEqual(self.repair.finished_task, False)
-        self.assertEqual(self.repair.state, 'under_repair')
+        self.assertEqual(self.repair.state, "under_repair")

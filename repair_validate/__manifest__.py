@@ -4,11 +4,9 @@
     "name": "Repair validate",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
-    "depends": [
-        "repair"
-    ],
+    "depends": ["repair"],
     "author": "AvanzOSC",
-    "website": "http://www.avanzosc.es",
+    "website": "https://github.com/avanzosc/mrp-repair-addons",
     "category": "Manufacturing",
     "data": [
         "security/repair_validate.xml",
