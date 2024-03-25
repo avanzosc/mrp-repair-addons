@@ -1,10 +1,9 @@
-# -*- coding: utf-8 -*-
 # Copyright 2018 Daniel Campos - AvanzOSC
 # License AGPL-3 - See http://www.gnu.org/licenses/agpl-3.0.html
 
 {
     "name": "MRP Repair Warranty",
-    "version": "8.0.1.0.0",
+    "version": "16.0.1.0.0",
     "category": "Manufacturing",
     "license": "AGPL-3",
     "author": "AvanzOSC",

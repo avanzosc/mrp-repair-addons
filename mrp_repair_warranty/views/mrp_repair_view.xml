@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="UTF-8" ?>
-<openerp>
-<data>
+<odoo>
     <record id="view_repair_order_tree" model="ir.ui.view">
         <field name="name">mrp.repair.tree</field>
         <field name="model">mrp.repair</field>
@@ -38,5 +37,4 @@
               </filter>
           </field>
     </record>
-</data>
-</openerp>
+</odoo>
