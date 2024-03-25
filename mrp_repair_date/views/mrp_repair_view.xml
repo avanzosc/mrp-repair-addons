@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<openerp>
-    <data>
+<odoo>
         <record id="view_repair_order_calendar" model="ir.ui.view">
             <field name="name">view.repair.order.calendar</field>
             <field name="model">mrp.repair</field>
@@ -44,5 +43,4 @@
          <record id="mrp_repair.action_repair_order_tree" model="ir.actions.act_window">
             <field name="view_mode">tree,form,calendar</field>
         </record>
-    </data>
-</openerp>
+</odoo>
