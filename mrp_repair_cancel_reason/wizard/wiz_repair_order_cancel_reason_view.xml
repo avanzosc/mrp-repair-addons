@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="0">
-        <record id="wiz_mrp_repair_cancel_reason_form_view" model="ir.ui.view">
-            <field name="name">wiz.mrp.repair.cancel.reason.form_view</field>
-            <field name="model">wiz.mrp.repair.cancel.reason</field>
+    <data>
+        <record id="wiz_repair_order_cancel_reason_form_view" model="ir.ui.view">
+            <field name="name">wiz.repair.order.cancel.reason.form_view</field>
+            <field name="model">wiz.repair.order.cancel.reason</field>
             <field name="arch" type="xml">
              <form string="Reason for the cancellation" version="7.0">
                 <p class="oe_grey">
@@ -24,14 +24,14 @@
             </form>
             </field>
         </record>
-        <record id="action_mrp_repair_cancel_with_reason" model="ir.actions.act_window">
+        <record id="action_repair_order_cancel_with_reason" model="ir.actions.act_window">
             <field name="name">Reason for the cancellation</field>
             <field name="type">ir.actions.act_window</field>
-            <field name="res_model">wiz.mrp.repair.cancel.reason</field>
-            <field name="view_type">form</field>
+            <field name="res_model">wiz.repair.order.cancel.reason</field>
             <field name="view_mode">form</field>
-            <field name="view_id" ref="wiz_mrp_repair_cancel_reason_form_view"/>
+            <field name="view_id" ref="mrp_repair_cancel_reason.wiz_repair_order_cancel_reason_form_view"/>
             <field name="target">new</field>
-        </record>
+            <!-- <field name="binding_model_id" ref="repair.order"/> -->
+        </record>        
     </data>
 </openerp>

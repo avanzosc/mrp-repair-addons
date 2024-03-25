@@ -1,34 +1,34 @@
 <?xml version="1.0" encoding="utf-8"?>
 <openerp>
-    <data noupdate="0">
-        <record model="ir.ui.view" id="mrp_repair_cancel_reason_form_view">
-            <field name="name">mrp.repair.cancel.reason.form.view</field>
-            <field name="model">mrp.repair.cancel.reason</field>
+    <data>
+        <record model="ir.ui.view" id="repair_order_cancel_reason_form_view">
+            <field name="name">repair.order.cancel.reason.form.view</field>
+            <field name="model">repair.order.cancel.reason</field>
             <field name="arch" type="xml">
                 <form string="Repair Cancel Reasons">
                     <field name="name"/>
                 </form>
             </field>
         </record>
-        <record model="ir.ui.view" id="mrp_repair_cancel_reason_tree_view">
-            <field name="name">mrp.repair.cancel.reason.tree.view</field>
-            <field name="model">mrp.repair.cancel.reason</field>
+        <record model="ir.ui.view" id="repair_order_cancel_reason_tree_view">
+            <field name="name">repair.order.cancel.reason.tree.view</field>
+            <field name="model">repair.order.cancel.reason</field>
             <field name="arch" type="xml">
                 <tree string="Repair Cancel Reasons" editable="bottom" >
                     <field name="name"/>
                 </tree>
             </field>
         </record>
-        <record model="ir.actions.act_window" id="action_mrp_repair_cancel_reason">
+        <record model="ir.actions.act_window" id="action_repair_order_cancel_reason">
             <field name="name">Repair Cancel Reason</field>
-            <field name="res_model">mrp.repair.cancel.reason</field>
+            <field name="res_model">repair.order.cancel.reason</field>
             <field name="view_type">form</field>
             <field name="view_mode">tree,form</field>
         </record>
-        <menuitem id="menu_mrp_repair_cancel_reason"
+        <menuitem id="menu_repair_order_cancel_reason"
                   parent="mrp.menu_mrp_manufacturing"
                   name="Repair Cancel Reasons"
-                  action="action_mrp_repair_cancel_reason"
+                  action="action_repair_order_cancel_reason"
                   sequence="55" groups="mrp.group_mrp_user" />
     </data>
 </openerp>

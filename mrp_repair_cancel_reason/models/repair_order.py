@@ -5,15 +5,15 @@ from openerp import models, fields
 
 
 class MrpRepair(models.Model):
-    _inherit = 'mrp.repair'
+    _inherit = 'repair.order'
 
     cancel_reason_id = fields.Many2one(
-        'mrp.repair.cancel.reason', string='Reason for cancellation',
+        'repair.order.cancel.reason', string='Reason for cancellation',
         readonly=True, ondelete='restrict')
 
 
 class MrpRepairCancelReason(models.Model):
-    _name = 'mrp.repair.cancel.reason'
+    _name = 'repair.order.cancel.reason'
     _description = 'Repair Cancel Reason'
 
     name = fields.Char('Reason', required=True, translate=True)
