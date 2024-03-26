@@ -9,19 +9,19 @@
                 <field name="guarantee_limit" position="after">
                     <field name="cancel_reason_id" />
                 </field>
-                <xpath expr="//button[@name='action_cancel']" position="attributes">
+                <xpath expr="//button[@name='action_repair_cancel']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-                <xpath expr="//button[@name='action_cancel']" position="before">
+                <xpath expr="//button[@name='action_repair_cancel']" position="before">
                     <button name="%(action_repair_order_cancel_with_reason)d" string="Cancel Repair" type="action"
                         attrs="{'invisible':['|',('invoice_method','!=','none'), ('state', 'not in',('confirmed','2binvoiced','ready','under_repair', 'invoice_except'))]}"/>
                 </xpath>
-                <xpath expr="//button[@name='cancel']" position="attributes">
+                <xpath expr="//button[@name='action_repair_cancel']" position="attributes">
                     <attribute name="invisible">True</attribute>
                 </xpath>
-                <xpath expr="//button[@name='cancel']" position="after">
+                <!-- <xpath expr="//button[@name='action_repair_cancel']" position="after">
                     <button name="%(action_repair_order_cancel_with_reason)d" type="action" states="draft" string="Cancel Repair" />
-                </xpath>
+                </xpath> -->
             </field>
         </record>
     </data>
