@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+        <record id="view_repair_order_calendar" model="ir.ui.view">
+            <field name="name">view.repair.order.calendar</field>
+            <field name="model">repair.order</field>
+            <field name="arch" type="xml">
+                <calendar string="Repair Orders" color="state" date_start="scheduled_departure_date">
+                    <field name="partner_id"/>
+                    <field name="product_id" />
+                    <field name="create_date" />
+                    <field name="scheduled_departure_date" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </calendar>
+            </field>
+        </record>
+        <record id="view_repair_order_tree_inh_datesextend" model="ir.ui.view">
+            <field name="name">view.repair.order.tree.inh.datesextend</field>
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_tree" />
+            <field name="arch" type="xml">
+                <field name="name" position="before">
+                    <field name="create_date" />
+                    <field name="scheduled_departure_date" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </field>
+            </field>
+        </record>
+        <record id="view_repair_order_form_inh_datesextend" model="ir.ui.view">
+            <field name="name">view.repair.order.form.inh.datesextend</field>
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_form" />
+            <field name="arch" type="xml">
+                <field name="guarantee_limit" position="after">
+                    <field name="create_date" />
+                    <field name="scheduled_departure_date" required="True" />
+                    <field name="start_date" />
+                    <field name="end_date" />
+                </field>
+            </field>
+        </record>
+         <record id="repair.action_repair_order_tree" model="ir.actions.act_window">
+            <field name="view_mode">tree,form,calendar</field>
+        </record>
+</odoo>
