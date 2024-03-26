@@ -4,15 +4,15 @@
 from odoo import fields, models
 
 
-class MrpRepairType(models.Model):
-    _name = 'mrp.repair.type'
+class RepairOrderType(models.Model):
+    _name = 'repair.order.type'
 
     name = fields.Char(string='Repair type', help='Repair order type',
                        translate=True)
 
 
-class MrpRepair(models.Model):
-    _inherit = 'mrp.repair'
+class RepairOrder(models.Model):
+    _inherit = 'repair.order'
 
     repair_type_id = fields.Many2one(
-        comodel_name='mrp.repair.type', string='Repair order type')
+        comodel_name='repair.order.type', string='Repair order type')
