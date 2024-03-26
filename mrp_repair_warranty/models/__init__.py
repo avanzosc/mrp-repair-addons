@@ -1,2 +1,1 @@
-
-from . import mrp_repair
+from . import repair_order

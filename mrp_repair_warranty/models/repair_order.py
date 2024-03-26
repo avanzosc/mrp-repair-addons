@@ -4,8 +4,8 @@
 from odoo import api, fields, models
 
 
-class MrpRepair(models.Model):
-    _inherit = 'mrp.repair'
+class RepairOrder(models.Model):
+    _inherit = 'repair.order'
 
     is_in_warranty = fields.Boolean(string='In warranty')
 
