@@ -2,7 +2,7 @@
 <odoo>
         <record id="view_repair_order_calendar" model="ir.ui.view">
             <field name="name">view.repair.order.calendar</field>
-            <field name="model">mrp.repair</field>
+            <field name="model">repair.order</field>
             <field name="arch" type="xml">
                 <calendar string="Repair Orders" color="state" date_start="scheduled_departure_date">
                     <field name="partner_id"/>
@@ -16,8 +16,8 @@
         </record>
         <record id="view_repair_order_tree_inh_datesextend" model="ir.ui.view">
             <field name="name">view.repair.order.tree.inh.datesextend</field>
-            <field name="model">mrp.repair</field>
-            <field name="inherit_id" ref="mrp_repair.view_repair_order_tree" />
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_tree" />
             <field name="arch" type="xml">
                 <field name="name" position="before">
                     <field name="create_date" />
@@ -29,8 +29,8 @@
         </record>
         <record id="view_repair_order_form_inh_datesextend" model="ir.ui.view">
             <field name="name">view.repair.order.form.inh.datesextend</field>
-            <field name="model">mrp.repair</field>
-            <field name="inherit_id" ref="mrp_repair.view_repair_order_form" />
+            <field name="model">repair.order</field>
+            <field name="inherit_id" ref="repair.view_repair_order_form" />
             <field name="arch" type="xml">
                 <field name="guarantee_limit" position="after">
                     <field name="create_date" />
@@ -40,7 +40,7 @@
                 </field>
             </field>
         </record>
-         <record id="mrp_repair.action_repair_order_tree" model="ir.actions.act_window">
+         <record id="repair.action_repair_order_tree" model="ir.actions.act_window">
             <field name="view_mode">tree,form,calendar</field>
         </record>
 </odoo>

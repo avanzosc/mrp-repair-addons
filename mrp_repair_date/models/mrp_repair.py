@@ -4,7 +4,7 @@ from odoo import models, fields, api
 
 
 class MrpRepair(models.Model):
-    _inherit = 'mrp.repair'
+    _inherit = 'repair.order'
 
     scheduled_departure_date = fields.Date(
         string='Scheduled Departure Date', copy=False)

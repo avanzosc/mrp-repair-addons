@@ -18,7 +18,7 @@ class TestMrpRepairDate(common.TransactionCase):
                 'location_id': self.env.ref('stock.stock_location_7').id,
                 'location_dest_id': self.env.ref('stock.stock_location_7').id,
                 'fees_lines': [(0, 0, fee_vals)]}
-        self.repair = self.env['mrp.repair'].create(vals)
+        self.repair = self.env['repair.order'].create(vals)
 
     def test_mrp_repair_date(self):
         self.repair.signal_workflow('repair_confirm')
