@@ -1,0 +1,39 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+#	* mrp_repair_warranty
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 8.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2018-08-01 13:34+0000\n"
+"PO-Revision-Date: 2018-08-01 13:34+0000\n"
+"Last-Translator: <>\n"
+"Language: Spanish\n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_repair_warranty
+#: view:mrp.repair:mrp_repair_warranty.view_repair_order_form_filter
+msgid "Company"
+msgstr "Compañia"
+
+#. module: mrp_repair_warranty
+#: field:mrp.repair,is_in_warranty:0
+#: view:mrp.repair:mrp_repair_warranty.view_repair_order_form_filter
+msgid "In warranty"
+msgstr "En garantia"
+
+#. module: mrp_repair_warranty
+#: view:mrp.repair:mrp_repair_warranty.view_repair_order_form_filter
+msgid "Is in warranty"
+msgstr "En garantia"
+
+#. module: mrp_repair_warranty
+#: model:ir.model,name:mrp_repair_warranty.model_mrp_repair
+msgid "Repair Order"
+msgstr "Orden de reparación"
+

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="name">repair.order.tree</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="guarantee_limit" position="after">
+                <field name="is_in_warranty"/>
+            </field>
+        </field>
+    </record>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="name">repair.order.form</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <field name="guarantee_limit" position="before">
+                <field name="is_in_warranty"/>
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+          <field name="name">repair.order.select</field>
+          <field name="model">repair.order</field>
+          <field name="inherit_id" ref="repair.view_repair_order_form_filter" />
+          <field name="arch" type="xml">
+              <field name="partner_id" position="after">
+                <field name="is_in_warranty"/>
+              </field>
+              <!-- <filter name="invoiced" position="before">
+                <filter string="In warranty" name="is_in_warranty" domain="[('is_in_warranty','=',True)]" help="Is in warranty"/>
+              </filter>
+              <filter name="company" position="before">
+                <filter string="Is in warranty" domain="[]" context="{'group_by':'is_in_warranty'}"/>
+              </filter> -->
+          </field>
+    </record>
+</odoo>
