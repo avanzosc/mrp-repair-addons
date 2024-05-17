@@ -16,4 +16,5 @@
         "views/repair_order_views.xml",
     ],
     "installable": True,
+    "post_init_hook": "_post_install_put_cost_in_repair_orders",
 }
