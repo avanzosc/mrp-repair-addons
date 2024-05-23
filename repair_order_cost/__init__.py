@@ -10,6 +10,8 @@ def _post_install_put_cost_in_repair_orders(cr, registry):
     repairs = env["repair.order"].search([])
     for repair in repairs:
         for operation in repair.operations:
-            operation.onchange_product_id()
+            operation.material_cost = (
+                operation.product_uom_qty * operation.product_id.standard_price)
         for line in repair.fees_lines:
-            line.onchange_product_id()
+            line.operations_cost = (
+                line.product_uom_qty * line.product_id.standard_price)
