@@ -18,7 +18,7 @@ class RepairOrder(models.Model):
         string="Refurbished product", comodel_name="product.product"
     )
     refurbish_lot_id = fields.Many2one(
-        string="Refurbished Lot", comodel_name="stock.production.lot"
+        string="Refurbished Lot", comodel_name="stock.lot"
     )
     refurbish_move_id = fields.Many2one(
         string="Refurbished Inventory Move", comodel_name="stock.move"
