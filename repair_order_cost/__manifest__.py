@@ -6,11 +6,8 @@
     "category": "Inventory/Inventory",
     "license": "AGPL-3",
     "author": "AvanzOSC",
-    "website": "https://www.avanzosc.es",
-    "depends": [
-        "product",
-        "repair"
-    ],
+    "website": "https://github.com/avanzosc/mrp-repair-addons",
+    "depends": ["product", "repair"],
     "data": [
         "security/repair_order_cost_groups.xml",
         "views/repair_order_views.xml",
