@@ -4,34 +4,60 @@
         <field name="model">repair.order</field>
         <field name="inherit_id" ref="repair.view_repair_order_form" />
         <field name="arch" type="xml">
-            <xpath expr="//field[@name='operations']/form//field[@name='currency_id']" position="after">
-                <field name="material_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"/>
+            <xpath
+        expr="//field[@name='operations']/form//field[@name='currency_id']"
+        position="after"
+      >
+                <field
+          name="material_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+        />
             </xpath>
-            <xpath expr="//field[@name='operations']/tree//field[@name='tax_id']" position="after">
-                <field name="material_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"
-                    optional="show" sum="Total material cost"/>
+            <xpath
+        expr="//field[@name='operations']/tree//field[@name='tax_id']"
+        position="after"
+      >
+                <field
+          name="material_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+          optional="show"
+          sum="Total material cost"
+        />
             </xpath>
-            <xpath expr="//field[@name='fees_lines']/form//field[@name='currency_id']" position="after">
-                <field name="operations_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"/>
+            <xpath
+        expr="//field[@name='fees_lines']/form//field[@name='currency_id']"
+        position="after"
+      >
+                <field
+          name="operations_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+        />
             </xpath>
-            <xpath expr="//field[@name='fees_lines']/tree//field[@name='tax_id']" position="after">
-                <field name="operations_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"
-                    optional="show" sum="Total operations cost"/>
+            <xpath
+        expr="//field[@name='fees_lines']/tree//field[@name='tax_id']"
+        position="after"
+      >
+                <field
+          name="operations_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+          optional="show"
+          sum="Total operations cost"
+        />
             </xpath>
             <notebook position="before">
-                <group colspan="4" col="6" groups="repair_order_cost.group_show_repair_order_cost">
+                <group
+          colspan="4"
+          col="6"
+          groups="repair_order_cost.group_show_repair_order_cost"
+        >
                     <group>
-                        <field name="material_cost"/>
+                        <field name="material_cost" />
                     </group>
                     <group>
-                        <field name="operations_cost"/>
+                        <field name="operations_cost" />
                     </group>
                     <group>
-                        <field name="total_repair_cost"/>
+                        <field name="total_repair_cost" />
                     </group>
                 </group>
             </notebook>
@@ -43,15 +69,24 @@
         <field name="inherit_id" ref="repair.view_repair_order_tree" />
         <field name="arch" type="xml">
             <field name="guarantee_limit" position="after">
-                <field name="material_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"
-                    optional="show" sum="Total material cost"/>
-                <field name="operations_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"
-                    optional="show" sum="Total operations cost"/>
-                <field name="total_repair_cost"
-                    groups="repair_order_cost.group_show_repair_order_cost"
-                    optional="show" sum="Total cost"/>
+                <field
+          name="material_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+          optional="show"
+          sum="Total material cost"
+        />
+                <field
+          name="operations_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+          optional="show"
+          sum="Total operations cost"
+        />
+                <field
+          name="total_repair_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+          optional="show"
+          sum="Total cost"
+        />
             </field>
         </field>
     </record>
