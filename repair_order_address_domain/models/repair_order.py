@@ -6,6 +6,4 @@ from odoo import fields, models
 class RepairOrder(models.Model):
     _inherit = "repair.order"
 
-    address_id = fields.Many2one(
-        domain=False
-    )
+    address_id = fields.Many2one(domain=False)
