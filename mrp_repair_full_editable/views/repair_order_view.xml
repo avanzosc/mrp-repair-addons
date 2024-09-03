@@ -6,19 +6,22 @@
         <field name="arch" type="xml">
             <data>
                 <field name="fees_lines" position="attributes">
+                     <attribute name="groups">base.group_no_one</attribute>
                      <attribute
             name="attrs"
-          >{'readonly': ['|', '&amp;', ('invoice_method', '!=', 'b4repair'),('state','=','done')]}</attribute>
+          >{'readonly': ['|', '&amp;', ('invoiced', '=', True),('invoice_method', '!=', 'b4repair'),('state','=','done')]}</attribute>
                 </field>
                 <field name="operations" position="attributes">
+                     <attribute name="groups">base.group_no_one</attribute>
                      <attribute
             name="attrs"
-          >{'readonly': ['|', '&amp;', ('invoice_method', '!=', 'b4repair'),('state','=','done')]}</attribute>
+          >{'readonly': ['|', '&amp;', ('invoiced', '=', True),('invoice_method', '!=', 'b4repair'),('state','=','done')]}</attribute>
                 </field>
                 <field name="pricelist_id" position="attributes">
+                     <attribute name="groups">base.group_no_one</attribute>
                      <attribute
             name="attrs"
-          >{'readonly': ['|', '&amp;', ('invoice_method', '!=', 'b4repair'),('state','=','done')]}</attribute>
+          >{'readonly': ['|', '&amp;', ('invoiced', '=', True), ('invoice_method', '!=', 'b4repair'),('state','=','done')]}</attribute>
                 </field>
             </data>
         </field>
