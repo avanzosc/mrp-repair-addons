@@ -2,9 +2,10 @@
    :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
    :alt: License: AGPL-3
 
-================
-MRP repair date
-================
+===========
+Repair Date
+===========
+
 * This module in "mrp.repair" object creates new fields of dates: Scheduled
   departure date, start date, end date. Also it is shown in the tree view, the
   date of creation of the object.

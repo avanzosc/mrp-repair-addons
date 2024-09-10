@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-10 12:12+0000\n"
-"PO-Revision-Date: 2024-09-10 12:12+0000\n"
+"POT-Creation-Date: 2024-09-10 12:11+0000\n"
+"PO-Revision-Date: 2024-09-10 12:11+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,24 +18,24 @@ msgstr ""
 #. module: mrp_repair_date
 #: model:ir.model.fields,field_description:mrp_repair_date.field_repair_order__end_date
 msgid "End Date"
-msgstr "Fecha fin"
+msgstr ""
 
 #. module: mrp_repair_date
 #: model:ir.model,name:mrp_repair_date.model_repair_order
 msgid "Repair Order"
-msgstr "Orden de reparación"
+msgstr ""
 
 #. module: mrp_repair_date
 #: model_terms:ir.ui.view,arch_db:mrp_repair_date.view_repair_order_calendar
 msgid "Repair Orders"
-msgstr "Órdenes de reparación"
+msgstr ""
 
 #. module: mrp_repair_date
 #: model:ir.model.fields,field_description:mrp_repair_date.field_repair_order__scheduled_departure_date
 msgid "Scheduled Departure Date"
-msgstr "Fecha prevista salida"
+msgstr ""
 
 #. module: mrp_repair_date
 #: model:ir.model.fields,field_description:mrp_repair_date.field_repair_order__start_date
 msgid "Start Date"
-msgstr "Fecha inicio"
+msgstr ""
