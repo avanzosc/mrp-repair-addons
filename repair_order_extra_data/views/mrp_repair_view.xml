@@ -1,0 +1,56 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <xpath expr="//field[@name='quotation_notes']/.." position="after">
+                <page string="Repair Report" name="extra-data">
+                    <group>
+                        <group>
+                            <field name="repairable" />
+                        </group>
+                        <group />
+                    </group>
+                    <separator string="Description breakdown" colspan="4" />
+                    <field name="description_breakdown" nolabel="1" colspan="4" />
+                    <separator string="Cause" colspan="4" />
+                    <field name="cause" nolabel="1" colspan="4" />
+                    <separator string="Repair Made" colspan="4" />
+                    <field name="repair_made" nolabel="1" colspan="4" />
+                </page>
+            </xpath>
+        </field>
+    </record>
+
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="state" position="before">
+                <field name="repairable" optional="show" />
+                <field name="description_breakdown" optional="show" />
+                <field name="cause" optional="show" />
+                <field name="repair_made" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form_filter" />
+        <field name="arch" type="xml">
+            <field name="sale_order_id" position="after">
+                <field name="repairable" />
+            </field>
+            <filter name="company" position="before">
+                <filter
+          string="Repairable"
+          name="repairable"
+          domain="[]"
+          context="{'group_by': 'repairable'}"
+        />
+            </filter>
+        </field>
+    </record>
+</odoo>

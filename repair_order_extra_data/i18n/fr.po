@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repair_order_extra_data
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-25 08:47+0000\n"
+"PO-Revision-Date: 2024-09-25 08:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_order_extra_data
+#: model:ir.actions.report,print_report_name:repair_order_extra_data.action_report_mrp_repair_extra_data
+msgid "('Report Extra Data For Repair - %s' % (object.name))"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "<span>Repair report N°:</span>"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid ""
+"<strong>Repair date:</strong>\n"
+"                        <br/>"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "<strong>Repairable:</strong>"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "<strong>Responsible:</strong>"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "<strong>Shipping address :</strong>"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model:ir.model.fields,field_description:repair_order_extra_data.field_repair_order__cause
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.view_repair_order_form
+msgid "Cause"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model:ir.model.fields,field_description:repair_order_extra_data.field_repair_order__description_breakdown
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.view_repair_order_form
+msgid "Description breakdown"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Invoice address:"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Invoice and shipping address:"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Lot/Serial Number"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "No"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Product"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Quantity"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model:ir.actions.report,name:repair_order_extra_data.action_report_mrp_repair_extra_data
+msgid "Repair"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.view_repair_order_form
+msgid "Repair Made"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model:ir.model,name:repair_order_extra_data.model_repair_order
+msgid "Repair Order"
+msgstr "Ordre de réparation"
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.view_repair_order_form
+msgid "Repair Report"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Repair effectuate"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model:ir.model.fields,field_description:repair_order_extra_data.field_repair_order__repair_made
+msgid "Repair made"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model:ir.model.fields,field_description:repair_order_extra_data.field_repair_order__repairable
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.view_repair_order_form_filter
+msgid "Repairable"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "VAT:"
+msgstr ""
+
+#. module: repair_order_extra_data
+#: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
+msgid "Yes"
+msgstr ""

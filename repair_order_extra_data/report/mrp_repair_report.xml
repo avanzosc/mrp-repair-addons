@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_repair_order_extra_data_document">
+        <t t-call="web.external_layout">
+            <t
+        t-set="doc"
+        t-value="doc.with_context({'show_customer_product_code':True})"
+      />
+            <div class="page">
+                <div class="oe_structure" />
+                <div class="row">
+                    <div class="col-6">
+                        <div
+              t-field="doc.company_id.partner_id"
+              t-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'
+            />
+                        <p t-if="doc.company_id.partner_id.vat">VAT: <span
+                t-field="doc.company_id.partner_id.vat"
+              /></p>
+                    </div>
+                    <div class="col-5 col-offset-1">
+                        <strong
+              t-if="doc.address_id == doc.partner_invoice_id"
+            >Invoice and shipping address:</strong>
+                        <div t-if="doc.partner_invoice_id">
+                            <strong
+                t-if="doc.address_id != doc.partner_invoice_id"
+              >Invoice address: </strong>
+                            <div
+                t-field="doc.partner_invoice_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'
+              />
+                            <p t-if="doc.partner_id.vat">VAT: <span
+                  t-field="doc.partner_id.vat"
+                /></p>
+                        </div>
+                        <div
+              t-if="doc.address_id != doc.partner_invoice_id"
+              class="mt8"
+            >
+                            <strong>Shipping address :</strong>
+                            <div
+                t-field="doc.address_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone", "fax"], "no_marker": true}'
+              />
+                            <p t-if="doc.partner_id.vat">VAT: <span
+                  t-field="doc.partner_id.vat"
+                /></p>
+                        </div>
+                    </div>
+                </div>
+                <h2>
+                    <span>Repair report N°:</span>
+                    <span t-field="doc.name" />
+                </h2>
+                <div class="row mt32 mb32">
+                    <div class="col-3">
+                        <strong>Repair date:</strong>
+                        <br />
+                        <span
+              t-field="doc.schedule_date"
+              t-options='{"widget": "date"}'
+            />
+                    </div>
+                    <div t-if="doc.user_id.name" class="col-3">
+                        <strong>Responsible:</strong>
+                        <p t-field="doc.user_id.name" />
+                    </div>
+                    <div class="col-3">
+                        <strong>Repairable:</strong>
+                        <p t-if="doc.repairable">Yes</p>
+                        <p t-if="not doc.repairable">No</p>
+                    </div>
+                </div>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr name="report-head">
+                            <th class="text-start">Product</th>
+                            <th>Lot/Serial Number</th>
+                            <th class="text-end">Quantity</th>
+                            <th class="text-end">Description breakdown</th>
+                            <th class="text-end">Cause</th>
+                            <th class="text-end">Repair effectuate</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr name="report-body">
+                            <td class="text-start">
+                                <p t-if="doc.product_id">
+                                   <span t-field="doc.product_id" />
+                                 </p>
+                            </td>
+                            <td>
+                                <p t-if="doc.lot_id">
+                                   <span t-field="doc.lot_id" />
+                                 </p>
+                            </td>
+                            <td class="text-end">
+                                <p t-if="doc.product_qty">
+                                   <span t-field="doc.product_qty" />
+                                 </p>
+                            </td>
+                            <td class="text-end">
+                                <p t-if="doc.description_breakdown">
+                                   <span t-field="doc.description_breakdown" />
+                                 </p>
+                            </td>
+                            <td class="text-end">
+                                <p t-if="doc.cause">
+                                   <span t-field="doc.cause" />
+                                 </p>
+                            </td>
+                            <td class="text-end">
+                                <p t-if="doc.repair_made">
+                                   <span t-field="doc.repair_made" />
+                                 </p>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="oe_structure" />
+            </div>
+        </t>
+    </template>
+
+    <template id="report_repair_order_extra_data">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t
+          t-call="repair_order_extra_data.report_repair_order_extra_data_document"
+          t-lang="doc.partner_id.lang"
+        />
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_mrp_repair_extra_data" model="ir.actions.report">
+        <field name="name">Repair</field>
+        <field name="model">repair.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+      name="report_name"
+    >repair_order_extra_data.report_repair_order_extra_data</field>
+        <field
+      name="report_file"
+    >repair_order_extra_data.report_repair_order_extra_data</field>
+        <field
+      name="print_report_name"
+    >('Report Extra Data For Repair - %s' % (object.name))</field>
+        <field name="binding_model_id" ref="repair.model_repair_order" />
+        <field name="binding_type">report</field>
+        <field
+      name="paperformat_id"
+      ref="repair_order_extra_data.paperformat_mrp_repair_extra_data"
+    />
+    </record>
+</odoo>
