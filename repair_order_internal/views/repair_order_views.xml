@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="view_repair_order_form">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="before">
+                <field name="internal_repair" invisible="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="repair.action_repair_order_graph" model="ir.actions.act_window">
+        <field name="name">Repair Orders</field>
+        <field name="context">{
+            'search_default_product': 1,
+            'search_default_createDate': 1,
+            'default_internal_repair': False,
+        }
+        </field>
+        <field name="domain">[('internal_repair', '=', False)]</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">repair.order</field>
+        <field name="view_mode">tree,kanban,graph,pivot,form</field>
+        <field name="view_id" ref="repair.view_repair_graph" />
+    </record>
+
+    <record id="action_internal_repair_order_tree" model="ir.actions.act_window">
+        <field name="name">Intenal Repair Orders</field>
+        <field name="context">{
+            'default_internal_repair': True,
+        }
+        </field>
+        <field name="domain">[('internal_repair', '=', True)]</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">repair.order</field>
+        <field name="view_mode">tree,kanban,graph,pivot,form</field>
+        <field name="search_view_id" ref="repair.view_repair_order_form_filter" />
+    </record>
+
+    <record id="action_internal_repair_order_graph" model="ir.actions.act_window">
+        <field name="name">Intenal Repair Orders</field>
+        <field name="context">{
+            'search_default_product': 1,
+            'search_default_createDate': 1,
+            'default_internal_repair': True,
+        }
+        </field>
+        <field name="domain">[('internal_repair', '=', True)]</field>
+        <field name="type">ir.actions.act_window</field>
+        <field name="res_model">repair.order</field>
+        <field name="view_mode">tree,kanban,graph,pivot,form</field>
+        <field name="view_id" ref="repair.view_repair_graph" />
+    </record>
+
+    <menuitem
+    name="Internal Repair Orders"
+    id="menu_internal_repair_order_tree"
+    parent="repair.menu_repair_order"
+    action="action_internal_repair_order_tree"
+    sequence="2"
+  />
+
+    <menuitem
+    name="Internal Repair Orders"
+    id="menu_internal_repair_order_graph"
+    parent="repair.repair_menu_reporting"
+    action="action_internal_repair_order_graph"
+    sequence="2"
+  />
+</odoo>
