@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <h1 position="after">
+                <label for="proforma" />
+                <field name="proforma" />
+            </h1>
+        </field>
+    </record>
+
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="proforma" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form_filter" />
+        <field name="arch" type="xml">
+            <field name="sale_order_id" position="after">
+                <field name="proforma" />
+            </field>
+            <filter name="is_returned" position="after">
+                <separator />
+                <filter
+          string="Is Proforma"
+          name="is_proforma"
+          domain="[('proforma', '=', True)]"
+        />
+                <filter
+          string="Is Not Proforma"
+          name="is_not_proforma"
+          domain="[('proforma', '=', False)]"
+        />
+            </filter>
+            <filter name="status" position="before">
+                <filter
+          string="Proforma"
+          name="group-proforma"
+          domain="[]"
+          context="{'group_by': 'proforma'}"
+        />
+            </filter>
+        </field>
+    </record>
+</odoo>
