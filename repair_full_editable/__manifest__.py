@@ -5,7 +5,7 @@
     "version": "12.0.1.0.0",
     "author": "OdooMRP team",
     "license": "AGPL-3",
-    "website": "http://www.odoomrp.com",
+    "website": "https://github.com/avanzosc/mrp-repair-addons",
     "depends": [
         "repair",
     ],
