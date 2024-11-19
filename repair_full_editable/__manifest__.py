@@ -2,7 +2,7 @@
 
 {
     "name": "Repair Order Fully Editable",
-    "version": "12.0.1.0.0",
+    "version": "14.0.1.0.0",
     "author": "OdooMRP team",
     "license": "AGPL-3",
     "website": "https://github.com/avanzosc/mrp-repair-addons",

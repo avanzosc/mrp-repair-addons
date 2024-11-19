@@ -9,7 +9,6 @@ class RepairOrder(models.Model):
     fees_lines = fields.One2many(readonly=False)
     operations = fields.One2many(readonly=False)
 
-    @api.multi
     @api.onchange("product_id")
     def onchange_product_id(self):
         super(RepairOrder, self).onchange_product_id()
