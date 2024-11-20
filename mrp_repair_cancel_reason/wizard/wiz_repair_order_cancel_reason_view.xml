@@ -5,8 +5,7 @@
         <field name="arch" type="xml">
          <form string="Reason for the cancellation" version="7.0">
             <p class="oe_grey">
-                Choose the reason for the cancellation of the
-                repair.
+                Choose the reason for the cancellation of the repair.
             </p>
             <group>
                 <field name="reason_id" widget="selection" />
@@ -24,6 +23,7 @@
         </form>
         </field>
     </record>
+
     <record id="action_repair_order_cancel_with_reason" model="ir.actions.act_window">
         <field name="name">Reason for the cancellation</field>
         <field name="type">ir.actions.act_window</field>

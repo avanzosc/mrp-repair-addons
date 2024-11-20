@@ -1,0 +1,138 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* mrp_repair_cancel_reason
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2024-09-18 11:58+0000\n"
+"PO-Revision-Date: 2024-09-18 11:58+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model,name:mrp_repair_cancel_reason.model_wiz_repair_order_cancel_reason
+msgid "Ask a reason from the repair cancellation"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model_terms:ir.ui.view,arch_db:mrp_repair_cancel_reason.wiz_repair_order_cancel_reason_form_view
+msgid "Cancel"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:repair.order.cancel.reason,name:mrp_repair_cancel_reason.mrp_cancel_reason_customer
+msgid "Canceled at customer request"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model_terms:ir.ui.view,arch_db:mrp_repair_cancel_reason.wiz_repair_order_cancel_reason_form_view
+msgid "Choose the reason for the cancellation of the repair."
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model_terms:ir.ui.view,arch_db:mrp_repair_cancel_reason.wiz_repair_order_cancel_reason_form_view
+msgid "Confirm"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__create_uid
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__create_uid
+msgid "Created by"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__create_date
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__create_date
+msgid "Created on"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__display_name
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__display_name
+msgid "Display Name"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__id
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__id
+msgid "ID"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason____last_update
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason____last_update
+msgid "Last Modified on"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__write_uid
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__write_uid
+msgid "Last Updated by"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__write_date
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__write_date
+msgid "Last Updated on"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order_cancel_reason__name
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_wiz_repair_order_cancel_reason__reason_id
+msgid "Reason"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model.fields,field_description:mrp_repair_cancel_reason.field_repair_order__cancel_reason_id
+msgid "Reason for cancellation"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.actions.act_window,name:mrp_repair_cancel_reason.action_repair_order_cancel_with_reason
+#: model_terms:ir.ui.view,arch_db:mrp_repair_cancel_reason.wiz_repair_order_cancel_reason_form_view
+msgid "Reason for the cancellation"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.actions.act_window,name:mrp_repair_cancel_reason.action_repair_order_cancel_reason
+#: model:ir.model,name:mrp_repair_cancel_reason.model_repair_order_cancel_reason
+#: model:ir.ui.menu,name:mrp_repair_cancel_reason.menu_repair_order_cancel_reason
+msgid "Repair Cancel Reason"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model:ir.model,name:mrp_repair_cancel_reason.model_repair_order
+msgid "Repair Order"
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#. odoo-python
+#: code:addons/mrp_repair_cancel_reason/models/repair_order.py:0
+#, python-format
+msgid "Repair must be canceled in order to reset it to draft."
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#. odoo-python
+#: code:addons/mrp_repair_cancel_reason/models/repair_order.py:0
+#, python-format
+msgid "You cannot cancel a completed repair order."
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#. odoo-python
+#: code:addons/mrp_repair_cancel_reason/models/repair_order.py:0
+#, python-format
+msgid "You cannot cancel a repair order with done stock moves."
+msgstr ""
+
+#. module: mrp_repair_cancel_reason
+#: model_terms:ir.ui.view,arch_db:mrp_repair_cancel_reason.wiz_repair_order_cancel_reason_form_view
+msgid "or"
+msgstr ""

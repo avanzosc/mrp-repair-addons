@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+    id="report_repairorder"
+    inherit_id="repair.report_repairorder"
+    priority="100"
+  >
+        <xpath expr="//div[@class='page']/h2" position="replace">
+            <h2>
+                <span
+          t-if="o.state != 'draft' and not o.proforma"
+        >Repair Order N°:</span>
+                <span
+          t-if="o.state == 'draft' and not o.proforma"
+        >Repair Quotation N°:</span>
+                <span t-if="o.proforma">Proforma Nº:</span>
+                <span t-field="o.name" />
+            </h2>
+        </xpath>
+    </template>
+</odoo>

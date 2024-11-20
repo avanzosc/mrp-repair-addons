@@ -8,6 +8,7 @@
             </form>
         </field>
     </record>
+
     <record model="ir.ui.view" id="repair_order_cancel_reason_tree_view">
         <field name="model">repair.order.cancel.reason</field>
         <field name="arch" type="xml">
@@ -16,17 +17,17 @@
             </tree>
         </field>
     </record>
+
     <record model="ir.actions.act_window" id="action_repair_order_cancel_reason">
         <field name="name">Repair Cancel Reason</field>
         <field name="res_model">repair.order.cancel.reason</field>
         <field name="view_mode">tree,form</field>
     </record>
+
     <menuitem
     id="menu_repair_order_cancel_reason"
-    parent="mrp.menu_mrp_manufacturing"
-    name="Repair Cancel Reasons"
     action="action_repair_order_cancel_reason"
-    sequence="55"
-    groups="mrp.group_mrp_user"
+    parent="repair.repair_menu_config"
   />
+
 </odoo>
