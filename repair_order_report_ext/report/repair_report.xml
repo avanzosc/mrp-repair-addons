@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_repairorder" inherit_id="repair.report_repairorder">
+        <t t-if="o.invoice_method != 'none'" position="attributes">
+            <attribute
+        name="t-if"
+      >o.invoice_method != 'none' and with_amounts == True</attribute>
+        </t>
+        <t t-if="(line.repair_id.invoice_method != 'none')" position="attributes">
+            <attribute
+        name="t-if"
+      >(line.repair_id.invoice_method != 'none' and with_amounts == True)</attribute>
+        </t>
+        <t t-if="(fees.repair_id.invoice_method != 'none')" position="attributes">
+            <attribute
+        name="t-if"
+      >(fees.repair_id.invoice_method != 'none' and with_amounts == True)</attribute>
+        </t>
+        <div id="total" position="attributes">
+            <attribute name="t-if">with_amounts == True</attribute>
+        </div>
+    </template>
+
+    <template id="report_repairorder2" inherit_id="repair.report_repairorder2">
+        <t t-call="repair.report_repairorder" position="before">
+            <t t-set="with_amounts" t-value="True" />
+        </t>
+    </template>
+
+    <template id="report_repairorder_without_amounts">
+        <t t-call="web.html_container">
+            <t t-foreach="docs" t-as="doc">
+                <t t-set="with_amounts" t-value="False" />
+                <t t-call="repair.report_repairorder" t-lang="doc.partner_id.lang" />
+            </t>
+        </t>
+    </template>
+
+    <record id="action_report_repair_order_without" model="ir.actions.report">
+        <field name="name">Quotation / Order Without Amounts</field>
+        <field name="model">repair.order</field>
+        <field name="report_type">qweb-pdf</field>
+        <field
+      name="report_name"
+    >repair_order_report_ext.report_repairorder_without_amounts</field>
+        <field name="report_file">repair.report_repairorder</field>
+        <field name="print_report_name">(
+            object.state == 'draft' and 'Repair Quotation - %s without amounts' % (object.name) or
+            'Repair Order - %s without amounts' % (object.name))</field>
+        <field name="binding_model_id" ref="repair.model_repair_order" />
+        <field name="binding_type">report</field>
+    </record>
+</odoo>
