@@ -11,6 +11,7 @@ class RepairOrder(models.Model):
 
     @api.onchange("product_id")
     def onchange_product_id(self):
-        super(RepairOrder, self).onchange_product_id()
+        res = super().onchange_product_id()
         if not self.partner_id:
             self.pricelist_id = self.env.ref("product.list0")
+        return res
