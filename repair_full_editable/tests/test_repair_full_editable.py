@@ -8,7 +8,7 @@ import odoo.tests.common as common
 @common.post_install(True)
 class TestRepairFullEditable(common.TransactionCase):
     def setUp(self):
-        super(TestRepairFullEditable, self).setUp()
+        super().setUp()
         self.repair = self.env.ref("repair.repair_r1")
         self.product = self.ref("product.product_product_2")
         self.pricelist = self.env.ref("product.list0")
