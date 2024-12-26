@@ -13,6 +13,6 @@ class RepairOrderType(models.Model):
 class RepairOrder(models.Model):
     _inherit = "repair.order"
 
-    repair_type_id = fields.Many2one(
+    repair_order_type_id = fields.Many2one(
         comodel_name="repair.order.type", string="Repair order type"
     )

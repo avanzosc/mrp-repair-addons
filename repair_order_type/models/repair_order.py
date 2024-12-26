@@ -28,7 +28,7 @@ class RepairOrder(models.Model):
     def create(self, vals):
         if vals.get("name", "/") == "/" and vals.get("type_id"):
             repair_type = self.env["repair.order.type"].browse(vals["type_id"])
-            if repair_type.sequence_id:
+            if hasattr(repair_type, "sequence_id") and repair_type.sequence_id:
                 vals["name"] = repair_type.sequence_id.next_by_id()
         return super().create(vals)
 
