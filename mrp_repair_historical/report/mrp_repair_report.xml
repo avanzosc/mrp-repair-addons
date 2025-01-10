@@ -1,0 +1,111 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_mrp_repair_partner_lot_printing">
+        <t t-call="web.external_layout">
+            <t
+        t-set="o"
+        t-value="o.with_context({'show_customer_product_code':True})"
+      />
+            <div class="page">
+                <div class="oe_structure" />
+                <div class="row">
+                    <div class="col-6">
+                        <div
+              t-field="o.company_id.partner_id"
+              t-options='{"widget": "contact", "fields": ["address", "name", "phone", "email"], "no_marker": true}'
+            />
+                        <p t-if="o.company_id.partner_id.vat">VAT: <span
+                t-field="o.company_id.partner_id.vat"
+              /></p>
+                    </div>
+                    <div class="col-6">
+                        <strong
+              t-if="o.address_id == o.partner_invoice_id"
+            >Invoice and Shipping Address:</strong>
+                        <div t-if="o.partner_invoice_id">
+                            <strong
+                t-if="o.address_id != o.partner_invoice_id"
+              >Invoice Address: </strong>
+                            <div
+                t-field="o.partner_invoice_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone", "email"], "no_marker": true}'
+              />
+                            <p t-if="o.partner_id.vat">VAT: <span
+                  t-field="o.partner_id.vat"
+                /></p>
+                        </div>
+                        <div t-if="o.address_id != o.partner_invoice_id" class="mt-3">
+                            <strong>Shipping Address:</strong>
+                            <div
+                t-field="o.address_id"
+                t-options='{"widget": "contact", "fields": ["address", "name", "phone", "email"], "no_marker": true}'
+              />
+                            <p t-if="o.partner_id.vat">VAT: <span
+                  t-field="o.partner_id.vat"
+                /></p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2>
+                    <span>Repair Report No.:</span>
+                    <span t-field="o.name" />
+                </h2>
+
+                <div class="row mt-4 mb-4">
+                    <div class="col-3">
+                        <strong>Repair Date:</strong>
+                        <br />
+                        <span t-field="o.date_repair" t-options='{"widget": "date"}' />
+                    </div>
+                    <div t-if="o.user_id.name" class="col-3">
+                        <strong>Responsible:</strong>
+                        <p t-field="o.user_id.name" />
+                    </div>
+                </div>
+
+                <table class="table table-condensed">
+                    <thead>
+                        <tr>
+                            <th>Customer Product Code</th>
+                            <th>Product Variant</th>
+                            <th>Product Template</th>
+                            <th>Internal Reference</th>
+                            <th>Lot/Serial Number</th>
+                            <th>Quantity</th>
+                            <th>Breakdown Description</th>
+                            <th>Cause</th>
+                            <th>Repair Made</th>
+                            <th>Repairable</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr t-foreach="o.customer_lot_ids" t-as="line">
+                            <td><span t-field="line.customer_product_code" /></td>
+                            <td><span t-field="line.product_variant_id" /></td>
+                            <td><span t-field="line.product_template_id" /></td>
+                            <td><span t-field="line.internal_reference" /></td>
+                            <td><span t-field="line.lot_id" /></td>
+                            <td><span t-field="line.quantity" /></td>
+                            <td><span t-field="line.breakdown_description" /></td>
+                            <td><span t-field="line.cause" /></td>
+                            <td><span t-field="line.repair_made" /></td>
+                            <td><span t-field="line.repairable" /></td>
+                        </tr>
+                    </tbody>
+                </table>
+                <div class="oe_structure" />
+            </div>
+        </t>
+    </template>
+
+    <template id="report_mrp_repair_partner_lot">
+        <t t-call="web.external_layout">
+            <t t-foreach="docs" t-as="o">
+                <t
+          t-call="mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing"
+        />
+            </t>
+        </t>
+    </template>
+</odoo>

@@ -6,7 +6,7 @@
 Repair Date
 ===========
 
-* This module in "mrp.repair" object creates new fields of dates: Scheduled
+* This module in "repair.order" object creates new fields of dates: Scheduled
   departure date, start date, end date. Also it is shown in the tree view, the
   date of creation of the object.
 

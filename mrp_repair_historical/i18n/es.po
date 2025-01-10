@@ -205,7 +205,7 @@ msgstr "NIF:"
 
 #. module: mrp_repair_partner_lot
 #: view:mrp.repair.customer.lot:mrp_repair_partner_lot.mrp_repair_customer_lot_view_search
-#: field:mrp.repair.customer.lot,repair_date:0
+#: field:mrp.repair.customer.lot,date_repair:0
 msgid "Repair date"
 msgstr "Fecha reparación"
 
