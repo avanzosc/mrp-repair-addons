@@ -4,7 +4,7 @@ import odoo.tests.common as common
 from odoo import fields
 
 
-class TestMrpRepairPartnerLot(common.TransactionCase):
+class TestMrpRepairHistorical(common.TransactionCase):
 
     def setUp(self):
         super().setUp()
@@ -26,7 +26,7 @@ class TestMrpRepairPartnerLot(common.TransactionCase):
             }
         )
 
-    def test_mrp_repair_partner_lot(self):
+    def test_mrp_repair_historical(self):
         suppinfo = self.supplierinfo_model.name_search("CODE")
         self.assertEqual(self.supplierinfo.name_get(), suppinfo)
         self.assertEqual(self.supplierinfo.display_name, self.supplierinfo.name.name)
@@ -86,7 +86,7 @@ class TestMrpRepairPartnerLot(common.TransactionCase):
             ),
         )
 
-    def test_mrp_repair_partner_lot_date_repair(self):
+    def test_mrp_repair_historical_date_repair(self):
         self.repair = self.repair_model.search([], limit=1)
         self.repair.write(
             {"customer_lot_ids": [(0, 0, {"product_code": self.supplierinfo.id})]}

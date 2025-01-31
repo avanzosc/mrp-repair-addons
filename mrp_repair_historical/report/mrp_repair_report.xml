@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8" ?>
 <odoo>
-    <template id="report_mrp_repair_partner_lot_printing">
+    <template id="report_mrp_repair_historical_printing">
         <t t-call="web.external_layout">
             <t
         t-set="o"
@@ -99,11 +99,11 @@
         </t>
     </template>
 
-    <template id="report_mrp_repair_partner_lot">
+    <template id="report_mrp_repair_historical">
         <t t-call="web.external_layout">
             <t t-foreach="docs" t-as="o">
                 <t
-          t-call="mrp_repair_partner_lot.report_mrp_repair_partner_lot_printing"
+          t-call="mrp_repair_historical.report_mrp_repair_historical_printing"
         />
             </t>
         </t>
