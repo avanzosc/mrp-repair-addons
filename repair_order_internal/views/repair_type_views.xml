@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record model="ir.ui.view" id="repair_type_view_form">
+        <field name="model">repair.type</field>
+        <field name="inherit_id" ref="repair_type.repair_type_view_form" />
+        <field name="arch" type="xml">
+            <field name="source_location_id" position="before">
+                <field name="internal_repair" />
+            </field>
+        </field>
+    </record>
+
+    <record model="ir.ui.view" id="repair_type_view_tree">
+        <field name="model">repair.type</field>
+        <field name="inherit_id" ref="repair_type.repair_type_view_tree" />
+        <field name="arch" type="xml">
+            <field name="name" position="after">
+                <field name="internal_repair" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>

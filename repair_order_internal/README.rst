@@ -6,8 +6,8 @@
 Repair order internal
 =====================
 
-* In repairs new menu option "Internal Repair Orders", with its new sequence 
-  Internal Repair Order".
+* In repair types new field "Internal Repair".
+* In repairs new menu option "Internal Repair Orders".
 * For normal repair orders, customers will only be able to pick up contacts that
   are not from the company.
 * For internal repair orders, clients will only be able to take contacts that
