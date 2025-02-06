@@ -6,7 +6,9 @@ from odoo import api, fields, models
 class RepairOrder(models.Model):
     _inherit = "repair.order"
 
-    internal_repair = fields.Boolean()
+    internal_repair = fields.Boolean(
+        related="repair_type_id.internal_repair", store=True, copy=False
+    )
 
     @api.onchange("internal_repair")
     def onchange_internal_claim(self):
@@ -31,16 +33,3 @@ class RepairOrder(models.Model):
                 }
             }
         return domain
-
-    @api.model_create_multi
-    def create(self, vals_list):
-        found = False
-        for vals in vals_list:
-            if "internal_repair" in vals and vals.get("internal_repair", False):
-                found = True
-        if not found:
-            return super().create(vals_list)
-        else:
-            return super(
-                RepairOrder, self.with_context(with_internal_repair_order_sequence=True)
-            ).create(vals_list)

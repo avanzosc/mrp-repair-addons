@@ -23,6 +23,7 @@ msgstr "Reparaciones internas"
 
 #. module: repair_order_internal
 #: model:ir.model.fields,field_description:repair_order_internal.field_repair_order__internal_repair
+#: model:ir.model.fields,field_description:repair_order_internal.field_repair_type__internal_repair
 msgid "Internal Repair"
 msgstr "Reparación interna"
 
@@ -41,3 +42,10 @@ msgstr "Orden reparación"
 #: model:ir.model,name:repair_order_internal.model_ir_sequence
 msgid "Sequence"
 msgstr "Secuencia"
+
+#. module: repair_order_internal
+#: model:ir.actions.act_window,name:repair_order_internal.action_not_internal_repair_order_tree
+#: model:ir.ui.menu,name:repair_order_internal.menu_no_internal_repair_order_tree
+msgid "Repair Orders"
+msgstr "Reparaciones"
+
