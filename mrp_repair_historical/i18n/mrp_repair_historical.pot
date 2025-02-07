@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 09:15+0000\n"
-"PO-Revision-Date: 2025-02-07 09:15+0000\n"
+"POT-Creation-Date: 2025-02-07 09:13+0000\n"
+"PO-Revision-Date: 2025-02-07 09:13+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -19,7 +19,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "<span>Repair Report No.:</span>"
-msgstr "<span>Informe de reparación N°:</span>"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
@@ -28,27 +28,25 @@ msgid ""
 "<strong>Repair Date:</strong>\n"
 "                        <br/>"
 msgstr ""
-"<strong>Fecha reparación:</strong>\n"
-"                        <br/>"
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "<strong>Responsible:</strong>"
-msgstr "<strong>Responsable:</strong>"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "<strong>Shipping Address:</strong>"
-msgstr "<strong>Dirección de envío:</strong>"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__breakdown_description
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "Breakdown Description"
-msgstr "Descripción de la averia"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__cause
@@ -58,7 +56,7 @@ msgstr "Descripción de la averia"
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_partner_lot
 msgid "Cause"
-msgstr "Causa"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,help:mrp_repair_historical.field_repair_order_customer_lot__customer_id
@@ -70,18 +68,18 @@ msgstr ""
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__create_uid
 msgid "Created by"
-msgstr "Creado por"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__create_date
 msgid "Created on"
-msgstr "Creado el"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__customer_id
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Customer"
-msgstr "Cliente"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__customer_product_code
@@ -93,12 +91,12 @@ msgstr ""
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order__customer_lot_ids
 msgid "Customer lots"
-msgstr "Lotes cliente"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Customer product code"
-msgstr "Código producto cliente"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,help:mrp_repair_historical.field_repair_order_customer_lot__date_repair
@@ -110,7 +108,7 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_partner_lot
 msgid "Description breakdown"
-msgstr "Descripción avería"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__display_name
@@ -120,7 +118,7 @@ msgstr ""
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Group By"
-msgstr "Agrupar por"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__id
@@ -138,13 +136,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "Invoice Address:"
-msgstr "Dirección de facturación:"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "Invoice and Shipping Address:"
-msgstr "Dirección de facturación y de envío:"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot____last_update
@@ -154,17 +152,17 @@ msgstr ""
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__write_uid
 msgid "Last Updated by"
-msgstr "Última modificación por"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__write_date
 msgid "Last Updated on"
-msgstr "Última modificación el"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__lot_id
 msgid "Lot"
-msgstr "Lote"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
@@ -182,13 +180,13 @@ msgstr ""
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_partner_lot
 msgid "MRP repair customer lot"
-msgstr "MRP reparación lote cliente"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.actions.act_window,name:mrp_repair_historical.action_mrp_repair_customer_lot_view
 #: model:ir.ui.menu,name:mrp_repair_historical.mrp_repair_customer_lot_option_view
 msgid "MRP repair customer lots"
-msgstr "MRP reparación lotes cliente"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__product_template_id
@@ -207,75 +205,75 @@ msgstr ""
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Product template"
-msgstr "Plantilla producto"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__quantity
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "Quantity"
-msgstr "Cantidad"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__repair_id
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Repair"
-msgstr "Reparación"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__date_repair
 msgid "Repair Date"
-msgstr "Fecha reparación"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__repair_made
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "Repair Made"
-msgstr "Reparación efectuada"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model,name:mrp_repair_historical.model_repair_order
 msgid "Repair Order"
-msgstr "Orden reparación"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Repair date"
-msgstr "Fecha reparación"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_form
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_partner_lot
 msgid "Repair made"
-msgstr "Reparación efectuada"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.view_repair_order_form_inh_partner_lot
 msgid "Repair report"
-msgstr "Informe reparación"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model.fields,field_description:mrp_repair_historical.field_repair_order_customer_lot__repairable
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "Repairable"
-msgstr "Reparable"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.mrp_repair_customer_lot_view_search
 msgid "Search mrp repair customer lots"
-msgstr "Buscar lotes cliente reparación"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model:ir.model,name:mrp_repair_historical.model_product_supplierinfo
 msgid "Supplier Pricelist"
-msgstr "Tarifa de proveedor"
+msgstr ""
 
 #. module: mrp_repair_historical
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_historical_printing
 #: model_terms:ir.ui.view,arch_db:mrp_repair_historical.report_mrp_repair_partner_lot_printing
 msgid "VAT:"
-msgstr "NIF:"
+msgstr ""
