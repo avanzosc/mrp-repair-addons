@@ -1,5 +1,8 @@
 # Copyright 2025 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
+import re
+from html import unescape
+
 from odoo import models
 
 
@@ -10,3 +13,8 @@ class RepairOrder(models.Model):
         return super(
             RepairOrder, self.with_context(from_repair_order=True)
         )._create_invoices(group=group)
+
+    def convert_html_notes_to_char(self, html_notes):
+        clean_text = re.sub(r"<.*?>", "", html_notes)
+        notes = unescape(clean_text)
+        return notes
