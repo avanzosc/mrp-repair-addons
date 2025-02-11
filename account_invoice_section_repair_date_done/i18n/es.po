@@ -1,0 +1,42 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* account_invoice_section_repair_date_done
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 14.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-01-31 07:47+0000\n"
+"PO-Revision-Date: 2025-01-31 07:47+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: account_invoice_section_repair_date_done
+#: code:addons/account_invoice_section_repair_date_done/models/account_move.py:0
+#, python-format
+msgid "%(super_vals)s, Date Done: %(date_done)s"
+msgstr "%(super_vals)s, Fecha fin reparación: %(date_done)s"
+
+#. module: account_invoice_section_repair_date_done
+#: model:ir.model.fields,field_description:account_invoice_section_repair_date_done.field_account_move__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: account_invoice_section_repair_date_done
+#: model:ir.model.fields,field_description:account_invoice_section_repair_date_done.field_account_move__id
+msgid "ID"
+msgstr ""
+
+#. module: account_invoice_section_repair_date_done
+#: model:ir.model,name:account_invoice_section_repair_date_done.model_account_move
+msgid "Journal Entry"
+msgstr "Asiento contable"
+
+#. module: account_invoice_section_repair_date_done
+#: model:ir.model.fields,field_description:account_invoice_section_repair_date_done.field_account_move____last_update
+msgid "Last Modified on"
+msgstr "Última modificación en"
