@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-02-07 08:32+0000\n"
-"PO-Revision-Date: 2025-02-07 08:32+0000\n"
+"POT-Creation-Date: 2025-02-11 06:53+0000\n"
+"PO-Revision-Date: 2025-02-11 06:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -18,6 +18,7 @@ msgstr ""
 #. module: account_invoice_section_repair
 #. odoo-python
 #: code:addons/account_invoice_section_repair/models/account_move.py:0
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
 #, python-format
 msgid "%(my_name)s - %(repair_name)s"
 msgstr "%(my_name)s - %(repair_name)s"
@@ -26,8 +27,47 @@ msgstr "%(my_name)s - %(repair_name)s"
 #. odoo-python
 #: code:addons/account_invoice_section_repair/models/account_move.py:0
 #, python-format
-msgid "%(repair_name)s, Lot: %(lot)s"
-msgstr "%(repair_name)s, Lote: %(lot)s"
+msgid ""
+"%(repair_name)s\n"
+"%(notes)s"
+msgstr ""
+"%(repair_name)s\n"
+"%(notes)s"
+
+#. module: account_invoice_section_repair
+#. odoo-python
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
+#, python-format
+msgid ""
+"%(repair_name)s\n"
+"Notes: %(notes)s"
+msgstr ""
+"%(repair_name)s\n"
+"Notas: %(notes)s"
+
+#. module: account_invoice_section_repair
+#. odoo-python
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
+#, python-format
+msgid "%(repair_name)s, Num. Serie: %(lot)s"
+msgstr "%(repair_name)s, Num. Serie: %(lot)s"
+
+#. module: account_invoice_section_repair
+#: model:ir.model,name:account_invoice_section_repair.model_res_config_settings
+msgid "Config Settings"
+msgstr "Opciones de Configuración"
+
+#. module: account_invoice_section_repair
+#: model_terms:ir.ui.view,arch_db:account_invoice_section_repair.res_config_settings_view_form
+msgid "Create invoices sections from repairs with operations and parts info."
+msgstr "Crear secciones en facturas desde reparaciones con información de operaciones y piezas."
+
+#. module: account_invoice_section_repair
+#: model:ir.model.fields,field_description:account_invoice_section_repair.field_res_config_settings__section_from_repair
+#: model_terms:ir.ui.view,arch_db:account_invoice_section_repair.res_config_settings_view_form
+msgid "In invoices create sections from repairs"
+msgstr "En facturas crear secciones desde reparaciones"
 
 #. module: account_invoice_section_repair
 #: model:ir.model,name:account_invoice_section_repair.model_account_move
@@ -35,7 +75,18 @@ msgid "Journal Entry"
 msgstr "Entradas diario"
 
 #. module: account_invoice_section_repair
+#: model_terms:ir.ui.view,arch_db:account_invoice_section_repair.res_config_settings_view_form
+msgid ""
+"New users are automatically added as recipient of the following digest "
+"email."
+msgstr ""
+"Los nuevos usuarios son añadidos automáticamente como recipientes del "
+"siguiente correo electrónico de resumen."
+
+
+#. module: account_invoice_section_repair
 #. odoo-python
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
 #: code:addons/account_invoice_section_repair/models/account_move.py:0
 #, python-format
 msgid "OPERATIONS"
@@ -43,6 +94,7 @@ msgstr "OPERACIONES"
 
 #. module: account_invoice_section_repair
 #. odoo-python
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
 #: code:addons/account_invoice_section_repair/models/account_move.py:0
 #, python-format
 msgid "PARTS"
@@ -56,11 +108,12 @@ msgstr "Orden de reparación"
 #. module: account_invoice_section_repair
 #. odoo-python
 #: code:addons/account_invoice_section_repair/models/account_move.py:0
+#: code:addons/account_invoice_section_repair/models/account_move.py:0
 #, python-format
-msgid ""
-"Repair: %(repair)s, Date: %(date)s, VAT: %(vat)s, Product to repair: "
-"%(product)s"
-msgstr ""
-"Reparación: %(repair)s, Fecha: %(date)s, NIF: %(vat)s, Producto a reparar: "
-"%(product)s"
+msgid "Repair: %(repair)s, Date: %(date)s"
+msgstr "Reparación: %(repair)s, Fecha: %(date)s"
 
+#. module: account_invoice_section_repair
+#: model_terms:ir.ui.view,arch_db:account_invoice_section_repair.res_config_settings_view_form
+msgid "Repairs"
+msgstr "Reparaciones"
