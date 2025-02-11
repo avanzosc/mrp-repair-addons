@@ -2,24 +2,30 @@
 <odoo>
     <record id="res_config_settings_view_form" model="ir.ui.view">
         <field name="model">res.config.settings</field>
-        <field name="inherit_id" ref="base.res_config_settings_view_form" />
+        <field name="inherit_id" ref="base_setup.res_config_settings_view_form" />
         <field name="arch" type="xml">
-            <xpath expr="//div[hasclass('settings')]" position="inside">
-                <h2 groups="base.group_no_one">Create Invoices from Repair Orders</h2>
-                <div
-          groups="base.group_no_one"
-          class="row mt16 o_settings_container"
-          name="invoices-from-repair"
-        >
-                    <div
-            class="col-12 col-lg-6 o_setting_box"
-            id="invoices_from_repair"
-          >
-                    <label for="section_from_repair" />
-                    <field name="section_from_repair" />
-                    <div class="text-muted">
-                        When generating invoices from repairs, create sections with operations, and parts.
-                    </div>
+            <xpath expr="//div[@id='contacts_settings']" position="before">
+                <div id="statistics">
+                    <h2>Repairs</h2>
+                    <div class='row mt16 o_settings_container' id='repair_account_div'>
+                        <div
+              class="col-12 col-lg-6 o_setting_box"
+              title="New users are automatically added as recipient of the following digest email."
+              name="repair_account_setting_container"
+            >
+                            <div class="o_setting_left_pane">
+                                <field name="section_from_repair" />
+                            </div>
+                            <div class="o_setting_right_pane">
+                                <label
+                  string="In invoices create sections from repairs"
+                  for="section_from_repair"
+                />
+                                <div class="text-muted" id="msg_module_digest">
+                                    Create invoices sections from repairs with operations and parts info.
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </xpath>

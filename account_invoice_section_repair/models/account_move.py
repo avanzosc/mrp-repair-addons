@@ -18,6 +18,8 @@ class AccountMove(models.Model):
         repairs_treated = self.env["repair.order"]
         fee_pending = True
         for vals in vals_list:
+            if "narration" in vals:
+                del vals["narration"]
             lines_vals = vals.get("invoice_line_ids")
             for line_vals in lines_vals:
                 if "repair_line_ids" in line_vals[2]:
@@ -95,7 +97,7 @@ class AccountMove(models.Model):
             }
         if repair.quotation_notes:
             quotation_notes = repair.convert_html_notes_to_char(repair.quotation_notes)
-            repair_name = _("%(repair_name)s\n%(notes)s") % {
+            repair_name = _("%(repair_name)s\nNotes: %(notes)s") % {
                 "repair_name": repair_name,
                 "notes": quotation_notes,
             }

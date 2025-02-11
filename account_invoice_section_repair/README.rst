@@ -9,6 +9,7 @@ Account invoice section repair
 * When creating an invoice from repairs, create a section on the invoice with
   the repair information, another section for the parts, and another section
   for the operations.
+* In "Settings" new field "In invoices create sections from repairs".
 
 
 Bug Tracker
