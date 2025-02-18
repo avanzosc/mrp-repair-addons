@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="paperformat_mrp_repair_historical" model="report.paperformat">
-        <field name="name">MRP repair partner lot</field>
+        <field name="name">MRP Repair Historical</field>
         <field name="default" eval="True" />
         <field name="format">A4</field>
         <field name="page_height">0</field>

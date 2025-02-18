@@ -2,9 +2,9 @@
     :target: http://www.gnu.org/licenses/agpl-3.0-standalone.html
     :alt: License: AGPL-3
 
-======================
-Mrp repair partner lot
-======================
+=====================
+Mrp Repair Historical
+=====================
 
 * In repair orders new tag "Repair report", with new object
   "MRP repair customer lot".
