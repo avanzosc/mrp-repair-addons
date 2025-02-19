@@ -31,6 +31,10 @@ class ProductSupplierinfo(models.Model):
     def _name_search(
         self, name="", args=None, operator="ilike", limit=100, name_get_uid=None
     ):
+        if "from_purchase_order_line" in self.env.context:
+            return super()._name_search(
+                name, args, operator, limit, name_get_uid=name_get_uid
+            )
         if args is None:
             args = []
         results = super()._name_search(
@@ -52,4 +56,4 @@ class ProductSupplierinfo(models.Model):
         else:
             args += domain
         more_results = self.search(args, limit=limit)
-        return more_results.name_get() or results
+        return more_results.ids or results
