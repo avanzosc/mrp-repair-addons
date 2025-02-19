@@ -115,7 +115,7 @@
     name="MRP repair customer lots"
     action="action_mrp_repair_customer_lot_view"
     groups="mrp.group_mrp_user"
-    parent="mrp.menu_mrp_manufacturing"
+    parent="repair.menu_repair_order"
     sequence="51"
   />
 </odoo>
