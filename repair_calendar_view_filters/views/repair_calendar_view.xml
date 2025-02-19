@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_repair_order_calendar_inherit" model="ir.ui.view">
+        <field name="name">repair.order.calendar.view.filters</field>
+        <field name="model">repair.order</field>
+        <field
+      name="inherit_id"
+      ref="repair_calendar_view.view_repair_order_calendar"
+    />
+        <field name="arch" type="xml">
+            <xpath expr="//calendar" position="inside">
+                <field name="employee_id" filters="1" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
