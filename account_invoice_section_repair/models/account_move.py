@@ -5,6 +5,7 @@ from datetime import datetime
 from pytz import timezone, utc
 
 from odoo import _, api, models
+from odoo.tools import html2plaintext
 
 
 class AccountMove(models.Model):
@@ -102,10 +103,9 @@ class AccountMove(models.Model):
                 "lot": repair.lot_id.name,
             }
         if repair.quotation_notes:
-            quotation_notes = repair.convert_html_notes_to_char(repair.quotation_notes)
             repair_name = _("%(repair_name)s\nNotes: %(notes)s") % {
                 "repair_name": repair_name,
-                "notes": quotation_notes,
+                "notes": html2plaintext(repair.quotation_notes),
             }
         return repair_name
 
