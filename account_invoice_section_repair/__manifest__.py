@@ -4,10 +4,15 @@
     "name": "Account Invoice Section Repair",
     "author": "AvanzOSC",
     "website": "https://github.com/avanzosc/mrp-repair-addons",
-    "category": "Invoices & Payments",
+    "category": "Accounting & Finance",
     "version": "16.0.1.0.0",
     "license": "AGPL-3",
-    "depends": ["repair", "account"],
-    "data": ["views/res_config_settings_views.xml"],
+    "depends": [
+        "repair",
+        "account",
+    ],
+    "data": [
+        "views/res_config_settings_views.xml",
+    ],
     "installable": True,
 }
