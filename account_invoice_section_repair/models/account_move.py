@@ -86,10 +86,16 @@ class AccountMove(models.Model):
 
     def _get_repair_name_for_values(self, repair):
         date_repair = self._convert_to_local_date(repair.date_repair, repair.user_id)
-        repair_name = _("Repair: %(repair)s, Date: %(date)s") % {
-            "repair": repair.name,
-            "date": date_repair,
-        }
+        repair_name = self._get_repair_name(repair)
+        if repair_name:
+            repair_name = _("%(repair)s, Date: %(date)s") % {
+                "repair": repair_name,
+                "date": date_repair,
+            }
+        else:
+            repair_name = _("Date: %(date)s") % {
+                "date": date_repair,
+            }
         if repair.lot_id:
             repair_name = _("%(repair_name)s, Num. Serie: %(lot)s") % {
                 "repair_name": repair_name,
@@ -102,6 +108,11 @@ class AccountMove(models.Model):
                 "notes": quotation_notes,
             }
         return repair_name
+
+    def _get_repair_name(self, repair):
+        return _("Repair: %(repair_name)s") % {
+            "repair_name": repair.name,
+        }
 
     def _convert_to_local_date(self, mydate, user):
         if not mydate:
