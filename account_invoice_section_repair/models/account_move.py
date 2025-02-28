@@ -1,11 +1,7 @@
 # Copyright 2025 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from datetime import datetime
-
-from pytz import timezone, utc
-
 from odoo import _, api, models
-from odoo.tools import html2plaintext
+from odoo.tools import format_date, html2plaintext, translate
 
 
 class AccountMove(models.Model):
@@ -86,38 +82,53 @@ class AccountMove(models.Model):
         return vals
 
     def _get_repair_name_for_values(self, repair):
-        date_repair = self._convert_to_local_date(repair.date_repair, repair.user_id)
         repair_name = self._get_repair_name(repair)
+        lang = repair.partner_id.lang
+        ctx = self.env.context
         if repair_name:
-            repair_name = _("%(repair)s, Date: %(date)s") % {
-                "repair": repair_name,
-                "date": date_repair,
-            }
+            with self.env.cr.savepoint():
+                self = self.with_context(lang=lang)
+                repair_name = _("{repair}, Date: {date}").format(
+                    repair=repair_name,
+                    date=format_date(
+                        self.env, repair.date_repair, date_format=False, lang_code=lang
+                    ),
+                )
         else:
-            repair_name = _("Date: %(date)s") % {
-                "date": date_repair,
-            }
+            with self.env.cr.savepoint():
+                self = self.with_context(lang=lang)
+                repair_name = _("Date: {date}").format(
+                    date=format_date(
+                        self.env, repair.date_repair, date_format=False, lang_code=lang
+                    )
+                )
+        self = self.with_context(**ctx)
         if repair.lot_id:
-            repair_name = _("%(repair_name)s, Num. Serie: %(lot)s") % {
-                "repair_name": repair_name,
-                "lot": repair.lot_id.name,
-            }
+            ctx = self.env.context
+            self = self.with_context(lang=lang)
+            repair_name = translate._(
+                "{repair_name}, Num. Serie: {lot}", lang=lang
+            ).format(repair_name=repair_name, lot=repair.lot_id.name or "")
+            self = self.with_context(**ctx)
         if repair.quotation_notes:
-            repair_name = _("%(repair_name)s\nNotes: %(notes)s") % {
-                "repair_name": repair_name,
-                "notes": html2plaintext(repair.quotation_notes),
-            }
+            ctx = self.env.context
+            self = self.with_context(lang=lang)
+            repair_name = translate._(
+                "{repair_name}\nNotes: {notes}", lang=lang
+            ).format(
+                repair_name=repair_name,
+                notes=html2plaintext(repair.quotation_notes or ""),
+            )
+            self = self.with_context(**ctx)
         return repair_name
 
     def _get_repair_name(self, repair):
-        return _("Repair: %(repair_name)s") % {
-            "repair_name": repair.name,
-        }
-
-    def _convert_to_local_date(self, mydate, user):
-        if not mydate:
-            return ""
-        tz = user.tz if user.tz else self.env.user.tz
-        mydate = mydate.replace(tzinfo=utc)
-        mydate = mydate.astimezone(timezone(tz)).replace(tzinfo=None)
-        return datetime.strptime(str(mydate), "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
+        ctx = self.env.context
+        lang = repair.partner_id.lang
+        with self.env.cr.savepoint():
+            self = self.with_context(lang=lang)
+            literal = translate._("Repair: {repair_name}", lang=lang).format(
+                repair_name=repair.name
+            )
+        self = self.with_context(**ctx)
+        return literal
