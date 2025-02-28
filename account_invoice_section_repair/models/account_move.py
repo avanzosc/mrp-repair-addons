@@ -1,11 +1,7 @@
 # Copyright 2025 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
-from datetime import datetime
-
-from pytz import timezone, utc
-
 from odoo import _, api, models
-from odoo.tools import html2plaintext
+from odoo.tools import format_date, html2plaintext, translate
 
 
 class AccountMove(models.Model):
@@ -86,38 +82,44 @@ class AccountMove(models.Model):
         return vals
 
     def _get_repair_name_for_values(self, repair):
-        date_repair = self._convert_to_local_date(repair.date_repair, repair.user_id)
         repair_name = self._get_repair_name(repair)
         if repair_name:
-            repair_name = _("%(repair)s, Date: %(date)s") % {
-                "repair": repair_name,
-                "date": date_repair,
-            }
+            repair_name = translate._(
+                "{repair}, Date: {date}", lang=repair.partner_id.lang
+            ).format(
+                repair=repair_name,
+                date=format_date(
+                    self.env,
+                    repair.date_repair,
+                    date_format=False,
+                    lang_code=repair.partner_id.lang,
+                ),
+            )
         else:
-            repair_name = _("Date: %(date)s") % {
-                "date": date_repair,
-            }
+            repair_name = translate._(
+                "Date: {date}", lang=repair.partner_id.lang
+            ).format(
+                date=format_date(
+                    self.env,
+                    repair.date_repair,
+                    date_format=False,
+                    lang_code=repair.partner_id.lang,
+                )
+            )
         if repair.lot_id:
-            repair_name = _("%(repair_name)s, Num. Serie: %(lot)s") % {
-                "repair_name": repair_name,
-                "lot": repair.lot_id.name,
-            }
+            repair_name = translate._(
+                "{repair_name}, Num. Serie: {lot}", lang=repair.partner_id.lang
+            ).format(repair_name=repair_name, lot=repair.lot_id.name or "")
         if repair.quotation_notes:
-            repair_name = _("%(repair_name)s\nNotes: %(notes)s") % {
-                "repair_name": repair_name,
-                "notes": html2plaintext(repair.quotation_notes),
-            }
+            repair_name = translate._(
+                "{repair_name}\nNotes: {notes}", lang=repair.partner_id.lang
+            ).format(
+                repair_name=repair_name,
+                notes=html2plaintext(repair.quotation_notes or ""),
+            )
         return repair_name
 
     def _get_repair_name(self, repair):
-        return _("Repair: %(repair_name)s") % {
-            "repair_name": repair.name,
-        }
-
-    def _convert_to_local_date(self, mydate, user):
-        if not mydate:
-            return ""
-        tz = user.tz if user.tz else self.env.user.tz
-        mydate = mydate.replace(tzinfo=utc)
-        mydate = mydate.astimezone(timezone(tz)).replace(tzinfo=None)
-        return datetime.strptime(str(mydate), "%Y-%m-%d %H:%M:%S").strftime("%d-%m-%Y")
+        return translate._("Repair: {repair_name}", lang=repair.partner_id.lang).format(
+            repair_name=repair.name
+        )
