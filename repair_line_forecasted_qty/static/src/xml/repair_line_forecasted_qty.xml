@@ -1,0 +1,27 @@
+<templates>
+    <div t-name="repair_line_forecasted_qty.qtyAtDate">
+        <div>
+            <a
+        tabindex="0"
+        t-attf-class="fa fa-area-chart {{ widget.data.forecasted_issue ? 'text-danger' : 'text-primary' }}"
+      />
+        </div>
+    </div>
+
+    <div t-name="repair_line_forecasted_qty.QtyDetailPopOver">
+        <table class="table table-borderless table-sm">
+            <tbody>
+                <tr>
+                    <td><strong>Available In Location</strong></td>
+                    <td><b t-esc='data.available_in_location' /><t
+              t-esc='data.product_uom.data.display_name'
+            /></td>
+                </tr>
+            </tbody>
+        </table>
+        <button class="text-left btn btn-link action_open_forecast" type="button">
+            <i class="fa fa-fw o_button_icon fa-arrow-right" />
+            View Forecast
+        </button>
+    </div>
+</templates>

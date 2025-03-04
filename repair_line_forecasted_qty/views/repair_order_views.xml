@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+        expr="//field[@name='operations']/tree//field[@name='product_uom']"
+        position="after"
+      >
+                <field name="available_in_location" invisible="1" />
+                <widget name="repair_qty_at_date_widget" width="0.1" />
+
+            </xpath>
+            <xpath
+        expr="//field[@name='operations']/form//field[@name='price_unit']"
+        position="before"
+      >
+                <field name="available_in_location" invisible="1" />
+                <widget name="repair_qty_at_date_widget" width="20px" />
+
+            </xpath>
+        </field>
+    </record>
+
+</odoo>
