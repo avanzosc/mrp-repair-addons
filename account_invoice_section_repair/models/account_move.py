@@ -1,7 +1,7 @@
 # Copyright 2025 Alfredo de la Fuente - AvanzOSC
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 from odoo import _, api, models
-from odoo.tools import format_date, html2plaintext, translate
+from odoo.tools import format_date, html2plaintext
 
 
 class AccountMove(models.Model):
@@ -74,7 +74,9 @@ class AccountMove(models.Model):
         return line_ids
 
     def _prepare_values_for_repair(self, repair):
-        repair_name = self._get_repair_name_for_values(repair)
+        repair_name = self.with_context(
+            lang=repair.partner_id.lang
+        )._get_repair_name_for_values(repair)
         vals = {
             "name": repair_name,
             "display_type": "line_section",
@@ -82,53 +84,26 @@ class AccountMove(models.Model):
         return vals
 
     def _get_repair_name_for_values(self, repair):
-        repair_name = self._get_repair_name(repair)
         lang = repair.partner_id.lang
-        ctx = self.env.context
+        repair_name = self._get_repair_name(repair)
+        repair_date = format_date(self.env, repair.date_repair, lang_code=lang)
         if repair_name:
-            with self.env.cr.savepoint():
-                self = self.with_context(lang=lang)
-                repair_name = _("{repair}, Date: {date}").format(
-                    repair=repair_name,
-                    date=format_date(
-                        self.env, repair.date_repair, date_format=False, lang_code=lang
-                    ),
-                )
+            repair_name = _("{repair}, Date: {date}").format(
+                repair=repair_name, date=repair_date
+            )
         else:
-            with self.env.cr.savepoint():
-                self = self.with_context(lang=lang)
-                repair_name = _("Date: {date}").format(
-                    date=format_date(
-                        self.env, repair.date_repair, date_format=False, lang_code=lang
-                    )
-                )
-        self = self.with_context(**ctx)
+            repair_name = _("Date: {date}").format(date=repair_date)
         if repair.lot_id:
-            ctx = self.env.context
-            self = self.with_context(lang=lang)
-            repair_name = translate._(
-                "{repair_name}, Num. Serie: {lot}", lang=lang
-            ).format(repair_name=repair_name, lot=repair.lot_id.name or "")
-            self = self.with_context(**ctx)
+            repair_name = _("{repair_name}, Num. Serie: {lot}").format(
+                repair_name=repair_name, lot=repair.lot_id.name or ""
+            )
         if repair.quotation_notes:
-            ctx = self.env.context
-            self = self.with_context(lang=lang)
-            repair_name = translate._(
-                "{repair_name}\nNotes: {notes}", lang=lang
-            ).format(
+            repair_name = _("{repair_name}\nNotes: {notes}").format(
                 repair_name=repair_name,
                 notes=html2plaintext(repair.quotation_notes or ""),
             )
-            self = self.with_context(**ctx)
         return repair_name
 
     def _get_repair_name(self, repair):
-        ctx = self.env.context
-        lang = repair.partner_id.lang
-        with self.env.cr.savepoint():
-            self = self.with_context(lang=lang)
-            literal = translate._("Repair: {repair_name}", lang=lang).format(
-                repair_name=repair.name
-            )
-        self = self.with_context(**ctx)
+        literal = _("Repair: {repair_name}").format(repair_name=repair.name)
         return literal
