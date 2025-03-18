@@ -23,7 +23,7 @@ class MrpRepairCustomerLot(models.Model):
         store=True,
     )
     customer_product_code = fields.Char()
-    lot_id = fields.Many2one(comodel_name="stock.production.lot", required=True)
+    lot_id = fields.Many2one(comodel_name="stock.lot", required=True)
     product_variant_id = fields.Many2one(comodel_name="product.product", required=True)
     product_template_id = fields.Many2one(
         comodel_name="product.template",
