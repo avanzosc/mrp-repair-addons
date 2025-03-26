@@ -15,33 +15,52 @@ class AccountMove(models.Model):
         fee_pending = True
         for vals in vals_list:
             lines_vals = vals.get("invoice_line_ids")
+            fee_pending = True
+            line_pending = True
+            section_pending = True
             for line_vals in lines_vals:
                 if "repair_line_ids" in line_vals[2]:
                     repair_line = self.env["repair.line"].browse(
                         line_vals[2].get("repair_line_ids")[0][1]
                     )
-                    if repair_line.repair_id not in repairs_treated:
-                        fee_pending = True
+                    if repair_line.repair_id not in repairs_treated or line_pending:
+                        if repair_line.repair_id not in repairs_treated:
+                            section_pending = True
+                            fee_pending = True
                         repairs_treated += repair_line.repair_id
                         my_invoice_line_ids = self._prepare_repair_info_section(
-                            repair_line.repair_id, my_invoice_line_ids, False
+                            repair_line.repair_id,
+                            my_invoice_line_ids,
+                            section_pending,
+                            False,
                         )
+                        line_pending = False
+                        section_pending = False
                 elif "repair_fee_ids" in line_vals[2]:
                     repair_fee = self.env["repair.fee"].browse(
                         line_vals[2].get("repair_fee_ids")[0][1]
                     )
-                    if (repair_fee.repair_id not in repairs_treated) or fee_pending:
+                    if repair_fee.repair_id not in repairs_treated or fee_pending:
+                        if repair_fee.repair_id not in repairs_treated:
+                            section_pending = True
+                            line_pending = True
                         repairs_treated += repair_fee.repair_id
-                        fee_pending = False
                         my_invoice_line_ids = self._prepare_repair_info_section(
-                            repair_fee.repair_id, my_invoice_line_ids, True
+                            repair_fee.repair_id,
+                            my_invoice_line_ids,
+                            section_pending,
+                            True,
                         )
+                        fee_pending = False
+                        section_pending = False
                 my_invoice_line_ids.append(line_vals)
             vals["invoice_line_ids"] = my_invoice_line_ids
         return super().create(vals_list)
 
-    def _prepare_repair_info_section(self, repair, line_ids, is_operation):
-        if not is_operation:
+    def _prepare_repair_info_section(
+        self, repair, line_ids, section_pending, is_operation
+    ):
+        if section_pending:
             vals = self._prepare_values_for_repair(repair)
             line_ids.append((0, 0, vals))
         my_name = _("OPERATIONS") if is_operation else _("PARTS")
