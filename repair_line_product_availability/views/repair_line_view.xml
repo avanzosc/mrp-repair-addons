@@ -1,0 +1,22 @@
+<odoo>
+    <record id="view_repair_order_form_inherit_availability_icon" model="ir.ui.view">
+        <field name="name">repair.order.form.availability.icon</field>
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <xpath
+        expr="//field[@name='operations']/tree/field[@name='product_id']"
+        position="after"
+      >
+                <button
+          name="action_view_product_forecast_report"
+          type="object"
+          icon="fa-cubes"
+          attrs="{'invisible': [('product_id', '=', False)]}"
+          context="{'search_default_product_id': product_id, 'search_default_groupby': 'location_id', 'default_product_id': product_id}"
+          title="Product Availability"
+        />
+            </xpath>
+        </field>
+    </record>
+</odoo>
