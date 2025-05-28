@@ -1,0 +1,61 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="repair_fee_tree_view" model="ir.ui.view">
+        <field name="name">repair.fee.tree.view</field>
+        <field name="model">repair.fee</field>
+        <field name="arch" type="xml">
+            <tree>
+                <field name="company_id" invisible="1" force_save="1" />
+                <field name="product_id" />
+                <field name="name" optional="show" />
+                <field name="product_uom_qty" string="Quantity" />
+                <field
+          name="product_uom"
+          string="UoM"
+          groups="uom.group_uom"
+          optional="show"
+        />
+                <field name="price_unit" />
+                <field name="tax_id" widget="many2many_tags" optional="show" />
+                <field
+          name="price_subtotal"
+          widget="monetary"
+          groups="account.group_show_line_subtotals_tax_excluded"
+        />
+                <field
+          name="price_total"
+          widget="monetary"
+          groups="account.group_show_line_subtotals_tax_included"
+        />
+                <field name="currency_id" invisible="1" />
+            </tree>
+        </field>
+    </record>
+
+    <record id="repair_fee_pivot_view" model="ir.ui.view">
+        <field name="name">repair.fee.pivot.view</field>
+        <field name="model">repair.fee</field>
+        <field name="arch" type="xml">
+            <pivot string="Repair Fees Analysis">
+                <field name="price_subtotal" type="measure" />
+                <field name="price_total" type="measure" />
+                <field name="product_id" type="row" />
+            </pivot>
+        </field>
+    </record>
+
+    <record id="action_repair_fee_menu" model="ir.actions.act_window">
+        <field name="name">Repair Fees</field>
+        <field name="res_model">repair.fee</field>
+        <field name="view_mode">tree,pivot</field>
+    </record>
+
+    <menuitem
+    id="repair_fee_menu"
+    name="Repair Fees"
+    parent="repair.repair_menu_reporting"
+    action="action_repair_fee_menu"
+    sequence="30"
+  />
+
+</odoo>
