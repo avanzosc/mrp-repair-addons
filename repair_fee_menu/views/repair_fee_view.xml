@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
     <record id="repair_fee_tree_view" model="ir.ui.view">
-        <field name="name">repair.fee.tree.view</field>
         <field name="model">repair.fee</field>
         <field name="arch" type="xml">
             <tree>
@@ -33,7 +32,6 @@
     </record>
 
     <record id="repair_fee_pivot_view" model="ir.ui.view">
-        <field name="name">repair.fee.pivot.view</field>
         <field name="model">repair.fee</field>
         <field name="arch" type="xml">
             <pivot string="Repair Fees Analysis">
