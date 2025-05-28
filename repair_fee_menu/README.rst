@@ -6,13 +6,13 @@
 Repair Fee Menu
 ===============
  
-* Creaters a menu for repair fee operations.
+This module adds a menu item and some views to navigate through Repair Fees.
  
 Bug Tracker
 ===========
  
 Bugs are tracked on `GitHub Issues
-<https://github.com/avanzosc/mrp-addons/issues>`_. In case of trouble,
+<https://github.com/avanzosc/mrp-repair-addons/issues>`_. In case of trouble,
 please check there if your issue has already been reported. If you spotted
 it first, help us smash it by providing detailed and welcomed feedback.
  
