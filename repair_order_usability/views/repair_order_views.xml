@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="company_id" position="before">
+                <field name="tag_ids" widget="many2many_tags" optional="show" />
+            </field>
+        </field>
+    </record>
+</odoo>
