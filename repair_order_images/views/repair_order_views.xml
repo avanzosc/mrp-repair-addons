@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <page name="extra_info" position="after">
+                <page string="Images" name="images">
+                    <group colspan="2">
+                        <field name="photo1" widget="image" nolabel="1" />
+                        <field name="photo2" widget="image" nolabel="1" />
+                    </group>
+                    <group colspan="2">
+                        <field name="photo3" widget="image" nolabel="1" />
+                        <field name="photo4" widget="image" nolabel="1" />
+                    </group>
+                </page>
+            </page>
+        </field>
+    </record>
+</odoo>
