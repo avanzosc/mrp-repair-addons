@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template id="report_repairorder" inherit_id="repair.report_repairorder">
+        <p t-field="o.quotation_notes" position="after">
+            <br />
+            <div
+        class="row"
+        style="page-break-inside: avoid; page-break-before:auto; page-break-after:auto;"
+      >
+                <div t-if="o.photo1" class="col-6">
+                    <img t-att-src="image_data_uri(o.photo1)" alt="Logo" />
+                </div>
+                <div t-if="o.photo2" class="col-6">
+                    <img t-att-src="image_data_uri(o.photo2)" alt="Logo" />
+                </div>
+            </div>
+            <t t-if="((o.photo1 or o.photo2) and (o.photo3 or o.photo4))">
+                <br />
+            </t>
+            <div
+        class="row"
+        style="page-break-inside: avoid; page-break-before:auto; page-break-after:auto;"
+      >
+                <div t-if="o.photo3" class="col-6">
+                    <img t-att-src="image_data_uri(o.photo3)" alt="Logo" />
+                </div>
+                <div t-if="o.photo4" class="col-6">
+                    <img t-att-src="image_data_uri(o.photo4)" alt="Logo" />
+                </div>
+            </div>
+        </p>
+    </template>
+
+    <template
+    id="report_repair_order_extra_data_document"
+    inherit_id="repair_order_extra_data.report_repair_order_extra_data_document"
+  >
+        <table position="after">
+            <br />
+            <div
+        class="row"
+        name="images1"
+        style="page-break-inside: avoid; page-break-before:auto; page-break-after:auto;"
+      >
+                <div t-if="doc.photo1" class="col-6">
+                    <img t-att-src="image_data_uri(doc.photo1)" alt="Logo" />
+                </div>
+                <div t-if="doc.photo2" class="col-6">
+                    <img t-att-src="image_data_uri(doc.photo2)" alt="Logo" />
+                </div>
+            </div>
+            <t t-if="((doc.photo1 or doc.photo2) and (doc.photo3 or doc.photo4))">
+                <br />
+            </t>
+            <div
+        class="row"
+        name="images2"
+        style="page-break-inside: avoid; page-break-before:auto; page-break-after:auto;"
+      >
+                <div t-if="doc.photo3" class="col-6">
+                    <img t-att-src="image_data_uri(doc.photo3)" alt="Logo" />
+                </div>
+                <div t-if="doc.photo4" class="col-6">
+                    <img t-att-src="image_data_uri(doc.photo4)" alt="Logo" />
+                </div>
+            </div>
+        </table>
+    </template>
+</odoo>

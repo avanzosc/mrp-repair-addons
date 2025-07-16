@@ -1,0 +1,51 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repair_order_images
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-07-16 09:03+0000\n"
+"PO-Revision-Date: 2025-07-16 09:03+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_order_images
+#: model_terms:ir.ui.view,arch_db:repair_order_images.view_repair_order_form
+msgid "Images"
+msgstr ""
+
+#. module: repair_order_images
+#: model_terms:ir.ui.view,arch_db:repair_order_images.report_repairorder
+msgid "Logo"
+msgstr ""
+
+#. module: repair_order_images
+#: model:ir.model.fields,field_description:repair_order_images.field_repair_order__photo1
+msgid "Photo1"
+msgstr ""
+
+#. module: repair_order_images
+#: model:ir.model.fields,field_description:repair_order_images.field_repair_order__photo2
+msgid "Photo2"
+msgstr ""
+
+#. module: repair_order_images
+#: model:ir.model.fields,field_description:repair_order_images.field_repair_order__photo3
+msgid "Photo3"
+msgstr ""
+
+#. module: repair_order_images
+#: model:ir.model.fields,field_description:repair_order_images.field_repair_order__photo4
+msgid "Photo4"
+msgstr ""
+
+#. module: repair_order_images
+#: model:ir.model,name:repair_order_images.model_repair_order
+msgid "Repair Order"
+msgstr ""
