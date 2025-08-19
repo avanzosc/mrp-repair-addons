@@ -1,0 +1,28 @@
+<odoo>
+    <record id="product_template_only_form_view" model="ir.ui.view">
+        <field name="model">product.template</field>
+        <field name="inherit_id" ref="product.product_template_only_form_view" />
+        <field name="arch" type="xml">
+            <xpath expr="//page[@name='general_information']" position="after">
+                <page name="repair" string="Repairs">
+                    <group
+            string="Warning when Repairing this Product"
+            groups="repair_customer_product_warning.group_warning_repair"
+          >
+                        <field name="repair_line_warn" string="Warning" />
+                        <field
+              name="repair_line_warn_msg"
+              string="Message"
+              placeholder="Type a message..."
+              attrs="{
+                                   'required': [('repair_line_warn','!=','no-message')],
+                                   'readonly': [('repair_line_warn','=','no-message')],
+                                   'invisible': [('repair_line_warn','=','no-message')]
+                               }"
+            />
+                    </group>
+                </page>
+            </xpath>
+        </field>
+    </record>
+</odoo>

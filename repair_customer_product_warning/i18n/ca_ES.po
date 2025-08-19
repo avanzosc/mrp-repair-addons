@@ -1,0 +1,149 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repair_customer_product_warning
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0+e\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-08-18 07:46+0000\n"
+"PO-Revision-Date: 2025-08-18 07:46+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_customer_product_warning
+#: model:res.groups,name:repair_customer_product_warning.group_warning_repair
+msgid "A warning can be set on a product or a customer (Repair)"
+msgstr "Es pot establir un avís en un producte o client (Reparació)"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields.selection,name:repair_customer_product_warning.selection__product_template__repair_line_warn__block
+#: model:ir.model.fields.selection,name:repair_customer_product_warning.selection__res_partner__repair_warn__block
+msgid "Blocking Message"
+msgstr "Missatge bloquejant"
+
+#. module: repair_customer_product_warning
+#: model:ir.model,name:repair_customer_product_warning.model_res_config_settings
+msgid "Config Settings"
+msgstr "Configuració"
+
+#. module: repair_customer_product_warning
+#: model:ir.model,name:repair_customer_product_warning.model_res_partner
+msgid "Contact"
+msgstr "Contacte"
+
+#. module: repair_customer_product_warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.res_config_settings_view_form
+msgid "Get warnings in repairs for parts, operations or customers"
+msgstr "Rebre avisos en reparacions per a peces, operacions o clients"
+
+#. module: repair_customer_product_warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.product_template_only_form_view
+msgid "Message"
+msgstr "Missatge"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_product_product__repair_line_warn_msg
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_product_template__repair_line_warn_msg
+msgid "Message for Repair Line"
+msgstr "Missatge per a la línia de reparació"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_res_partner__repair_warn_msg
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_res_users__repair_warn_msg
+msgid "Message for Repair Order"
+msgstr "Missatge per a la comanda de reparació"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields.selection,name:repair_customer_product_warning.selection__product_template__repair_line_warn__no-message
+#: model:ir.model.fields.selection,name:repair_customer_product_warning.selection__res_partner__repair_warn__no-message
+msgid "No Message"
+msgstr "Sense missatge"
+
+#. module: repair_customer_product_warning
+#: model:ir.model,name:repair_customer_product_warning.model_product_template
+msgid "Product"
+msgstr "Plantilla del producte"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_product_product__repair_line_warn
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_product_template__repair_line_warn
+msgid "Repair Line"
+msgstr "Línia de reparació"
+
+#. module: repair_customer_product_warning
+#: model:ir.model,name:repair_customer_product_warning.model_repair_line
+msgid "Repair Line (parts)"
+msgstr "Línia de reparació (parts)"
+
+#. module: repair_customer_product_warning
+#: model:ir.model,name:repair_customer_product_warning.model_repair_order
+msgid "Repair Order"
+msgstr "Ordre de reparació"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_res_config_settings__group_warning_repair
+msgid "Repair Order Warnings"
+msgstr "Avisos en comandes de reparació"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_res_partner__repair_warn
+#: model:ir.model.fields,field_description:repair_customer_product_warning.field_res_users__repair_warn
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.res_config_settings_view_form
+msgid "Repair Warnings"
+msgstr "Avisos de reparació"
+
+#. module: repair_customer_product_warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.product_template_only_form_view
+msgid "Repairs"
+msgstr "Reparacions"
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields,help:repair_customer_product_warning.field_product_product__repair_line_warn
+#: model:ir.model.fields,help:repair_customer_product_warning.field_product_template__repair_line_warn
+#: model:ir.model.fields,help:repair_customer_product_warning.field_res_partner__repair_warn
+#: model:ir.model.fields,help:repair_customer_product_warning.field_res_users__repair_warn
+msgid ""
+"Selecting the \"Warning\" option will notify user with the message, "
+"Selecting \"Blocking Message\" will throw an exception with the message and "
+"block the flow. The Message has to be written in the next field."
+msgstr ""
+"Seleccionar l'opció \"Avís\" notificarà l'usuari amb el missatge. "
+"Seleccionar \"Missatge bloquejant\" llançarà una excepció amb el missatge i "
+"bloquejarà el procés. El missatge s'ha d'escriure en el camp següent."
+
+#. module: repair_customer_product_warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.product_template_only_form_view
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.view_partner_form
+msgid "Type a message..."
+msgstr "Escriu un missatge..."
+
+#. module: repair_customer_product_warning
+#: model:ir.model.fields.selection,name:repair_customer_product_warning.selection__product_template__repair_line_warn__warning
+#: model:ir.model.fields.selection,name:repair_customer_product_warning.selection__res_partner__repair_warn__warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.product_template_only_form_view
+msgid "Warning"
+msgstr "Avís"
+
+#. module: repair_customer_product_warning
+#. odoo-python
+#: code:addons/repair_customer_product_warning/models/repair_line.py:0
+#: code:addons/repair_customer_product_warning/models/repair_order.py:0
+#: code:addons/repair_customer_product_warning/models/repair_order.py:0
+#, python-format
+msgid "Warning for %s"
+msgstr "Avís per a %s"
+
+#. module: repair_customer_product_warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.view_partner_form
+msgid "Warning on the Repair Order"
+msgstr "Avís en la comanda de reparació"
+
+#. module: repair_customer_product_warning
+#: model_terms:ir.ui.view,arch_db:repair_customer_product_warning.product_template_only_form_view
+msgid "Warning when Repairing this Product"
+msgstr "Avís en reparar aquest producte"
