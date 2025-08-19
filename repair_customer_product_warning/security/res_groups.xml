@@ -1,0 +1,8 @@
+<odoo>
+    <record id="group_warning_repair" model="res.groups">
+        <field
+      name="name"
+    >A warning can be set on a product or a customer (Repair)</field>
+        <field name="category_id" ref="base.module_category_hidden" />
+    </record>
+</odoo>
