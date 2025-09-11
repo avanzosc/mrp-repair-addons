@@ -50,15 +50,9 @@
           col="6"
           groups="repair_order_cost.group_show_repair_order_cost"
         >
-                    <group>
-                        <field name="material_cost" />
-                    </group>
-                    <group>
-                        <field name="operations_cost" />
-                    </group>
-                    <group>
-                        <field name="total_repair_cost" />
-                    </group>
+                    <field name="material_cost" />
+                    <field name="operations_cost" />
+                    <field name="total_repair_cost" />
                 </group>
             </notebook>
         </field>

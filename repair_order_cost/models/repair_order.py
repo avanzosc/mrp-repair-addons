@@ -12,6 +12,7 @@ class RepairOrder(models.Model):
         compute="_compute_repair_costs",
         store=True,
         copy=False,
+        readonly=False,
     )
     operations_cost = fields.Float(
         string="Operations cost",
@@ -19,13 +20,15 @@ class RepairOrder(models.Model):
         compute="_compute_repair_costs",
         store=True,
         copy=False,
+        readonly=False,
     )
     total_repair_cost = fields.Float(
         string="Total repair cost",
         digits="Product Price",
-        compute="_compute_repair_costs",
+        compute="_compute_total_repair_costs",
         store=True,
         copy=False,
+        readonly=False,
     )
 
     @api.depends(
@@ -44,4 +47,8 @@ class RepairOrder(models.Model):
                 operations_cost = sum(repair.fees_lines.mapped("operations_cost"))
             repair.material_cost = material_cost
             repair.operations_cost = operations_cost
-            repair.total_repair_cost = material_cost + operations_cost
+
+    @api.depends("material_cost", "operations_cost")
+    def _compute_total_repair_costs(self):
+        for repair in self:
+            repair.total_repair_cost = repair.material_cost + repair.operations_cost
