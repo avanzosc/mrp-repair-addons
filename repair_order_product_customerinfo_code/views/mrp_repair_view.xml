@@ -1,0 +1,40 @@
+<?xml version="1.0" ?>
+<odoo>
+    <record id="view_repair_order_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form" />
+        <field name="arch" type="xml">
+            <field name="partner_id" position="after">
+                <field name="customer_product_code" readonly="1" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_tree" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_tree" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="customer_product_code" optional="show" />
+            </field>
+        </field>
+    </record>
+
+    <record id="view_repair_order_form_filter" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair.view_repair_order_form_filter" />
+        <field name="arch" type="xml">
+            <field name="product_id" position="after">
+                <field name="customer_product_code" />
+            </field>
+            <filter name="product" position="after">
+                <filter
+          string="Customer Product Code"
+          name="customer-product-code"
+          domain="[]"
+          context="{'group_by': 'customer_product_code'}"
+        />
+            </filter>
+        </field>
+    </record>
+</odoo>
