@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+    <record id="repair_order_view_form" model="ir.ui.view">
+        <field name="model">repair.order</field>
+        <field name="inherit_id" ref="repair_sale_order.view_repair_order_form" />
+        <field name="arch" type="xml">
+             <xpath expr="//button[@name='action_repair_start']" position="attributes">
+                <attribute
+          name="attrs"
+        >{'invisible': ['&amp;', ('state','!=','confirmed'), '!', '&amp;', ('state','=','ready'), ('invoice_method','=','b4repair')]}</attribute>
+            </xpath>
+            <xpath expr="//field[@name='invoice_method']" position="attributes">
+                <attribute name="attrs" />
+            </xpath>
+        </field>
+    </record>
+</odoo>
