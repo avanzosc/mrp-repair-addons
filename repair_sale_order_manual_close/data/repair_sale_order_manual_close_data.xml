@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo noupdate="1">
+    <!-- activate manual closing repairs by default -->
+    <function
+    model="ir.config_parameter"
+    name="set_param"
+    eval="('repair_sale_order_manual_close.close_repair_manually', 'True')"
+  />
+</odoo>
