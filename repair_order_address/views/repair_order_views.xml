@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+  <record id="view_repair_order_tree" model="ir.ui.view">
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="repair.view_repair_order_tree" />
+    <field name="arch" type="xml">
+      <field name="partner_id" position="after">
+        <field name="address_id" optional="show" />
+      </field>
+    </field>
+  </record>
+
+  <record id="view_repair_order_form" model="ir.ui.view">
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="repair.view_repair_order_form" />
+    <field name="arch" type="xml">
+      <field name="partner_id" position="after">
+        <field name="address_id" />
+      </field>
+    </field>
+  </record>
+
+  <record id="view_repair_order_form_filter" model="ir.ui.view">
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="repair.view_repair_order_form_filter" />
+    <field name="arch" type="xml">
+      <field name="partner_id" position="after">
+        <field name="address_id" />
+      </field>
+      <filter name="partner" position="after">
+        <filter
+          string="Delivery Address"
+          name="address"
+          domain="[]"
+          context="{'group_by': 'address_id'}"
+        />
+      </filter>
+    </field>
+  </record>
+</odoo>
