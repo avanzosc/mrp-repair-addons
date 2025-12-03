@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+    id="report_repair_order_extra_data_document"
+    inherit_id="repair_order_extra_data.report_repair_order_extra_data_document"
+  >
+        <xpath expr="//p[@t-if='not doc.repairable']/.." position="after">
+            <div class="col-3" t-if="doc.customer_product_code">
+                <strong>Customer Product Code:</strong>
+                <p t-field="doc.customer_product_code" />
+            </div>
+        </xpath>
+    </template>
+</odoo>
