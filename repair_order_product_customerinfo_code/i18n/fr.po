@@ -6,14 +6,19 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-10-01 11:25+0000\n"
-"PO-Revision-Date: 2025-10-01 11:25+0000\n"
+"POT-Creation-Date: 2025-12-03 09:56+0000\n"
+"PO-Revision-Date: 2025-12-03 09:56+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: \n"
 "Plural-Forms: \n"
+
+#. module: repair_order_product_customerinfo_code
+#: model_terms:ir.ui.view,arch_db:repair_order_product_customerinfo_code.report_repair_order_extra_data_document
+msgid "<strong>Customer Product Code:</strong>"
+msgstr ""
 
 #. module: repair_order_product_customerinfo_code
 #: model:ir.model.fields,field_description:repair_order_product_customerinfo_code.field_repair_order__customer_product_code

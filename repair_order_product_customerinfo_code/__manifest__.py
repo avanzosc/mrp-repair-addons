@@ -12,9 +12,14 @@
         "Alfredo de la Fuente <alfredodelafuente@avanzosc.es>",
     ],
     "category": "Inventory/Inventory",
-    "depends": ["repair", "product_supplierinfo_for_customer"],
+    "depends": [
+        "repair",
+        "product_supplierinfo_for_customer",
+        "repair_order_extra_data",
+    ],
     "data": [
         "views/mrp_repair_view.xml",
+        "reports/repair_order_report.xml",
     ],
     "installable": True,
 }
