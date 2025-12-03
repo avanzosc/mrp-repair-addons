@@ -1,0 +1,21 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repair_order_product_customerinfo_code_report
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 16.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-12-03 11:22+0000\n"
+"PO-Revision-Date: 2025-12-03 11:22+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_order_product_customerinfo_code_report
+#: model_terms:ir.ui.view,arch_db:repair_order_product_customerinfo_code_report.report_repair_order_extra_data_document
+msgid "<strong>Customer Product Code:</strong>"
+msgstr ""
