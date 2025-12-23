@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 18.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-12-23 12:55+0000\n"
-"PO-Revision-Date: 2025-12-23 12:55+0000\n"
+"POT-Creation-Date: 2025-12-23 12:52+0000\n"
+"PO-Revision-Date: 2025-12-23 12:52+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -30,7 +30,7 @@ msgstr ""
 #. module: repair_order_cost
 #: model:ir.model,name:repair_order_cost.model_repair_order
 msgid "Repair Order"
-msgstr "Ordem de Reparação"
+msgstr ""
 
 #. module: repair_order_cost
 #: model:ir.model,name:repair_order_cost.model_repair_service
@@ -45,7 +45,7 @@ msgstr ""
 #. module: repair_order_cost
 #: model:ir.model,name:repair_order_cost.model_stock_move
 msgid "Stock Move"
-msgstr "Movimento do Inventário"
+msgstr ""
 
 #. module: repair_order_cost
 #: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_tree

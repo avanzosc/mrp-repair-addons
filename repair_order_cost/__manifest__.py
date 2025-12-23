@@ -2,12 +2,12 @@
 # License AGPL-3.0 or later (https://www.gnu.org/licenses/agpl.html).
 {
     "name": "Repair Order Cost",
-    "version": "14.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Inventory/Inventory",
     "license": "AGPL-3",
     "author": "AvanzOSC",
     "website": "https://github.com/avanzosc/mrp-repair-addons",
-    "depends": ["product", "repair"],
+    "depends": ["product", "repair", "repair_service", "stock_move_cost"],
     "data": [
         "security/repair_order_cost_groups.xml",
         "views/repair_order_views.xml",
