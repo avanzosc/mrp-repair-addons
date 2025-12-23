@@ -5,43 +5,12 @@
     <field name="inherit_id" ref="repair.view_repair_order_form" />
     <field name="arch" type="xml">
       <xpath
-        expr="//field[@name='operations']/form//field[@name='currency_id']"
+        expr="//field[@name='move_ids']/list//field[@name='product_uom']"
         position="after"
       >
         <field
           name="material_cost"
           groups="repair_order_cost.group_show_repair_order_cost"
-        />
-      </xpath>
-      <xpath
-        expr="//field[@name='operations']/tree//field[@name='tax_id']"
-        position="after"
-      >
-        <field
-          name="material_cost"
-          groups="repair_order_cost.group_show_repair_order_cost"
-          optional="show"
-          sum="Total material cost"
-        />
-      </xpath>
-      <xpath
-        expr="//field[@name='fees_lines']/form//field[@name='currency_id']"
-        position="after"
-      >
-        <field
-          name="operations_cost"
-          groups="repair_order_cost.group_show_repair_order_cost"
-        />
-      </xpath>
-      <xpath
-        expr="//field[@name='fees_lines']/tree//field[@name='tax_id']"
-        position="after"
-      >
-        <field
-          name="operations_cost"
-          groups="repair_order_cost.group_show_repair_order_cost"
-          optional="show"
-          sum="Total operations cost"
         />
       </xpath>
       <notebook position="before">
@@ -50,17 +19,27 @@
           col="6"
           groups="repair_order_cost.group_show_repair_order_cost"
         >
-          <group>
-            <field name="material_cost" />
-          </group>
-          <group>
-            <field name="operations_cost" />
-          </group>
-          <group>
-            <field name="total_repair_cost" />
-          </group>
+          <field name="material_cost" />
+          <field name="operations_cost" />
+          <field name="total_repair_cost" />
         </group>
       </notebook>
+    </field>
+  </record>
+
+  <record id="view_repair_order_form_inherit" model="ir.ui.view">
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="repair_service.view_repair_order_form_inherit" />
+    <field name="arch" type="xml">
+      <xpath
+        expr="//field[@name='repair_service_ids']/list//field[@name='product_uom_qty']"
+        position="after"
+      >
+        <field
+          name="operations_cost"
+          groups="repair_order_cost.group_show_repair_order_cost"
+        />
+      </xpath>
     </field>
   </record>
 
@@ -68,7 +47,7 @@
     <field name="model">repair.order</field>
     <field name="inherit_id" ref="repair.view_repair_order_tree" />
     <field name="arch" type="xml">
-      <field name="guarantee_limit" position="after">
+      <field name="product_uom" position="after">
         <field
           name="material_cost"
           groups="repair_order_cost.group_show_repair_order_cost"

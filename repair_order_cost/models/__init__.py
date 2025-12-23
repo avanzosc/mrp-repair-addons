@@ -1,3 +1,3 @@
-from . import repair_fee
-from . import repair_line
+from . import repair_service
+from . import stock_move
 from . import repair_order
