@@ -6,7 +6,14 @@
 Repair order cost
 =================
 
-* New group "Show repair order costs", to view costs in repair orders.
+* In repair "Services", new field "Operations cost", with calculation quantity *
+  product cost (standard_price).
+* In repair "Parts", new computed field "Material cost", which depends on the
+  cost of its associated move lines.
+* In "Repair Order" new fields: "Material cost", "Operations cost", and
+  "Total repair cost".
+* To view these costs, the user must be in the new group
+  "Show repair order costs".
 
 Bug Tracker
 ===========
