@@ -41,10 +41,8 @@ class RepairOrder(models.Model):
 
     @api.onchange("vehicle_id")
     def _onchange_vehicle_id_set_partner(self):
-        if self.vehicle_id:
-            partner = self.vehicle_id.driver_id or self.vehicle_id.partner_id
-            if partner:
-                self.partner_id = partner.id
+        if self.vehicle_id and self.vehicle_id.driver_id:
+            self.partner_id = self.vehicle_id.driver_id.id
 
     def action_repair_done(self):
         res = super().action_repair_done()
