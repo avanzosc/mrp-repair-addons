@@ -11,5 +11,4 @@ class RepairOrder(models.Model):
         comodel_name="res.partner",
         domain="[('parent_id','=',partner_id)]",
         check_company=True,
-        states={"confirmed": [("readonly", True)]},
     )

@@ -5,7 +5,7 @@
     <field name="inherit_id" ref="repair.view_repair_order_tree" />
     <field name="arch" type="xml">
       <field name="partner_id" position="after">
-        <field name="address_id" optional="show" />
+        <field name="address_id" readonly="state == 'confirmed'" optional="show" />
       </field>
     </field>
   </record>
@@ -15,7 +15,7 @@
     <field name="inherit_id" ref="repair.view_repair_order_form" />
     <field name="arch" type="xml">
       <field name="partner_id" position="after">
-        <field name="address_id" />
+        <field name="address_id" readonly="state == 'confirmed'" />
       </field>
     </field>
   </record>
