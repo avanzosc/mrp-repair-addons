@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <template
+    id="report_repair_order_extra_data_document"
+    inherit_id="repair_order_extra_data.report_repair_order_extra_data_document"
+  >
+        <div name="repairable" position="before">
+            <div class="col-2" name="claim" t-if="doc.claim_id">
+                <strong>claim:</strong>
+                <br />
+                <span t-field="doc.claim_id" />
+            </div>
+        </div>
+    </template>
+</odoo>
