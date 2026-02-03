@@ -4,11 +4,12 @@
     id="report_repair_order_extra_data_document"
     inherit_id="repair_order_extra_data.report_repair_order_extra_data_document"
   >
-        <xpath expr="//p[@t-if='not doc.repairable']/.." position="after">
-            <div class="col-3" t-if="doc.customer_product_code">
+        <div name="repairable" position="after">
+            <div class="col-2" t-if="doc.customer_product_code" name="customer-prodcod">
                 <strong>Customer Product Code:</strong>
-                <p t-field="doc.customer_product_code" />
+                <br />
+                <span t-field="doc.customer_product_code" />
             </div>
-        </xpath>
+        </div>
     </template>
 </odoo>
