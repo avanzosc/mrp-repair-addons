@@ -53,8 +53,8 @@
                     <span>Repair report N°:</span>
                     <span t-field="doc.name" />
                 </h2>
-                <div class="row mt32 mb32">
-                    <div class="col-3">
+                <div class="row mt32 mb32" style="flex-wrap: nowrap;">
+                    <div class="col-2" name="repair-date">
                         <strong>Repair date:</strong>
                         <br />
                         <span
@@ -62,14 +62,16 @@
               t-options='{"widget": "date"}'
             />
                     </div>
-                    <div t-if="doc.user_id.name" class="col-3">
+                    <div t-if="doc.user_id.name" name="responsible" class="col-3">
                         <strong>Responsible:</strong>
-                        <p t-field="doc.user_id.name" />
+                        <br />
+                        <span t-field="doc.user_id.name" />
                     </div>
-                    <div class="col-3">
+                    <div class="col-2" name="repairable">
                         <strong>Repairable:</strong>
-                        <p t-if="doc.repairable">Yes</p>
-                        <p t-if="not doc.repairable">No</p>
+                        <br />
+                        <span t-if="doc.repairable">Yes</span>
+                        <span t-if="not doc.repairable">No</span>
                     </div>
                 </div>
 
@@ -85,7 +87,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <tr name="report-body">
+                        <tr name="report-body" style="page-break-inside: avoid;">
                             <td class="text-start">
                                 <p t-if="doc.product_id">
                                    <span t-field="doc.product_id" />

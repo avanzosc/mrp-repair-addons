@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 16.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2024-09-25 08:46+0000\n"
-"PO-Revision-Date: 2024-09-25 08:46+0000\n"
+"POT-Creation-Date: 2026-02-03 06:46+0000\n"
+"PO-Revision-Date: 2026-02-03 06:46+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -34,12 +34,16 @@ msgstr ""
 
 #. module: repair_order_extra_data
 #: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
-msgid "<strong>Repairable:</strong>"
+msgid ""
+"<strong>Repairable:</strong>\n"
+"                        <br/>"
 msgstr ""
 
 #. module: repair_order_extra_data
 #: model_terms:ir.ui.view,arch_db:repair_order_extra_data.report_repair_order_extra_data_document
-msgid "<strong>Responsible:</strong>"
+msgid ""
+"<strong>Responsible:</strong>\n"
+"                        <br/>"
 msgstr ""
 
 #. module: repair_order_extra_data
