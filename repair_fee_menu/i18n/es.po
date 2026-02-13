@@ -4,10 +4,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 14.0\n"
+"Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2025-05-28 10:54+0000\n"
-"PO-Revision-Date: 2025-05-28 10:54+0000\n"
+"POT-Creation-Date: 2026-02-13 14:53+0000\n"
+"PO-Revision-Date: 2026-02-13 14:53+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -16,12 +16,45 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: repair_fee_menu
+#: model:ir.model.fields,help:repair_fee_menu.field_repair_fee__repair_state
+msgid ""
+"* The 'Draft' status is used when a user is encoding a new and unconfirmed repair order.\n"
+"* The 'Confirmed' status is used when a user confirms the repair order.\n"
+"* The 'Ready to Repair' status is used to start to repairing, user can start repairing only after repair order is confirmed.\n"
+"* The 'To be Invoiced' status is used to generate the invoice before or after repairing done.\n"
+"* The 'Done' status is set when repairing is completed.\n"
+"* The 'Cancelled' status is used when user cancel repair order."
+msgstr ""
+"* El estado \"Borrador\" se utiliza cuando un usuario ha introducido una orden de reparación nueva y no está confirmada.\n"
+"* El estado \"Confirmado\" se utiliza cuando un usuario ha confirmado la orden de reparación.\n"
+"* El estado \"Listo para reparar\" indica que se puede comenzar a reparar, es obligatorio que se haya confirmado previamente.\n"
+"* El estado 'Para ser facturado' se utiliza para generar la factura antes o después de la reparación.\n"
+"* El estado \"Hecho\" se establece cuando se completa la reparación.\n"
+"* El estado \"Cancelado\" indica que un usuario ha cancelado la orden."
+
+#. module: repair_fee_menu
+#: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: repair_fee_menu
+#: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__id
+msgid "ID"
+msgstr ""
+
+#. module: repair_fee_menu
+#: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: repair_fee_menu
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_tree_view
 msgid "Quantity"
 msgstr "Cantidad"
 
 #. module: repair_fee_menu
 #: model:ir.actions.act_window,name:repair_fee_menu.action_repair_fee_menu
+#: model:ir.model,name:repair_fee_menu.model_repair_fee
 #: model:ir.ui.menu,name:repair_fee_menu.repair_fee_menu
 msgid "Repair Fees"
 msgstr "Tarifas de Reparación"
@@ -30,6 +63,11 @@ msgstr "Tarifas de Reparación"
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_pivot_view
 msgid "Repair Fees Analysis"
 msgstr "Análisis de Tarifas de Reparación"
+
+#. module: repair_fee_menu
+#: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__repair_state
+msgid "Status"
+msgstr "Estado"
 
 #. module: repair_fee_menu
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_tree_view

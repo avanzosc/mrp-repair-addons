@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 14:46+0000\n"
-"PO-Revision-Date: 2026-02-13 14:46+0000\n"
+"POT-Creation-Date: 2026-02-13 14:50+0000\n"
+"PO-Revision-Date: 2026-02-13 14:50+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -29,7 +29,7 @@ msgstr ""
 #. module: repair_fee_menu
 #: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__display_name
 msgid "Display Name"
-msgstr ""
+msgstr "Nome visualizzato"
 
 #. module: repair_fee_menu
 #: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__id
@@ -39,7 +39,7 @@ msgstr ""
 #. module: repair_fee_menu
 #: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee____last_update
 msgid "Last Modified on"
-msgstr ""
+msgstr "Ultima modifica il"
 
 #. module: repair_fee_menu
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_tree_view
@@ -51,7 +51,7 @@ msgstr ""
 #: model:ir.model,name:repair_fee_menu.model_repair_fee
 #: model:ir.ui.menu,name:repair_fee_menu.repair_fee_menu
 msgid "Repair Fees"
-msgstr ""
+msgstr "Tariffe di riparazione"
 
 #. module: repair_fee_menu
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_pivot_view

@@ -9,7 +9,9 @@
     "data": [
         "views/repair_fee_view.xml",
     ],
-    "depends": ["repair"],
+    "depends": [
+        "repair",
+    ],
     "website": "https://github.com/avanzosc/mrp-repair-addons",
     "installable": True,
     "license": "AGPL-3",
