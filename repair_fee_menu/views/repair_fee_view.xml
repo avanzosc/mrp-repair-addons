@@ -4,7 +4,9 @@
         <field name="model">repair.fee</field>
         <field name="arch" type="xml">
             <tree>
-                <field name="company_id" invisible="1" force_save="1" />
+                <field name="repair_create_date" />
+                <field name="repair_id" />
+                <field name="repair_state" />
                 <field name="product_id" />
                 <field name="name" optional="show" />
                 <field name="product_uom_qty" string="Quantity" />
@@ -27,6 +29,7 @@
           groups="account.group_show_line_subtotals_tax_included"
         />
                 <field name="currency_id" invisible="1" />
+                <field name="company_id" invisible="1" force_save="1" />
             </tree>
         </field>
     </record>
