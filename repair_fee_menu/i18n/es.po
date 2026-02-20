@@ -6,8 +6,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Odoo Server 14.0+e\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2026-02-13 14:53+0000\n"
-"PO-Revision-Date: 2026-02-13 14:53+0000\n"
+"POT-Creation-Date: 2026-02-27 10:19+0000\n"
+"PO-Revision-Date: 2026-02-27 10:19+0000\n"
 "Last-Translator: \n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
@@ -38,9 +38,14 @@ msgid "Display Name"
 msgstr "Nombre mostrado"
 
 #. module: repair_fee_menu
+#: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_search_view
+msgid "Group By"
+msgstr ""
+
+#. module: repair_fee_menu
 #: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__id
 msgid "ID"
-msgstr ""
+msgstr "Identificación"
 
 #. module: repair_fee_menu
 #: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee____last_update
@@ -48,9 +53,20 @@ msgid "Last Modified on"
 msgstr "Última modificación el"
 
 #. module: repair_fee_menu
+#: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_search_view
+msgid "Product"
+msgstr ""
+
+#. module: repair_fee_menu
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_tree_view
 msgid "Quantity"
 msgstr "Cantidad"
+
+#. module: repair_fee_menu
+#: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__repair_create_date
+#: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_search_view
+msgid "Repair Create Date"
+msgstr "Fecha de creación de la reparación"
 
 #. module: repair_fee_menu
 #: model:ir.actions.act_window,name:repair_fee_menu.action_repair_fee_menu
@@ -63,6 +79,16 @@ msgstr "Tarifas de Reparación"
 #: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_pivot_view
 msgid "Repair Fees Analysis"
 msgstr "Análisis de Tarifas de Reparación"
+
+#. module: repair_fee_menu
+#: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_search_view
+msgid "Repair Order"
+msgstr ""
+
+#. module: repair_fee_menu
+#: model_terms:ir.ui.view,arch_db:repair_fee_menu.repair_fee_search_view
+msgid "Repair State"
+msgstr ""
 
 #. module: repair_fee_menu
 #: model:ir.model.fields,field_description:repair_fee_menu.field_repair_fee__repair_state
