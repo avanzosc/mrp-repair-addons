@@ -1,12 +1,47 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <odoo>
+    <record id="repair_fee_search_view" model="ir.ui.view">
+        <field name="model">repair.fee</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="repair_id" />
+                <field name="product_id" />
+                <group expand="0" string="Group By">
+                    <filter
+            name="product"
+            string="Product"
+            domain="[]"
+            context="{'group_by': 'product_id'}"
+          />
+                    <filter
+            name="repair_order"
+            string="Repair Order"
+            domain="[]"
+            context="{'group_by': 'repair_id'}"
+          />
+                    <filter
+            name="repair_state"
+            string="Repair State"
+            domain="[]"
+            context="{'group_by': 'repair_state'}"
+          />
+                    <filter
+            name="repair_create_date"
+            string="Repair Create Date"
+            domain="[]"
+            context="{'group_by': 'repair_create_date'}"
+          />
+                </group>
+            </search>
+        </field>
+    </record>
     <record id="repair_fee_tree_view" model="ir.ui.view">
         <field name="model">repair.fee</field>
         <field name="arch" type="xml">
-            <tree>
+            <tree create="0">
                 <field name="repair_create_date" />
                 <field name="repair_id" />
-                <field name="repair_state" />
+                <field name="repair_state" widget="badge" />
                 <field name="product_id" />
                 <field name="name" optional="show" />
                 <field name="product_uom_qty" string="Quantity" />
@@ -16,7 +51,7 @@
           groups="uom.group_uom"
           optional="show"
         />
-                <field name="price_unit" />
+                <field name="price_unit" optional="show" />
                 <field name="tax_id" widget="many2many_tags" optional="show" />
                 <field
           name="price_subtotal"
