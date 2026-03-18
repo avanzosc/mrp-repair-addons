@@ -8,13 +8,14 @@
 Repair Fee Menu
 ===============
  
-* Creaters a menu for repair fee operations.
+* Creates a reporting menu for repair fee operations.
+* In Odoo 18, fees are shown from repair-related lines.
  
 Bug Tracker
 ===========
  
 Bugs are tracked on `GitHub Issues
-<https://github.com/avanzosc/mrp-addons/issues>`_. In case of trouble,
+<https://github.com/avanzosc/mrp-repair-addons/issues>`_. In case of trouble,
 please check there if your issue has already been reported. If you spotted
 it first, help us smash it by providing detailed and welcomed feedback.
  
