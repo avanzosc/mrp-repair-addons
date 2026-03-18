@@ -3,7 +3,7 @@
 {
     "name": "Repair Fee Menu",
     "author": "AvanzOSC",
-    "version": "16.0.1.0.0",
+    "version": "18.0.1.0.0",
     "category": "Repairs/Fee",
     "summary": "Creates a menu for repair fee operations.",
     "data": [

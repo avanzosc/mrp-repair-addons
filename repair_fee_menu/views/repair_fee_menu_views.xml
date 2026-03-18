@@ -2,10 +2,11 @@
 <odoo>
     <record id="view_repair_fee_tree_menu" model="ir.ui.view">
         <field name="name">repair.fee.tree.menu</field>
-        <field name="model">repair.fee</field>
+        <field name="model">stock.move</field>
         <field name="arch" type="xml">
-            <tree>
-                <field name="company_id" invisible="1" force_save="1" />
+            <list>
+                <field name="company_id" column_invisible="True" />
+                <field name="repair_id" optional="show" />
                 <field name="product_id" />
                 <field name="name" optional="show" />
                 <field name="product_uom_qty" string="Quantity" />
@@ -16,38 +17,39 @@
           optional="show"
         />
                 <field name="price_unit" />
-                <field name="tax_id" widget="many2many_tags" optional="show" />
-                <field
-          name="price_subtotal"
-          widget="monetary"
-          groups="account.group_show_line_subtotals_tax_excluded"
-        />
-                <field
-          name="price_total"
-          widget="monetary"
-          groups="account.group_show_line_subtotals_tax_included"
-        />
-                <field name="currency_id" invisible="1" />
-            </tree>
+                                <field name="state" optional="show" />
+                                <field name="date" optional="show" />
+            </list>
         </field>
     </record>
 
     <record id="view_repair_fee_pivot_menu" model="ir.ui.view">
         <field name="name">repair.fee.pivot.menu</field>
-        <field name="model">repair.fee</field>
+        <field name="model">stock.move</field>
         <field name="arch" type="xml">
             <pivot string="Repair Fees Analysis">
-                <field name="price_subtotal" type="measure" />
-                <field name="price_total" type="measure" />
+                <field name="product_uom_qty" type="measure" />
+                <field name="quantity" type="measure" />
                 <field name="product_id" type="row" />
+                <field name="repair_id" type="row" />
             </pivot>
         </field>
     </record>
 
     <record id="action_repair_fee_menu" model="ir.actions.act_window">
         <field name="name">Repair Fees</field>
-        <field name="res_model">repair.fee</field>
-        <field name="view_mode">tree,pivot</field>
+        <field name="res_model">stock.move</field>
+        <field name="view_mode">list,pivot</field>
+                <field
+            name="view_ids"
+            eval="[
+                (5, 0, 0),
+                (0, 0, {'view_mode': 'list', 'view_id': ref('view_repair_fee_tree_menu')}),
+                (0, 0, {'view_mode': 'pivot', 'view_id': ref('view_repair_fee_pivot_menu')})
+            ]"
+        />
+        <field name="domain">[('repair_id', '!=', False), ('repair_line_type', '=', 'add')]</field>
+        <field name="context">{'search_default_groupby_repair_id': 1}</field>
     </record>
 
     <menuitem
