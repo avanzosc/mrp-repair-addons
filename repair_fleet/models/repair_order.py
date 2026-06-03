@@ -44,7 +44,6 @@ class RepairOrder(models.Model):
         if self.vehicle_id and self.vehicle_id.driver_id:
             self.partner_id = self.vehicle_id.driver_id.id
 
-
     def action_repair_done(self):
         res = super().action_repair_done()
         for rec in self:

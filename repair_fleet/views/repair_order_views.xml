@@ -1,9 +1,9 @@
-<?xml version="1.0" encoding="utf-8"?>
+<?xml version="1.0" encoding="utf-8" ?>
 <odoo>
   <record id="repair_order_form_vehicle_patch" model="ir.ui.view">
     <field name="name">repair.order.form.vehicle.patch</field>
     <field name="model">repair.order</field>
-    <field name="inherit_id" ref="repair.view_repair_order_form"/>
+    <field name="inherit_id" ref="repair.view_repair_order_form" />
     <field name="arch" type="xml">
       <xpath expr="//sheet//field[@name='lot_id']" position="attributes">
         <attribute name="string">Lot/serial number (license plate)</attribute>
@@ -13,15 +13,15 @@
       </xpath>
 
       <xpath expr="//sheet/group" position="inside">
-        <separator string="Vehicle"/>
+        <separator string="Vehicle" />
         <group>
-          <field name="vehicle_id"/>
-          <field name="vehicle_license_plate" readonly="1"/>
-          <field name="vehicle_brand" readonly="1"/>
-          <field name="vehicle_model" readonly="1"/>
-          <field name="vehicle_vin" readonly="1"/>
-          <field name="odometer_km"/>
-          <field name="fuel_level"/>
+          <field name="vehicle_id" />
+          <field name="vehicle_license_plate" readonly="1" />
+          <field name="vehicle_brand" readonly="1" />
+          <field name="vehicle_model" readonly="1" />
+          <field name="vehicle_vin" readonly="1" />
+          <field name="odometer_km" />
+          <field name="fuel_level" />
         </group>
       </xpath>
     </field>
