@@ -1,0 +1,126 @@
+# Translation of Odoo Server.
+# This file contains the translation of the following modules:
+# 	* repair_fleet
+#
+msgid ""
+msgstr ""
+"Project-Id-Version: Odoo Server 18.0\n"
+"Report-Msgid-Bugs-To: \n"
+"POT-Creation-Date: 2025-09-30 06:41+0000\n"
+"PO-Revision-Date: 2025-09-30 06:41+0000\n"
+"Last-Translator: \n"
+"Language-Team: \n"
+"MIME-Version: 1.0\n"
+"Content-Type: text/plain; charset=UTF-8\n"
+"Content-Transfer-Encoding: \n"
+"Plural-Forms: \n"
+
+#. module: repair_fleet
+#: model:ir.model.fields.selection,name:repair_fleet.selection__repair_order__fuel_level__1_2
+msgid "1/2"
+msgstr "1/2"
+
+#. module: repair_fleet
+#: model:ir.model.fields.selection,name:repair_fleet.selection__repair_order__fuel_level__1_4
+msgid "1/4"
+msgstr "1/4"
+
+#. module: repair_fleet
+#: model:ir.model.fields.selection,name:repair_fleet.selection__repair_order__fuel_level__3_4
+msgid "3/4"
+msgstr "3/4"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__vehicle_brand
+msgid "Brand"
+msgstr "Marca"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_product_category__display_name
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__display_name
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: repair_fleet
+#: model_terms:ir.ui.view,arch_db:repair_fleet.view_product_category_form_inherit_reparable
+msgid "Fleet Repair"
+msgstr "Reparaciones"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__fuel_level
+msgid "Fuel level"
+msgstr "Nivel de combustible"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_product_category__id
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__id
+msgid "ID"
+msgstr "Identificador"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__odometer_km
+msgid "Km"
+msgstr "Kilometraje (Km)"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_product_category____last_update
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order____last_update
+msgid "Last Modified on"
+msgstr "Última modificación el"
+
+#. module: repair_fleet
+#: model:ir.model.fields,help:repair_fleet.field_repair_order__vehicle_license_plate
+msgid "License plate number of the vehicle (i = plate number for a car)"
+msgstr ""
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__vehicle_license_plate
+msgid "License_plate"
+msgstr "Matrícula"
+
+#. module: repair_fleet
+#: model:ir.model.fields.selection,name:repair_fleet.selection__repair_order__fuel_level__full
+msgid "Lleno"
+msgstr "Lleno"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__vehicle_model
+msgid "Model"
+msgstr "Modelo"
+
+#. module: repair_fleet
+#: model_terms:ir.ui.view,arch_db:repair_fleet.repair_order_form_vehicle_patch
+msgid "Lot/serial number (license plate)"
+msgstr "Número de lote/serie (matrícula)"
+
+#. module: repair_fleet
+#: model:ir.model,name:repair_fleet.model_product_category
+msgid "Product Category"
+msgstr "Categoría de producto"
+
+#. module: repair_fleet
+#: model:ir.model,name:repair_fleet.model_repair_order
+msgid "Repair Order"
+msgstr "Orden de reparación"
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_product_category__repairable
+msgid "Repairable"
+msgstr "Reparable"
+
+#. module: repair_fleet
+#: model:ir.model.fields,help:repair_fleet.field_repair_order__vehicle_vin
+msgid "Unique number written on the vehicle motor (VIN/SN number)"
+msgstr ""
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__vehicle_id
+#: model_terms:ir.ui.view,arch_db:repair_fleet.repair_order_form_vehicle_patch
+msgid "Vehicle"
+msgstr "Vehículo"
+
+
+#. module: repair_fleet
+#: model:ir.model.fields,field_description:repair_fleet.field_repair_order__vehicle_vin
+msgid "Vin sn"
+msgstr "Nº Chasis"
