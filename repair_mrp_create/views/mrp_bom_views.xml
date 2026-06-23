@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <record id="mrp_bom_form_view" model="ir.ui.view">
+    <field name="model">mrp.bom</field>
+    <field name="inherit_id" ref="mrp.mrp_bom_form_view" />
+    <field name="arch" type="xml">
+      <field name="code" position="after">
+        <field name="eligible_in_repairs" />
+      </field>
+    </field>
+  </record>
+
+  <record id="mrp_bom_tree_view" model="ir.ui.view">
+    <field name="model">mrp.bom</field>
+    <field name="inherit_id" ref="mrp.mrp_bom_tree_view" />
+    <field name="arch" type="xml">
+      <field name="code" position="after">
+        <field name="eligible_in_repairs" optional="hide" />
+      </field>
+    </field>
+  </record>
+
+  <record id="view_mrp_bom_filter" model="ir.ui.view">
+    <field name="model">mrp.bom</field>
+    <field name="inherit_id" ref="mrp.view_mrp_bom_filter" />
+    <field name="arch" type="xml">
+      <filter name="phantom" position="after">
+        <separator />
+        <filter
+          name="eligible_in_repairs"
+          string="Eligible in repairs"
+          domain="[('eligible_in_repairs', '=', True)]"
+        />
+      </filter>
+    </field>
+  </record>
+</odoo>
