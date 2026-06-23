@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<odoo>
+  <record id="view_repair_order_form" model="ir.ui.view">
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="repair.view_repair_order_form" />
+    <field name="arch" type="xml">
+      <button name="action_create_sale_order" position="before">
+        <button
+          name="action_create_production"
+          type="object"
+          string="Create MO"
+          class="oe_highlight"
+          groups="mrp.group_mrp_user"
+          invisible="not bom_id or state == 'cancel'"
+        />
+      </button>
+      <xpath expr="//div[@name='button_box']" position="inside">
+        <button
+          name="action_view_productions"
+          type="object"
+          class="oe_stat_button"
+          icon="fa-wrench"
+          groups="mrp.group_mrp_user"
+          invisible="production_count == 0"
+        >
+          <field
+            name="production_count"
+            widget="statinfo"
+            string="Manufacturing Orders"
+          />
+        </button>
+      </xpath>
+      <field name="under_warranty" position="after">
+        <field name="bom_id" groups="mrp.group_mrp_user" readonly="state == 'cancel'" />
+      </field>
+    </field>
+  </record>
+</odoo>
