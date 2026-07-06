@@ -47,6 +47,16 @@ msgid "Eligible in repairs"
 msgstr "Elegible en reparaciones"
 
 #. module: repair_mrp_create
+#: model:ir.model.fields,field_description:repair_mrp_create.field_repair_order__has_done_production
+msgid "Has Done Manufacturing Order"
+msgstr "Tiene orden de fabricación terminada"
+
+#. module: repair_mrp_create
+#: model:ir.model.fields,field_description:repair_mrp_create.field_repair_order__has_open_production
+msgid "Has Open Manufacturing Order"
+msgstr "Tiene orden de fabricación abierta"
+
+#. module: repair_mrp_create
 #: model:ir.model.fields,help:repair_mrp_create.field_mrp_bom__eligible_in_repairs
 msgid ""
 "If checked, this bill of materials can be selected in repair orders to "
@@ -85,6 +95,22 @@ msgstr "Orden de reparación"
 #: model:ir.model.fields,help:repair_mrp_create.field_mrp_workorder__repair_id
 msgid "Repair order that generated this manufacturing order."
 msgstr "Orden de reparación que generó esta orden de fabricación."
+
+#. module: repair_mrp_create
+#: model:ir.model.fields,help:repair_mrp_create.field_repair_order__has_done_production
+msgid "Technical field: True if there is any manufacturing order in done state."
+msgstr ""
+"Campo técnico: Verdadero si existe alguna orden de fabricación en estado "
+"terminada."
+
+#. module: repair_mrp_create
+#: model:ir.model.fields,help:repair_mrp_create.field_repair_order__has_open_production
+msgid ""
+"Technical field: True if there is any manufacturing order that is still "
+"open, i.e. not cancelled nor done."
+msgstr ""
+"Campo técnico: Verdadero si existe alguna orden de fabricación todavía "
+"abierta, es decir, ni cancelada ni terminada."
 
 #. module: repair_mrp_create
 #: model:ir.model,name:repair_mrp_create.model_mrp_workorder

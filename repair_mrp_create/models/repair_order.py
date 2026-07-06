@@ -27,11 +27,38 @@ class RepairOrder(models.Model):
         string="Manufacturing Orders Count",
         compute="_compute_production_count",
     )
+    has_open_production = fields.Boolean(
+        string="Has Open Manufacturing Order",
+        compute="_compute_has_open_production",
+        help="Technical field: True if there is any manufacturing order that "
+        "is still open, i.e. not cancelled nor done.",
+    )
+    has_done_production = fields.Boolean(
+        string="Has Done Manufacturing Order",
+        compute="_compute_has_done_production",
+        help="Technical field: True if there is any manufacturing order in "
+        "done state.",
+    )
 
     @api.depends("production_ids")
     def _compute_production_count(self):
         for repair in self:
             repair.production_count = len(repair.production_ids)
+
+    @api.depends("production_ids.state")
+    def _compute_has_open_production(self):
+        for repair in self:
+            repair.has_open_production = any(
+                production.state not in ("cancel", "done")
+                for production in repair.production_ids
+            )
+
+    @api.depends("production_ids.state")
+    def _compute_has_done_production(self):
+        for repair in self:
+            repair.has_done_production = any(
+                production.state == "done" for production in repair.production_ids
+            )
 
     def _get_production_picking_type(self):
         self.ensure_one()

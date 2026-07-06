@@ -44,6 +44,16 @@ msgid "Eligible in repairs"
 msgstr ""
 
 #. module: repair_mrp_create
+#: model:ir.model.fields,field_description:repair_mrp_create.field_repair_order__has_done_production
+msgid "Has Done Manufacturing Order"
+msgstr ""
+
+#. module: repair_mrp_create
+#: model:ir.model.fields,field_description:repair_mrp_create.field_repair_order__has_open_production
+msgid "Has Open Manufacturing Order"
+msgstr ""
+
+#. module: repair_mrp_create
 #: model:ir.model.fields,help:repair_mrp_create.field_mrp_bom__eligible_in_repairs
 msgid ""
 "If checked, this bill of materials can be selected in repair orders to "
@@ -79,6 +89,18 @@ msgstr ""
 #: model:ir.model.fields,help:repair_mrp_create.field_mrp_workcenter_productivity__repair_id
 #: model:ir.model.fields,help:repair_mrp_create.field_mrp_workorder__repair_id
 msgid "Repair order that generated this manufacturing order."
+msgstr ""
+
+#. module: repair_mrp_create
+#: model:ir.model.fields,help:repair_mrp_create.field_repair_order__has_done_production
+msgid "Technical field: True if there is any manufacturing order in done state."
+msgstr ""
+
+#. module: repair_mrp_create
+#: model:ir.model.fields,help:repair_mrp_create.field_repair_order__has_open_production
+msgid ""
+"Technical field: True if there is any manufacturing order that is still "
+"open, i.e. not cancelled nor done."
 msgstr ""
 
 #. module: repair_mrp_create
