@@ -13,6 +13,7 @@
     "depends": [
         "repair",
         "mrp",
+        "mrp_repair",
     ],
     "data": [
         "views/mrp_bom_views.xml",

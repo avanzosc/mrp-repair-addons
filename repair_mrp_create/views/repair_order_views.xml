@@ -26,10 +26,10 @@
           class="oe_stat_button"
           icon="fa-wrench"
           groups="mrp.group_mrp_user"
-          invisible="production_count == 0"
+          invisible="production_without_procurement_count == 0"
         >
           <field
-            name="production_count"
+            name="production_without_procurement_count"
             widget="statinfo"
             string="Manufacturing Orders"
           />
@@ -40,6 +40,16 @@
         <field name="has_done_production" invisible="1" />
         <field name="bom_id" groups="mrp.group_mrp_user" readonly="state == 'cancel'" />
       </field>
+    </field>
+  </record>
+
+  <record id="view_repair_order_form_inherit" model="ir.ui.view">
+    <field name="model">repair.order</field>
+    <field name="inherit_id" ref="mrp_repair.view_repair_order_form_inherit" />
+    <field name="arch" type="xml">
+      <button name="action_view_mrp_productions" position="attributes">
+        <attribute name="invisible">True</attribute>
+      </button>
     </field>
   </record>
 </odoo>
