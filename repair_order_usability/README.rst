@@ -7,6 +7,8 @@ Repair Order Usability
 ======================
 
 * In Repair Order tree view show "Tags" field.
+* Display origin and destination locations in the "Pieces" tree of repair
+  orders.
 
 Bug Tracker
 ===========
