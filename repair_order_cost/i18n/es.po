@@ -16,6 +16,11 @@ msgstr ""
 "Plural-Forms: \n"
 
 #. module: repair_order_cost
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_form
+msgid "Costs"
+msgstr "Costes"
+
+#. module: repair_order_cost
 #: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__material_cost
 #: model:ir.model.fields,field_description:repair_order_cost.field_stock_move__material_cost
 msgid "Material cost"
@@ -54,15 +59,17 @@ msgstr "Total coste"
 
 #. module: repair_order_cost
 #: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_tree
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_form
 msgid "Total material cost"
 msgstr "Total coste material"
 
 #. module: repair_order_cost
 #: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_tree
+#: model_terms:ir.ui.view,arch_db:repair_order_cost.view_repair_order_form_inherit
 msgid "Total operations cost"
 msgstr "Total coste operaciones"
 
 #. module: repair_order_cost
 #: model:ir.model.fields,field_description:repair_order_cost.field_repair_order__total_repair_cost
 msgid "Total repair cost"
-msgstr "total coste reparación"
+msgstr "Total coste reparación"
