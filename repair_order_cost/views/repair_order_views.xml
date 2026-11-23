@@ -11,19 +11,24 @@
         <field
           name="material_cost"
           groups="repair_order_cost.group_show_repair_order_cost"
+          sum="Total material cost"
         />
       </xpath>
-      <notebook position="before">
-        <group
-          colspan="4"
-          col="6"
+      <page name="repair_notes" position="before">
+        <page
+          string="Costs"
+          name="repair_costs"
           groups="repair_order_cost.group_show_repair_order_cost"
         >
-          <field name="material_cost" />
-          <field name="operations_cost" />
-          <field name="total_repair_cost" />
-        </group>
-      </notebook>
+          <group>
+            <group>
+              <field name="material_cost" />
+              <field name="operations_cost" />
+              <field name="total_repair_cost" />
+            </group>
+          </group>
+        </page>
+      </page>
     </field>
   </record>
 
@@ -38,6 +43,7 @@
         <field
           name="operations_cost"
           groups="repair_order_cost.group_show_repair_order_cost"
+          sum="Total operations cost"
         />
       </xpath>
     </field>
